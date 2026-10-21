@@ -73,17 +73,11 @@
     --color-accent-hover: #4E5C43;
     --color-accent-soft: #E6EBE1;
     --color-on-accent: #FFFFFF;
+    --color-dark: #2E3A2B;
     --color-border: #DCE1DE;
     --color-border-strong: #B9C2BC;
+    --color-highlight: #C79A3B;
     --color-focus: var(--color-accent);
-
-    /* Aliasy zgodności — nie używać w nowych komponentach */
-    --color-black: var(--color-text);
-    --color-white: var(--color-surface);
-    --color-ink-soft: var(--color-accent-hover);
-    --color-gray-500: var(--color-text-muted);
-    --color-gray-300: var(--color-border);
-    --color-overlay: rgba(255, 255, 255, 0.35);
 
     /* Typografia */
     --font-body: "Montserrat", "Helvetica Neue", Arial, sans-serif; /* podstawowy sans-serif */
@@ -126,11 +120,13 @@
 
     /* Promienie */
     --radius-none: 0;
-    --radius-card: 0.75rem;
+    --radius-card: 1rem;
     --radius-full: 9999px;
 
-    /* Cienie — strona nie używa cieni */
+    /* Cienie — tylko subtelny cień kafli oferty */
     --shadow-none: none;
+    --shadow-card: 0 8px 20px -8px rgba(31, 37, 35, 0.10);
+    --shadow-card-hover: 0 12px 24px -8px rgba(31, 37, 35, 0.18);
 
     /* Obramowania */
     --border-width-thin: 1px;
@@ -328,13 +324,13 @@ a:hover {
 
 :focus-visible {
     outline: var(--border-width-thick) solid var(--color-focus);
-    outline-offset: 3px;
+    outline-offset: 2px;
 }
 
 /* Strona źródłowa nie definiuje własnego ::selection — poniżej spójna decyzja systemowa */
 ::selection {
-    background-color: var(--color-accent);
-    color: var(--color-on-accent);
+    background-color: var(--color-accent-soft);
+    color: var(--color-text);
 }
 
 /* --------------------------------------------------------------------------
@@ -584,6 +580,8 @@ a:hover {
 .site-footer {
     width: 100%;
     padding-block: var(--space-4);
+    background-color: var(--color-dark);
+    color: var(--color-on-accent);
     font-family: var(--font-body);
     text-align: center;
 }
