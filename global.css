@@ -1,0 +1,760 @@
+/* ==========================================================================
+   GLOBAL.CSS — system stylu inspirowany maciekginalski.com
+   Mobile-first, bez zależności od frameworka.
+   Breakpointy: 768px (jedyny breakpoint strony źródłowej).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Fonty
+   Montserrat jest jedynym krojem systemu — również w roli display.
+   -------------------------------------------------------------------------- */
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/montserrat-v31-latin-500.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+        U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+        U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/montserrat-v31-latin-700.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
+        U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
+        U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Latin Extended: polskie znaki diakrytyczne (ą, ć, ę, ł, ń, ś, ź, ż itd.).
+   Ten sam plik zmienny jest deklarowany osobno dla 500 i 700, żeby przeglądarka
+   nie przesłaniała nim podstawowego zakresu latin. */
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/montserrat-latin-ext.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+        U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+        U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F,
+        U+A720-A7FF;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/montserrat-latin-ext.woff2') format('woff2');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
+        U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
+        U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F,
+        U+A720-A7FF;
+}
+
+/* --------------------------------------------------------------------------
+   1. Tokeny — jedno źródło prawdy
+   -------------------------------------------------------------------------- */
+
+:root {
+    /* Kolory */
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-ink-soft: #1f1f1f;        /* ikona „do góry” */
+    --color-gray-500: #808080;        /* tekst drugorzędny / hover */
+    --color-gray-300: #e5e5e5;        /* tło placeholdera hero */
+    --color-bg: var(--color-white);
+    --color-surface: var(--color-white);
+    --color-text: var(--color-black);
+    --color-text-muted: var(--color-gray-500);
+    --color-border: var(--color-gray-300); /* wnioskowane: strona nie używa obramowań */
+    --color-overlay: rgba(255, 255, 255, 0.35); /* hover na zdjęciach */
+    --color-focus: #005fcc;           /* zaobserwowany domyślny outline przeglądarki */
+
+    /* Typografia */
+    --font-body: "Montserrat", "Helvetica Neue", Arial, sans-serif; /* podstawowy sans-serif */
+    --font-display: var(--font-body); /* display = ten sam sans-serif */
+    --font-sans: var(--font-body); /* alias dla etykiet i nawigacji */
+
+    --text-xs: 0.75rem;               /* 12px — nawigacja, privacy policy */
+    --text-sm: 0.9375rem;             /* 15px — podtytuł logo */
+    --text-base: 1rem;                /* 16px — tekst bazowy, tytuły projektów */
+    --text-md: 1.125rem;              /* 18px — h3 (standaryzacja z 18.72px) */
+    --text-lg: 1.25rem;               /* 20px — bio */
+    --text-xl: 1.5rem;                /* 24px — h2 */
+    --text-2xl: 2rem;                 /* 32px — h1 */
+    --text-3xl: 2.5rem;               /* 40px — rezerwa dla większych nagłówków */
+
+    --weight-medium: 500;
+    --weight-bold: 700;
+
+    --leading-tight: 1.15;
+    --leading-snug: 1.35;
+    --leading-normal: 1.5;
+
+    --tracking-tight: 0.02em;
+    --tracking-normal: 0.03em;
+    --tracking-wide: 0.04em;
+    --tracking-wider: 0.07em;
+    --tracking-widest: 0.2em;
+
+    /* Odstępy — skala 4/8px */
+    --space-1: 0.25rem;               /* 4px */
+    --space-2: 0.5rem;                /* 8px */
+    --space-3: 0.75rem;               /* 12px */
+    --space-4: 1rem;                  /* 16px */
+    --space-6: 1.5rem;                /* 24px */
+    --space-8: 2rem;                  /* 32px */
+    --space-12: 3rem;                 /* 48px */
+    --space-16: 4rem;                 /* 64px */
+    --space-20: 5rem;                 /* 80px */
+    --space-24: 6rem;                 /* 96px */
+
+    /* Promienie */
+    --radius-none: 0;
+    --radius-card: 0.75rem;
+    --radius-full: 9999px;
+
+    /* Cienie — strona nie używa cieni */
+    --shadow-none: none;
+
+    /* Obramowania */
+    --border-width-thin: 1px;
+    --border-width-thick: 2px;
+    --border-thin: var(--border-width-thin) solid var(--color-border);
+
+    /* Ruch */
+    --duration-swift: 250ms;
+    --duration-fast: 200ms;
+    --duration-base: 400ms;
+    --duration-slow: 800ms;
+    --duration-slower: 1000ms;
+    --ease-default: ease;
+    --ease-out: ease-out;
+
+    --transition-colors:
+        color var(--duration-base) var(--ease-default),
+        background-color var(--duration-base) var(--ease-default),
+        border-color var(--duration-base) var(--ease-default);
+    --transition-opacity: opacity var(--duration-base) var(--ease-default);
+    --transition-transform: transform var(--duration-swift) var(--ease-default);
+
+    /* Układ */
+    --container-max: 1300px;
+    --container-padding: 2rem;
+    --header-height: 120px;
+    --mobile-menu-height: 200px;
+    --section-space: 2rem;
+    --grid-row-gap: 4rem;
+    --grid-column-gap: 6rem;
+    --measure: 700px;
+    --about-image-width: 300px;
+
+    /* Breakpoint (tylko dokumentacja — media queries wymagają wartości literalnej):
+       --bp-md: 768px
+    */
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-height);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-height: 100svh;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--weight-medium);
+    line-height: var(--leading-normal);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+main {
+    flex: 1;
+}
+
+img,
+picture,
+svg,
+video,
+canvas {
+    display: block;
+    max-width: 100%;
+}
+
+img,
+video {
+    height: auto;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* --------------------------------------------------------------------------
+   3. Typografia bazowa
+   -------------------------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-body);
+    font-weight: var(--weight-bold);
+    line-height: var(--leading-tight);
+    text-wrap: balance;
+}
+
+h1 {
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-tight);
+}
+
+h2 {
+    font-size: var(--text-xl);
+    line-height: 1.2;
+}
+
+h3 {
+    font-size: var(--text-md);
+    line-height: 1.25;
+    margin-block: var(--space-4) var(--space-2);
+}
+
+h4 {
+    font-size: var(--text-lg);
+}
+
+h5,
+h6 {
+    font-size: var(--text-base);
+}
+
+p {
+    line-height: var(--leading-normal);
+    text-wrap: pretty;
+}
+
+strong,
+b {
+    font-weight: var(--weight-bold);
+}
+
+small {
+    font-size: var(--text-xs);
+}
+
+/* --------------------------------------------------------------------------
+   4. Linki i stany interakcji
+   -------------------------------------------------------------------------- */
+
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--duration-base) var(--ease-default);
+}
+
+a:hover {
+    color: var(--color-text-muted);
+}
+
+/* Link tekstowy z podkreśleniem — jak „Privacy Policy” na stronie źródłowej */
+.link-underline {
+    display: inline-block;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+:focus-visible {
+    outline: var(--border-width-thick) solid var(--color-focus);
+    outline-offset: 3px;
+}
+
+/* Strona źródłowa nie definiuje własnego ::selection — poniżej spójna decyzja systemowa */
+::selection {
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+/* --------------------------------------------------------------------------
+   5. Układ — kontenery, sekcje, siatki
+   -------------------------------------------------------------------------- */
+
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-inline: auto;
+    padding-inline: var(--container-padding);
+}
+
+.section {
+    padding-block: var(--section-space);
+}
+
+.section-title {
+    margin-bottom: var(--space-12);
+    font-family: var(--font-body);
+    font-size: var(--text-xl);
+    font-weight: var(--weight-bold);
+    text-align: center;
+}
+
+/* Nagłówek hero — oryginalna pisownia klasy zachowana dla zgodności */
+.powerfull-heading {
+    width: 100%;
+    margin-block: var(--space-20) var(--space-12);
+    padding-inline: var(--space-4);
+    background-color: var(--color-white);
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-medium);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    text-align: center;
+}
+
+.stack > * + * {
+    margin-block-start: var(--stack-gap, var(--space-4));
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--grid-gap, var(--space-8));
+}
+
+/* Siatka projektów: 1 kolumna mobilnie, 3 kolumny od 768px */
+.grid--projects {
+    gap: var(--grid-row-gap) var(--grid-column-gap);
+}
+
+@media (min-width: 768px) {
+    .grid--projects {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   6. Przyciski
+   Uwaga: strona źródłowa nie ma klasycznych przycisków — warianty są
+   standaryzacją opartą na typografii nawigacji.
+   -------------------------------------------------------------------------- */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: 44px;
+    padding: var(--space-3) var(--space-6);
+    border: var(--border-width-thin) solid transparent;
+    border-radius: var(--radius-full);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    transition:
+        color var(--duration-fast) var(--ease-default),
+        background-color var(--duration-fast) var(--ease-default),
+        border-color var(--duration-fast) var(--ease-default);
+}
+
+.btn--primary {
+    background-color: var(--color-black);
+    border-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.btn--primary:hover {
+    background-color: var(--color-ink-soft);
+    border-color: var(--color-ink-soft);
+    color: var(--color-white);
+}
+
+.btn--secondary {
+    background-color: var(--color-gray-300);
+    border-color: var(--color-gray-300);
+    color: var(--color-black);
+}
+
+.btn--secondary:hover {
+    background-color: var(--color-ink-soft);
+    border-color: var(--color-ink-soft);
+    color: var(--color-white);
+}
+
+.btn--ghost {
+    padding-inline: var(--space-2);
+    background-color: transparent;
+    color: var(--color-black);
+}
+
+.btn--ghost:hover {
+    color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   7. Karty / projekty
+   -------------------------------------------------------------------------- */
+
+/* removed 
+
+.card__media {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    background-color: var(--color-gray-300);
+}
+
+.card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+/* Biała mgła 35% pojawiająca się na hover — jak na stronie źródłowej */
+
+.card:hover .card__media::after,
+.card:focus-visible 
+/* removed 
+
+/* Opcjonalne opóźnione ujawnianie tytułu (IntersectionObserver dodaje .is-visible) */
+
+/* --------------------------------------------------------------------------
+   8. Nagłówek i nawigacja
+   -------------------------------------------------------------------------- */
+
+.site-header {
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    z-index: 999;
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--color-white);
+    color: var(--color-black);
+    transition:
+        background-color var(--duration-base) var(--ease-default),
+        color var(--duration-base) var(--ease-default);
+}
+
+/* Wariant przezroczysty nad hero */
+.site-header--overlay {
+    background-color: transparent;
+    color: var(--color-white);
+}
+
+.site-header--overlay.is-scrolled,
+.site-header--overlay.is-open {
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: var(--container-max);
+    height: 100%;
+    margin-inline: auto;
+    padding-inline: var(--space-4);
+}
+
+.site-logo {
+    padding: var(--space-4);
+    color: inherit;
+}
+
+.site-logo:hover {
+    color: inherit;
+}
+
+.site-logo__top {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 1.25rem;
+    letter-spacing: var(--tracking-wider);
+}
+
+.site-logo__bottom {
+    display: block;
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    letter-spacing: 0.01em;
+}
+
+.site-nav {
+    display: none;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.nav-link {
+    display: inline-block;
+    padding: var(--space-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wide);
+    transition: color var(--duration-base) var(--ease-default);
+}
+
+.nav-link:hover {
+    color: var(--color-text-muted);
+}
+
+.icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    padding: var(--space-3);
+    color: inherit;
+}
+
+.icon-link:hover {
+    color: var(--color-text-muted);
+}
+
+.icon-link svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+/* Hamburger — widoczny tylko mobilnie */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 2rem;
+    height: 1.5rem;
+    color: inherit;
+}
+
+.hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: currentColor;
+    transition: background-color var(--duration-base) var(--ease-default);
+}
+
+.nav-mobile {
+    position: absolute;
+    inset-block-start: var(--header-height);
+    inset-inline-start: 0;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    background-color: transparent;
+    transition:
+        height var(--duration-fast) var(--ease-default),
+        background-color var(--duration-base) var(--ease-default);
+}
+
+.site-header.is-open .nav-mobile {
+    height: var(--mobile-menu-height);
+    background-color: var(--color-white);
+}
+
+.nav-mobile .nav-list {
+    flex-direction: column;
+}
+
+.nav-mobile li {
+    margin: var(--space-3);
+    text-align: center;
+}
+
+.nav-mobile .nav-link {
+    display: block;
+    height: 2.5rem;
+    padding: var(--space-2);
+    align-content: center;
+}
+
+.nav-mobile .icon-link {
+    margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+    .hamburger,
+    .nav-mobile {
+        display: none;
+    }
+
+    .site-nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+        color: inherit;
+        transition: color var(--duration-base) var(--ease-default);
+    }
+
+    .nav-list {
+        margin-inline-end: var(--space-4);
+    }
+}
+
+/* --------------------------------------------------------------------------
+   9. Formularze (wnioskowane — strona źródłowa nie zawiera formularzy)
+   -------------------------------------------------------------------------- */
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.input,
+.textarea {
+    width: 100%;
+    padding-block: var(--space-3);
+    background-color: transparent;
+    border: 0;
+    border-bottom: var(--border-thin);
+    border-radius: var(--radius-none);
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-widest);
+    transition: border-color var(--duration-fast) var(--ease-default);
+}
+
+.input:focus,
+.textarea:focus {
+    border-bottom-color: var(--color-black);
+    outline: none;
+}
+
+.textarea {
+    resize: vertical;
+    min-height: 8rem;
+}
+
+/* --------------------------------------------------------------------------
+   10. Stopka i przycisk „do góry”
+   -------------------------------------------------------------------------- */
+
+.site-footer {
+    width: 100%;
+    padding-block: var(--space-4);
+    font-family: var(--font-body);
+    text-align: center;
+}
+
+.site-footer__copyright {
+    font-family: var(--font-body);
+}
+
+.site-footer .icon-link {
+    margin-inline: auto;
+}
+
+/* --------------------------------------------------------------------------
+   11. Hero / karuzela
+   -------------------------------------------------------------------------- */
+
+.hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    height: 100vh;
+    height: 100svh;
+    background-color: var(--color-gray-300);
+    touch-action: pan-y;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: var(--transition-transform);
+}
+
+/* --------------------------------------------------------------------------
+   12. Ruch ograniczony preferencją użytkownika
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Tryb ciemny: strona źródłowa go nie ma, dlatego nie definiujemy
+   prefers-color-scheme. */

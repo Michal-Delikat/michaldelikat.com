@@ -3,18 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Projektuję i buduję szybkie, przejrzyste strony internetowe dla małych firm. Sprawdź ofertę i realizacje ">
-        <title>Michał Delikat | Strony internetowe</title>
+        <meta name="description" content="Projektuję i buduję szybkie, przejrzyste strony internetowe dla małych firm z Krosna i okolic.">
+        <title>Michał Delikat | Strony internetowe dla małych firm</title>
         <link rel="canonical" href="https://michaldelikat.com/">
+        <meta name="theme-color" content="#ffffff">
 
         <meta property="og:type" content="website">
         <meta property="og:title" content="Michał Delikat | Strony internetowe">
         <meta property="og:description" content="Szybkie, przejrzyste strony internetowe dla małych firm.">
-        <meta property="og:image" content="https://michaldelikat.com/assets/og.jpg">
         <meta property="og:locale" content="pl_PL">
         <meta property="og:url" content="https://michaldelikat.com/">
         <meta property="og:site_name" content="Michał Delikat">
-        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:card" content="summary">
+
+        <link rel="stylesheet" href="global.css">
+        <link rel="stylesheet" href="styles.css">
 
         <script type="application/ld+json">
             {
@@ -23,8 +26,7 @@
                 "name": "Michał Delikat – Strony internetowe",
                 "url": "https://michaldelikat.com/",
                 "description": "Projektowanie i tworzenie stron internetowych dla małych firm.",
-                "image": "https://michaldelikat.com/og.jpg",
-                "email": "kontakt@michaldelikat.com",
+                "email": "michal.delikat0@gmail.com",
                 "areaServed": [
                     { "@type": "City", "name": "Krosno" },
                     { "@type": "AdministrativeArea", "name": "województwo podkarpackie" }
@@ -32,28 +34,131 @@
                 "founder": { "@type": "Person", "name": "Michał Delikat" }
             }
         </script>
+
+        <script src="script.js" defer></script>
     </head>
     <body>
-        <header></header>
-        <main>
-            <h1>Strony internetowe dla małych firm z Krosna i okolic</h1>
+        <a class="skip-link" href="#main">Przejdź do treści</a>
 
-            <h2>Oferta</h2>
-            <ul>
-                <li>Strona wizytówka</li>
-                <li>Landing page</li>
-                <li>Odświeżanie istniejących stron</li>
-                <li>Podstawowa optymalizacja pod wyszukiwarki (SEO)</li>
-                <li>HTTPS</li>
-            </ul>
+        <header class="site-header" id="site-header">
+            <div class="site-header__inner">
+                <a class="site-logo" href="/" aria-label="Michał Delikat — strona główna">
+                    <span class="site-logo__top">Michał Delikat</span>
+                    <span class="site-logo__bottom">Strony internetowe</span>
+                </a>
 
-            <h2>Realizacje</h2>
-            <ul>
-                <li><a href="https://maciekginalski.com" target="_blank" rel="noopener">www.maciekginalski.com</a></li>
-            </ul>
+                <nav class="site-nav" aria-label="Nawigacja główna">
+                    <ul class="nav-list">
+                        <li><a class="nav-link" href="#oferta">Oferta</a></li>
+                        <li><a class="nav-link" href="#realizacje">Realizacje</a></li>
+                        <li><a class="nav-link" href="#kontakt">Kontakt</a></li>
+                    </ul>
+                </nav>
 
+                <button class="hamburger" id="menu-toggle" type="button" aria-label="Otwórz menu" aria-controls="menu-mobilne" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <nav class="nav-mobile" id="menu-mobilne" aria-label="Nawigacja mobilna">
+                    <ul class="nav-list">
+                        <li><a class="nav-link" href="#oferta">Oferta</a></li>
+                        <li><a class="nav-link" href="#realizacje">Realizacje</a></li>
+                        <li><a class="nav-link" href="#kontakt">Kontakt</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main id="main">
+            <section class="page-hero" aria-labelledby="hero-title">
+                <div class="container page-hero__inner">
+                    <div class="page-hero__copy">
+                        <h1 class="hero-title" id="hero-title">
+                            Szybkie i nowoczesne strony internetowe
+                        </h1>
+
+                        <p class="lead">
+                            Krosno i okolice / Projekty zdalne
+                        </p>
+
+                        <div class="hero-actions">
+                            <a class="btn btn--primary" href="mailto:michal.delikat0@gmail.com">Napisz do mnie</a>
+                            <a class="text-link" href="#realizacje">
+                                Zobacz realizacje
+                                <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+                                    <path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.25"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="section section--lg section--bordered" id="oferta" aria-labelledby="oferta-title">
+                <div class="container">
+                    <h2 class="section-title" id="oferta-title">Oferta</h2>
+                    <ul class="service-list service-list--names">
+                        <li><h3 class="service-name">Projektowanie stron internetowych</h3></li>
+                        <li><h3 class="service-name">Lokalne SEO</h3></li>
+                        <li><h3 class="service-name">Sklepy i rezerwacje online</h3></li>
+                        <li><h3 class="service-name">Opieka techniczna stron</h3></li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section section--lg section--bordered" id="realizacje" aria-labelledby="realizacje-title">
+                <div class="container">
+                    <h2 class="section-title" id="realizacje-title">Realizacje</h2>
+                    <article class="work-card">
+                        <div class="work-card__visual">
+                            <img src="assets/maciekginalski.webp" alt="Podgląd strony maciekginalski.com" width="1200" height="1500" decoding="async">
+                        </div>
+
+                        <div class="work-card__info">
+                            <h3 class="work-card__title">maciekginalski.com</h3>
+                            <p class="work-card__desc">
+                                Portfolio fotografa hotelowego Maciek Ginalski. 
+                            </p>
+
+                            <dl class="work-card__meta">
+                                <div>
+                                    <dt>Typ</dt>
+                                    <dd>Portfolio</dd>
+                                </div>
+                                <div>
+                                    <dt>Zakres</dt>
+                                    <dd>Projekt &amp; tworzenie</dd>
+                                </div>
+                            </dl>
+
+                            <a class="btn btn--secondary" href="https://maciekginalski.com" target="_blank" rel="noopener">
+                                Odwiedź stronę
+                                <svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true">
+                                    <path d="M4 12L12 4M5 4h7v7" fill="none" stroke="currentColor" stroke-width="1.25"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section contact" id="kontakt" aria-labelledby="kontakt-title">
+                <div class="container contact__inner">
+                    <h2 class="section-title" id="kontakt-title">Kontakt</h2>
+                    <p class="contact__email">michal.delikat0@gmail.com</p>
+                    <a class="btn btn--primary" href="mailto:michal.delikat0@gmail.com">Napisz do mnie</a>
+                    <p class="contact__note">Krosno i okolice / projekty zdalne</p>
+                </div>
+            </section>
         </main>
-        <footer>
+
+        <footer class="site-footer">
+            <div class="container footer__inner">
+                <p class="footer__copy">&copy; <span id="year">2026</span> Michał Delikat</p>
+            </div>
         </footer>
     </body>
 </html>
