@@ -64,18 +64,26 @@
 
 :root {
     /* Kolory */
-    --color-black: #000000;
-    --color-white: #ffffff;
-    --color-ink-soft: #1f1f1f;        /* ikona „do góry” */
-    --color-gray-500: #808080;        /* tekst drugorzędny / hover */
-    --color-gray-300: #e5e5e5;        /* tło placeholdera hero */
-    --color-bg: var(--color-white);
-    --color-surface: var(--color-white);
-    --color-text: var(--color-black);
-    --color-text-muted: var(--color-gray-500);
-    --color-border: var(--color-gray-300); /* wnioskowane: strona nie używa obramowań */
-    --color-overlay: rgba(255, 255, 255, 0.35); /* hover na zdjęciach */
-    --color-focus: #005fcc;           /* zaobserwowany domyślny outline przeglądarki */
+    --color-bg: #F5F7F6;
+    --color-surface: #FFFFFF;
+    --color-surface-soft: #EBEFEC;
+    --color-text: #1F2523;
+    --color-text-muted: #5B645F;
+    --color-accent: #5F6F52;
+    --color-accent-hover: #4E5C43;
+    --color-accent-soft: #E6EBE1;
+    --color-on-accent: #FFFFFF;
+    --color-border: #DCE1DE;
+    --color-border-strong: #B9C2BC;
+    --color-focus: var(--color-accent);
+
+    /* Aliasy zgodności — nie używać w nowych komponentach */
+    --color-black: var(--color-text);
+    --color-white: var(--color-surface);
+    --color-ink-soft: var(--color-accent-hover);
+    --color-gray-500: var(--color-text-muted);
+    --color-gray-300: var(--color-border);
+    --color-overlay: rgba(255, 255, 255, 0.35);
 
     /* Typografia */
     --font-body: "Montserrat", "Helvetica Neue", Arial, sans-serif; /* podstawowy sans-serif */
@@ -308,7 +316,7 @@ a {
 }
 
 a:hover {
-    color: var(--color-text-muted);
+    color: var(--color-accent);
 }
 
 /* Link tekstowy z podkreśleniem — jak „Privacy Policy” na stronie źródłowej */
@@ -325,8 +333,8 @@ a:hover {
 
 /* Strona źródłowa nie definiuje własnego ::selection — poniżej spójna decyzja systemowa */
 ::selection {
-    background-color: var(--color-black);
-    color: var(--color-white);
+    background-color: var(--color-accent);
+    color: var(--color-on-accent);
 }
 
 /* --------------------------------------------------------------------------
@@ -352,20 +360,6 @@ a:hover {
     text-align: center;
 }
 
-/* Nagłówek hero — oryginalna pisownia klasy zachowana dla zgodności */
-.powerfull-heading {
-    width: 100%;
-    margin-block: var(--space-20) var(--space-12);
-    padding-inline: var(--space-4);
-    background-color: var(--color-white);
-    font-family: var(--font-display);
-    font-size: var(--text-2xl);
-    font-weight: var(--weight-medium);
-    line-height: var(--leading-tight);
-    letter-spacing: var(--tracking-tight);
-    text-align: center;
-}
-
 .stack > * + * {
     margin-block-start: var(--stack-gap, var(--space-4));
 }
@@ -374,17 +368,6 @@ a:hover {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--grid-gap, var(--space-8));
-}
-
-/* Siatka projektów: 1 kolumna mobilnie, 3 kolumny od 768px */
-.grid--projects {
-    gap: var(--grid-row-gap) var(--grid-column-gap);
-}
-
-@media (min-width: 768px) {
-    .grid--projects {
-        grid-template-columns: repeat(3, 1fr);
-    }
 }
 
 /* --------------------------------------------------------------------------
@@ -415,67 +398,38 @@ a:hover {
 }
 
 .btn--primary {
-    background-color: var(--color-black);
-    border-color: var(--color-black);
-    color: var(--color-white);
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-on-accent);
 }
 
 .btn--primary:hover {
-    background-color: var(--color-ink-soft);
-    border-color: var(--color-ink-soft);
-    color: var(--color-white);
+    background-color: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
+    color: var(--color-on-accent);
 }
 
 .btn--secondary {
-    background-color: var(--color-gray-300);
-    border-color: var(--color-gray-300);
-    color: var(--color-black);
+    background-color: var(--color-surface);
+    border-color: var(--color-border);
+    color: var(--color-text);
 }
 
 .btn--secondary:hover {
-    background-color: var(--color-ink-soft);
-    border-color: var(--color-ink-soft);
-    color: var(--color-white);
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-on-accent);
 }
 
 .btn--ghost {
     padding-inline: var(--space-2);
     background-color: transparent;
-    color: var(--color-black);
+    color: var(--color-accent);
 }
 
 .btn--ghost:hover {
-    color: var(--color-text-muted);
+    color: var(--color-accent-hover);
 }
-
-/* --------------------------------------------------------------------------
-   7. Karty / projekty
-   -------------------------------------------------------------------------- */
-
-/* removed 
-
-.card__media {
-    position: relative;
-    display: block;
-    overflow: hidden;
-    aspect-ratio: 4 / 5;
-    background-color: var(--color-gray-300);
-}
-
-.card__media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-/* Biała mgła 35% pojawiająca się na hover — jak na stronie źródłowej */
-
-.card:hover .card__media::after,
-.card:focus-visible 
-/* removed 
-
-/* Opcjonalne opóźnione ujawnianie tytułu (IntersectionObserver dodaje .is-visible) */
 
 /* --------------------------------------------------------------------------
    8. Nagłówek i nawigacja
@@ -488,23 +442,11 @@ a:hover {
     z-index: 999;
     width: 100%;
     height: var(--header-height);
-    background-color: var(--color-white);
-    color: var(--color-black);
+    background-color: var(--color-bg);
+    color: var(--color-text);
     transition:
         background-color var(--duration-base) var(--ease-default),
         color var(--duration-base) var(--ease-default);
-}
-
-/* Wariant przezroczysty nad hero */
-.site-header--overlay {
-    background-color: transparent;
-    color: var(--color-white);
-}
-
-.site-header--overlay.is-scrolled,
-.site-header--overlay.is-open {
-    background-color: var(--color-white);
-    color: var(--color-black);
 }
 
 .site-header__inner {
@@ -561,26 +503,7 @@ a:hover {
 }
 
 .nav-link:hover {
-    color: var(--color-text-muted);
-}
-
-.icon-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    padding: var(--space-3);
-    color: inherit;
-}
-
-.icon-link:hover {
-    color: var(--color-text-muted);
-}
-
-.icon-link svg {
-    width: 1.5rem;
-    height: 1.5rem;
+    color: var(--color-accent);
 }
 
 /* Hamburger — widoczny tylko mobilnie */
@@ -616,7 +539,7 @@ a:hover {
 
 .site-header.is-open .nav-mobile {
     height: var(--mobile-menu-height);
-    background-color: var(--color-white);
+    background-color: var(--color-surface);
 }
 
 .nav-mobile .nav-list {
@@ -633,10 +556,6 @@ a:hover {
     height: 2.5rem;
     padding: var(--space-2);
     align-content: center;
-}
-
-.nav-mobile .icon-link {
-    margin-inline: auto;
 }
 
 @media (min-width: 768px) {
@@ -659,42 +578,7 @@ a:hover {
 }
 
 /* --------------------------------------------------------------------------
-   9. Formularze (wnioskowane — strona źródłowa nie zawiera formularzy)
-   -------------------------------------------------------------------------- */
-
-.field {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-}
-
-.input,
-.textarea {
-    width: 100%;
-    padding-block: var(--space-3);
-    background-color: transparent;
-    border: 0;
-    border-bottom: var(--border-thin);
-    border-radius: var(--radius-none);
-    font-family: var(--font-sans);
-    font-size: var(--text-xs);
-    letter-spacing: var(--tracking-widest);
-    transition: border-color var(--duration-fast) var(--ease-default);
-}
-
-.input:focus,
-.textarea:focus {
-    border-bottom-color: var(--color-black);
-    outline: none;
-}
-
-.textarea {
-    resize: vertical;
-    min-height: 8rem;
-}
-
-/* --------------------------------------------------------------------------
-   10. Stopka i przycisk „do góry”
+   10. Stopka
    -------------------------------------------------------------------------- */
 
 .site-footer {
@@ -704,41 +588,8 @@ a:hover {
     text-align: center;
 }
 
-.site-footer__copyright {
-    font-family: var(--font-body);
-}
-
-.site-footer .icon-link {
-    margin-inline: auto;
-}
-
 /* --------------------------------------------------------------------------
-   11. Hero / karuzela
-   -------------------------------------------------------------------------- */
-
-.hero {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    height: 100vh;
-    height: 100svh;
-    background-color: var(--color-gray-300);
-    touch-action: pan-y;
-}
-
-.slide {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transition: var(--transition-transform);
-}
-
-/* --------------------------------------------------------------------------
-   12. Ruch ograniczony preferencją użytkownika
+   11. Ruch ograniczony preferencją użytkownika
    -------------------------------------------------------------------------- */
 
 @media (prefers-reduced-motion: reduce) {

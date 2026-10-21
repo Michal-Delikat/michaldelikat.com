@@ -18,8 +18,8 @@
     inset-inline-start: var(--space-2);
     z-index: 1100;
     padding: var(--space-3) var(--space-4);
-    background-color: var(--color-black);
-    color: var(--color-white);
+    background-color: var(--color-accent);
+    color: var(--color-on-accent);
     font-family: var(--font-sans);
     font-size: var(--text-xs);
     letter-spacing: var(--tracking-widest);
@@ -29,7 +29,7 @@
 }
 
 .skip-link:focus {
-    color: var(--color-white);
+    color: var(--color-on-accent);
     transform: translateY(0);
 }
 
@@ -137,14 +137,6 @@
     color: var(--color-text-muted);
 }
 
-.eyebrow::before {
-    content: "";
-    flex: 0 0 auto;
-    width: 2rem;
-    height: var(--border-width-thin);
-    background-color: currentColor;
-}
-
 .hero-title {
     font-size: clamp(var(--text-2xl), 8vw, var(--text-3xl));
     line-height: 1.05;
@@ -154,14 +146,6 @@
 
 .hero-title span {
     display: block;
-}
-
-.lead {
-    max-width: 34rem;
-    font-size: var(--text-lg);
-    line-height: var(--leading-normal);
-    letter-spacing: var(--tracking-normal);
-    text-wrap: pretty;
 }
 
 .hero-actions {
@@ -182,11 +166,12 @@
     font-weight: var(--weight-medium);
     line-height: 1.2;
     letter-spacing: 0.01em;
+    color: var(--color-accent);
     transition: color var(--duration-fast) var(--ease-default);
 }
 
 .text-link:hover {
-    color: var(--color-text-muted);
+    color: var(--color-accent-hover);
 }
 
 
@@ -234,10 +219,8 @@
 .service-list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-4);
+    gap: var(--space-6);
     width: 100%;
-    max-width: 70rem;
-    margin-inline: auto;
 }
 
 .service-list--names li {
@@ -246,8 +229,8 @@
     justify-content: flex-start;
     min-height: 8rem;
     padding: var(--space-6);
-    background-color: var(--color-white);
-    border: var(--border-width-thin) solid var(--color-black);
+    background-color: var(--color-surface);
+    border: var(--border-width-thin) solid var(--color-border);
     border-radius: var(--radius-card);
     text-align: left;
 }
@@ -262,6 +245,7 @@
 @media (min-width: 768px) {
     .service-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-8);
     }
 
     .service-list--names li {
@@ -289,8 +273,8 @@
     position: relative;
     overflow: hidden;
     aspect-ratio: 4 / 5;
-    background-color: var(--color-white);
-    border: var(--border-width-thin) solid var(--color-black);
+    background-color: var(--color-surface);
+    border: var(--border-width-thin) solid var(--color-border);
 }
 
 .work-card__visual img {
