@@ -2,45 +2,47 @@
 
 Dokument opisuje **wdrożoną stronę** `michaldelikat.com`, a nie pierwowzór, na którym powstał układ. Stan: październik 2026. Źródła: `index.html`, `global.css`, `styles.css`, `script.js` oraz zrzuty ekranu z 21.10.2026 (hero + oferta, realizacje, kontakt).
 
-Strona jest jednostronicową wizytówką usługową dla małych firm. Porządek jest ważniejszy niż efekt: chłodne, jasne tło, jedna rodzina fontu, cienkie linie, dużo światła i pojedynczy akcent szałwii.
+Strona jest jednostronicową wizytówką usługową dla małych firm. Porządek jest ważniejszy niż efekt: chłodne, jasne tło, jedna rodzina fontu, cienkie linie, dużo światła, granatowy akcent wypełnień i jaśniejszy niebieski do elementów interaktywnych.
 
 ## 1. Charakter i zasady nadrzędne
 
 - Minimalizm redakcyjny: brak zdjęć w hero, brak gradientów; cień występuje tylko pod kaflami oferty.
 - Najważniejsza jest typografia i rytm pionowy, nie dekoracja.
 - Układ opiera się na jednym kontenerze i jednym breakpoincie.
-- Kolor akcentowy jest używany oszczędnie: tylko przyciski, linki, focus i hover.
+- Granat (`--color-accent`) wypełnia przyciski, pasek i stopkę; linki, focus i hover korzystają z jaśniejszego `--color-link`.
 - Kafle oferty są białe i odcinają się od chłodnego tła strony.
 - Strona ma być szybka i „lekka”: brak karuzeli, brak animowanych ujawnień przy scrollu, brak przeładowanych hoverów.
-- Separatory sekcji to poziome linie `1px` w kolorze `#DCE1DE`, rozciągnięte na całą szerokość strony.
+- Separatory sekcji to poziome linie `1px` w kolorze `#D9E1E3`, rozciągnięte na całą szerokość strony.
 
 ## 2. Kolory
 
 | Token | Wartość | Zastosowanie |
 |---|---|---|
-| `--color-bg` | `#F5F7F6` | Tło dokumentu, nagłówka i strony; chłodna złamana biel |
+| `--color-bg` | `#F4F7F8` | Tło dokumentu, nagłówka i strony; chłodna złamana biel |
 | `--color-surface` | `#FFFFFF` | Kafle oferty, obraz realizacji, menu mobilne, przycisk secondary |
-| `--color-surface-soft` | `#EBEFEC` | Delikatne wyróżnienie tła; rezerwa systemowa |
-| `--color-text` | `#1F2523` | Tekst główny, logo, nawigacja; kontrast 14,49:1 na tle |
-| `--color-text-muted` | `#5B645F` | Opisy kart, etykiety meta, nota kontaktowa; kontrast 5,69:1 na tle |
-| `--color-accent` | `#5F6F52` | Tło przycisku primary, linki, focus; biały tekst 5,41:1 |
-| `--color-accent-hover` | `#4E5C43` | Hover przycisku primary i linków; biały tekst 7,15:1 |
-| `--color-accent-soft` | `#E6EBE1` | Tło zaznaczenia tekstu i delikatnych podświetleń |
+| `--color-surface-soft` | `#E9EFF1` | Tło kafli i delikatnych podświetleń w stanie hover |
+| `--color-text` | `#1B2427` | Tekst główny, logo, nawigacja; kontrast 14,69:1 na tle |
+| `--color-text-muted` | `#55646A` | Opisy kart, etykiety meta, nota kontaktowa; kontrast 5,71:1 na tle |
+| `--color-accent` | `#09426E` | Granat: tło przycisku primary, pasek, stopka; biały tekst 10,42:1. Zbyt ciemny do linków i focusu |
+| `--color-accent-hover` | `#073A61` | Hover wypełnionego przycisku primary; biały tekst 11,75:1 |
+| `--color-accent-soft` | `#E3ECF4` | Tło zaznaczenia tekstu i delikatnych podświetleń |
 | `--color-on-accent` | `#FFFFFF` | Tekst i ikony na akcencie oraz na ciemnej stopce |
-| `--color-dark` | `#2E3A2B` | Tło stopki i ciemnych powierzchni; biały tekst 11,96:1 |
-| `--color-border` | `#DCE1DE` | Separatory sekcji, obramowania kafli, linia pod nagłówkiem, linia nad meta |
-| `--color-border-strong` | `#B9C2BC` | Mocniejsze ramki; rezerwa systemowa |
+| `--color-link` | `#1F5F8B` | Linki, focus i hover elementów interaktywnych; kontrast 6,36:1 na tle |
+| `--color-dark` | `var(--color-accent)` | Tło stopki i ciemnych powierzchni; biały tekst 10,42:1 |
+| `--color-border` | `#D9E1E3` | Separatory sekcji, obramowania kafli, linia pod nagłówkiem, linia nad meta |
+| `--color-border-strong` | `#B4C2C6` | Mocniejsze ramki; rezerwa systemowa |
 | `--color-highlight` | `#C79A3B` | Opcjonalny detal tła; obecnie nieużywany, nigdy jako kolor tekstu |
-| `--color-focus` | `var(--color-accent)` | Outline klawiaturowy |
+| `--color-focus` | `var(--color-link)` | Outline klawiaturowy |
 
 Zasady:
 
-- Utrzymuj jedną paletę: chłodna biel, biel, grafit, szałwia i ciemna zieleń.
-- Akcent (szałwia) stosuj tylko do przycisków, linków, focusu i hovera; nie rozsiewaj go po wielu elementach naraz.
+- Utrzymuj jedną paletę: chłodna biel, biel, grafit, granat i jaśniejszy niebieski interakcji.
+- `--color-accent` (granat) to kolor wypełnień: przyciski, pasek i stopka. Jest zbyt ciemny, by odróżnić go od tekstu, więc nie używaj go do linków ani focusu.
+- Linki, focus i hover używają `--color-link`.
 - `--color-highlight` (ochra) może być wyłącznie drobnym detalem tła, nigdy kolorem tekstu.
 - Nie stosuj ciemnego tła sekcji; wyjątkiem jest stopka i ewentualny cienki pasek.
 - Nie wprowadzaj cieni poza subtelnym cieniem kafli oferty. Głębię budują odstępy i cienkie obramowania.
-- Nie używaj czystej czerni `#000` do tekstu ani czystej bieli jako tła strony.
+- Brak czystej czerni i czystej bieli w tekście oraz w tle strony.
 - Kontrast tekstu musi wynosić minimum 4,5:1 (WCAG AA).
 
 ## 3. Typografia
@@ -89,8 +91,8 @@ Plik latin-ext jest zadeklarowany osobno dla 500 i 700. Nie scalać tych deklara
 | Nawigacja | 12px / 500 / tracking `0.04em`, bez wersalików |
 | Logo — góra | 18px mobile, 20px desktop / tracking `0.07em` |
 | Logo — dół | 15px / tracking `0.01em` |
-| Etykiety `dt` | 12px / tracking `0.2em` / wersaliki / `#5B645F` |
-| Nota kontaktowa | 12px / tracking `0.2em` / wersaliki / `#5B645F` |
+| Etykiety `dt` | 12px / tracking `0.2em` / wersaliki / `#55646A` |
+| Nota kontaktowa | 12px / tracking `0.2em` / wersaliki / `#55646A` |
 | Stopka | 12px / tracking `0.04em` |
 | Przyciski | 15px / 500 / `line-height: 1.2` / tracking `0.01em` |
 
@@ -116,8 +118,8 @@ Zasady:
 | `--section-space` | `32px` | Bazowy token; sekcje główne używają `--space-24` |
 | `--space-24` | `96px` | Pionowy padding sekcji `--lg` i kontaktu |
 | `--radius-card` | `16px` | Zaokrąglenie kafli oferty |
-| `--shadow-card` | `0 8px 20px -8px rgba(31, 37, 35, 0.10)` | Subtelny, wąski cień kafli oferty |
-| `--shadow-card-hover` | `0 12px 24px -8px rgba(31, 37, 35, 0.18)` | Wzmocniony, wąski cień kafla w stanie hover |
+| `--shadow-card` | `0 8px 20px -8px color-mix(in srgb, var(--color-text) 10%, transparent)` | Subtelny, wąski cień kafli oferty |
+| `--shadow-card-hover` | `0 12px 24px -8px color-mix(in srgb, var(--color-text) 18%, transparent)` | Wzmocniony, wąski cień kafla w stanie hover |
 | `--radius-full` | `9999px` | Przyciski pill |
 | `--border-width-thin` | `1px` | Linie sekcji, obramowania kafli i obrazu |
 | Breakpoint | `768px` | Jedyny breakpoint strony |
@@ -126,13 +128,13 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 
 ### Rytm strony
 
-- **Header**: stały, 120px, chłodne jasne tło (`--color-bg`), bez obramowania na starcie. Po 50px scrolla pojawia się dolna linia `#DCE1DE`.
+- **Header**: stały, 120px, chłodne jasne tło (`--color-bg`), bez obramowania na starcie. Po 50px scrolla pojawia się dolna linia `#D9E1E3`.
 - **Hero**: bez `100vh`. Wysokość wynika z treści i paddingu. Mobile: góra `120px + 48px`, dół `64px`. Desktop: góra `120px + 64px`, dół `80px`. Treść maks. `44rem`.
 - **Sekcje**: 96px paddingu pionowego. Oferta i realizacje mają górną linię `1px`; kontakt również.
 - **Oferta**: siatka na pełną szerokość kontenera, 1 kolumna mobile, 2 kolumny od 768px, gap 24px mobile / 32px desktop. Kafle: min. 8rem mobile / 14rem desktop, padding 24px / 32px.
 - **Realizacje**: nagłówek sekcji, poniżej dwukolumnowa karta od 768px, gap 64px, obraz 4:5.
 - **Kontakt**: wyśrodkowany, 96px paddingu, górna linia, nagłówek jak w pozostałych sekcjach.
-- **Stopka**: ciemne tło `--color-dark`, jasny tekst, tylko copyright. Bez nawigacji i ikon.
+- **Stopka**: ciemne tło `--color-dark`, jasny tekst, copyright oraz ikony LinkedIn i GitHub. Linki mają 40×40px, ikony 20px, `aria-label` i `title`; hover zmienia kolor na `--color-accent-soft`.
 
 ## 5. Komponenty
 
@@ -140,7 +142,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 
 - `position: fixed`, wysokość 120px, chłodne jasne tło, `z-index: 999`.
 - Logo dwuwierszowe: „Michał Delikat” / „Strony internetowe”.
-- Linki desktop: Oferta, Realizacje, Kontakt; 12px, bez wersalików, hover w kolorze akcentu `#5F6F52`.
+- Linki desktop: Oferta, Realizacje, Kontakt; 12px, bez wersalików, hover w kolorze `--color-link`.
 - Mobile: hamburger 32×24px, trzy belki 2px; menu rozwija się do 320px, linki wyśrodkowane.
 - Menu zamyka się po kliknięciu linku, klawiszem Escape lub kliknięciem poza nagłówkiem.
 - Po scrollu dodawana jest klasa `.is-scrolled` i dolna linia.
@@ -150,7 +152,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 
 - H1: „Szybkie i nowoczesne strony internetowe”.
 - Eyebrow: „Krosno i okolice / Projekty zdalne”, 12px uppercase.
-- Główny CTA: szałwiowy pill **„Napisz do mnie”** z `mailto:michal.delikat0@gmail.com`; biały tekst na tle akcentu.
+- Główny CTA: granatowy pill **„Napisz do mnie”** z `mailto:michal.delikat0@gmail.com`; biały tekst na tle `--color-accent`.
 - Drugi link: tekstowy „Zobacz realizacje →” prowadzący do `#realizacje`.
 - Brak eybrowa, brak zdjęcia, brak pełnoekranowej karuzeli.
 
@@ -162,49 +164,49 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 ### Kafle oferty
 
 - Cztery usługi w siatce 2×2 na desktopie i 1 kolumnie na mobile.
-- Białe tło (`--color-surface`), tekst `#1F2523`, promień 16px (`--radius-card`) i subtelny cień `--shadow-card`.
-- Domyślna ramka jest przezroczysta i nie zmienia się na hover.
+- Białe tło (`--color-surface`), tekst `--color-text`, promień 16px (`--radius-card`), ramka `--color-border` i subtelny cień `--shadow-card`.
+- Domyślna ramka to `--color-border`; na hover zmienia kolor na `--color-link`.
 - Ikona liniowa na dole po lewej: 40px mobile / 48px desktop, stroke 1.5, kolor tekstu.
 - Tytuł 18px mobile / 20px desktop, waga 500; pod nim opis 15px w `--color-text-muted`.
 - Kafle mają min. 8rem mobile / 14rem desktop i padding 24px / 32px.
-- Hover: kafel unosi się o 4px, a cień wzmacnia się do `--shadow-card-hover`; tło i ramka pozostają bez zmian.
+- Hover: kafel unosi się o 4px, tło zmienia się na `--color-surface-soft`, ramka na `--color-link`, a cień wzmacnia się do `--shadow-card-hover`.
 - Siatka zajmuje pełną szerokość kontenera, tak samo jak karta realizacji; nie ma dodatkowego `max-width`.
 
 ### Realizacje
 
 - Jedna karta: `maciekginalski.com`.
 - Obraz 4:5 po lewej, opis po prawej od 768px; mobilnie kolumna.
-- Obraz ma `1px` obramowanie `#DCE1DE`, bez zaokrągleń.
+- Obraz ma `1px` obramowanie `#D9E1E3`, bez zaokrągleń.
 - Tytuł duży, 24–40px, waga 500.
 - Opis: 16px, `line-height: 1.5`.
-- Meta: dwie kolumny, etykiety 12px uppercase `#5B645F`, wartości 16px, linia `1px #DCE1DE` nad blokiem.
-- CTA: biały pill **„Odwiedź stronę”** z ikoną strzałki; hover wypełnia się akcentem, tekst staje się biały.
+- Meta: dwie kolumny, etykiety 12px uppercase `#55646A`, wartości 16px, linia `1px #D9E1E3` nad blokiem.
+- CTA: biały pill **„Odwiedź stronę”** z ikoną strzałki; hover wypełnia się `--color-accent`, tekst staje się biały.
 - Cała karta nie jest linkiem — klikalny jest tylko przycisk.
 
 ### Kontakt
 
 - Nagłówek „Kontakt” — ten sam styl co „Oferta” i „Realizacje”.
 - E-mail `michal.delikat0@gmail.com` jako zwykły, zaznaczalny tekst (bez linku), 20–24px, waga 500.
-- Poniżej szałwiowy pill **„Napisz do mnie”** z `mailto:` i białym tekstem.
-- Nota: „Krosno i okolice / projekty zdalne”, 12px uppercase, `#5B645F`.
+- Poniżej granatowy pill **„Napisz do mnie”** z `mailto:` i białym tekstem.
+- Nota: „Krosno i okolice / projekty zdalne”, 12px uppercase, `#55646A`.
 - Sekcja wyśrodkowana; po niej tylko stopka z copyrightem.
 
 ### Przyciski
 
 | Wariant | Wygląd | Hover |
 |---|---|---|
-| `--primary` | tło `#5F6F52`, biały tekst, pill, min. 44px | tło `#4E5C43` |
-| `--secondary` | białe tło, obramowanie `#DCE1DE`, tekst `#1F2523`, pill | tło `#5F6F52`, biały tekst |
-| `--ghost` | bez tła, tekst `#5F6F52` | tekst `#4E5C43` |
+| `--primary` | tło `--color-accent` (`#09426E`), biały tekst, pill, min. 44px | tło `--color-accent-hover` (`#073A61`) |
+| `--secondary` | białe tło, obramowanie `--color-border`, tekst `--color-text`, pill | tło `--color-accent`, biały tekst |
+| `--ghost` | bez tła, tekst `--color-link` | tekst `--color-accent` |
 
 Wspólne: Montserrat 15px, waga 500, padding 12×24px, brak wersalików, przejścia 200ms. `--ghost` nie jest obecnie używany na stronie.
 
 ### Linki i stany
 
-- Linki nawigacji dziedziczą kolor i nie mają podkreślenia; hover `#5F6F52`.
-- Linki w treści są w kolorze akcentu, bez podkreślenia.
-- Focus klawiaturowy: `2px solid #5F6F52`, offset 2px.
-- Zaznaczenie tekstu: tło `#E6EBE1`, tekst `#1F2523`.
+- Linki nawigacji dziedziczą kolor i nie mają podkreślenia; hover `--color-link`.
+- Linki w treści są w kolorze `--color-link`, z zawsze widocznym podkreśleniem; hover `--color-accent`.
+- Focus klawiaturowy: `2px solid var(--color-link)`, offset 2px.
+- Zaznaczenie tekstu: tło `--color-accent-soft`, tekst `--color-text`.
 - Skip link prowadzi do `#main` i pojawia się przy focusie.
 
 ## 6. Ruch
@@ -254,11 +256,11 @@ Jedyny breakpoint: **768px**.
 
 ### Rób
 
-- Utrzymuj chłodną biel `#F5F7F6`, biel `#FFFFFF`, grafit `#1F2523`, muted `#5B645F`, szałwię `#5F6F52` i ciemną zieleń `#2E3A2B` jako jedyne kolory interfejsu.
+- Utrzymuj chłodną biel `#F4F7F8`, biel `#FFFFFF`, grafit `#1B2427`, muted `#55646A`, granat `#09426E` i niebieski interakcji `#1F5F8B` jako jedyne kolory interfejsu.
 - Składaj wszystko Montserratem 500/700, z lokalnych plików.
 - Stosuj 96px paddingu w sekcjach i 48px pod nagłówkiem sekcji.
-- Oddzielaj sekcje poziomą linią `1px #DCE1DE` na pełną szerokość.
-- Utrzymuj kafle oferty białe, z obramowaniem `#DCE1DE`, promieniem 12px, tytułem i krótkim opisem.
+- Oddzielaj sekcje poziomą linią `1px #D9E1E3` na pełną szerokość.
+- Utrzymuj kafle oferty białe, z obramowaniem `#D9E1E3`, promieniem 12px, tytułem i krótkim opisem.
 - Utrzymuj główne CTA jako `mailto:` z tekstem „Napisz do mnie”.
 - Zostawiaj dużo pustej przestrzeni; używaj jednej ikony liniowej na kafel. Opisy usług są częścią treści.
 - Pisz teksty zwięźle, po polsku, bez wersalików w nawigacji i przyciskach.
@@ -271,7 +273,7 @@ Jedyny breakpoint: **768px**.
 - Nie dopuszczaj tekstu o kontraście niższym niż 4,5:1.
 - Nie przywracaj pełnoekranowego hero (`100vh` / `100svh`).
 - Nie przywracaj sekcji „O mnie”, ikony Instagrama, przycisku „do góry” ani karuzeli.
-- Nie zmieniaj tła ani ramki kafla na hover; jedynym efektem jest uniesienie i mocniejszy cień.
+- Nie zmieniaj układu ani typografii kafla na hover; zmieniają się tylko tło, ramka, uniesienie i cień.
 - Nie pogrubiaj nazw usług do 700 i nie zwiększaj ich powyżej 20px.
 - Nie dodawaj kolejnych krojów ani wag poza 500 i 700.
 - Nie zwiększaj liczby kolumn oferty powyżej dwóch.
@@ -291,6 +293,6 @@ Jedyny breakpoint: **768px**.
 - W obecnym kodzie nie ma osobnego paska nad nagłówkiem; `--color-dark` obsługuje stopkę.
 - Stopka ma ciemne tło `--color-dark` i jasny tekst `--color-on-accent`.
 - `--color-highlight` jest zdefiniowany, ale obecnie nieużywany.
-- Strona nie ma faviconów ani trybu ciemnego.
-- Kolory należy definiować wyłącznie przez tokeny semantyczne: `--color-bg`, `--color-surface`, `--color-surface-soft`, `--color-text`, `--color-text-muted`, `--color-accent`, `--color-accent-hover`, `--color-accent-soft`, `--color-on-accent`, `--color-dark`, `--color-border`, `--color-border-strong`, `--color-highlight` i `--color-focus`.
-- Primary CTA używa akcentu szałwii z białym tekstem; secondary jest biały z chłodnym obramowaniem i ciemnym tekstem.
+- Favicon: biała litera „M” (`--color-on-accent`) w kroju Outfit 700 na granatowym tle (`--color-accent`); warianty `favicon.svg`, `favicon-32.png`, `favicon.ico` i `apple-touch-icon.png`. Strona nie ma trybu ciemnego.
+- Kolory należy definiować wyłącznie przez tokeny semantyczne: `--color-bg`, `--color-surface`, `--color-surface-soft`, `--color-text`, `--color-text-muted`, `--color-accent`, `--color-accent-hover`, `--color-accent-soft`, `--color-on-accent`, `--color-link`, `--color-dark`, `--color-border`, `--color-border-strong`, `--color-highlight` i `--color-focus`.
+- Primary CTA używa granatu `--color-accent` z białym tekstem; secondary jest biały z chłodnym obramowaniem i ciemnym tekstem.

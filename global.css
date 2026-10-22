@@ -64,20 +64,21 @@
 
 :root {
     /* Kolory */
-    --color-bg: #F5F7F6;
+    --color-bg: #F4F7F8;
     --color-surface: #FFFFFF;
-    --color-surface-soft: #EBEFEC;
-    --color-text: #1F2523;
-    --color-text-muted: #5B645F;
-    --color-accent: #5F6F52;
-    --color-accent-hover: #4E5C43;
-    --color-accent-soft: #E6EBE1;
+    --color-surface-soft: #E9EFF1;
+    --color-text: #1B2427;
+    --color-text-muted: #55646A;
+    --color-accent: #09426E;
+    --color-accent-hover: #073A61;
+    --color-accent-soft: #E3ECF4;
     --color-on-accent: #FFFFFF;
-    --color-dark: #2E3A2B;
-    --color-border: #DCE1DE;
-    --color-border-strong: #B9C2BC;
+    --color-link: #1F5F8B;
+    --color-dark: var(--color-accent);
+    --color-border: #D9E1E3;
+    --color-border-strong: #B4C2C6;
     --color-highlight: #C79A3B;
-    --color-focus: var(--color-accent);
+    --color-focus: var(--color-link);
 
     /* Typografia */
     --font-body: "Montserrat", "Helvetica Neue", Arial, sans-serif; /* podstawowy sans-serif */
@@ -125,8 +126,8 @@
 
     /* Cienie — tylko subtelny cień kafli oferty */
     --shadow-none: none;
-    --shadow-card: 0 8px 20px -8px rgba(31, 37, 35, 0.10);
-    --shadow-card-hover: 0 12px 24px -8px rgba(31, 37, 35, 0.18);
+    --shadow-card: 0 8px 20px -8px color-mix(in srgb, var(--color-text) 10%, transparent);
+    --shadow-card-hover: 0 12px 24px -8px color-mix(in srgb, var(--color-text) 18%, transparent);
 
     /* Obramowania */
     --border-width-thin: 1px;
@@ -315,15 +316,20 @@ a:hover {
     color: var(--color-accent);
 }
 
-/* Link tekstowy z podkreśleniem — jak „Privacy Policy” na stronie źródłowej */
+/* Link tekstowy w treści — zawsze widoczne podkreślenie */
 .link-underline {
     display: inline-block;
+    color: var(--color-link);
     text-decoration: underline;
     text-underline-offset: 0.15em;
 }
 
+.link-underline:hover {
+    color: var(--color-accent);
+}
+
 :focus-visible {
-    outline: var(--border-width-thick) solid var(--color-focus);
+    outline: 2px solid var(--color-link);
     outline-offset: 2px;
 }
 
@@ -420,11 +426,11 @@ a:hover {
 .btn--ghost {
     padding-inline: var(--space-2);
     background-color: transparent;
-    color: var(--color-accent);
+    color: var(--color-link);
 }
 
 .btn--ghost:hover {
-    color: var(--color-accent-hover);
+    color: var(--color-accent);
 }
 
 /* --------------------------------------------------------------------------
@@ -499,7 +505,7 @@ a:hover {
 }
 
 .nav-link:hover {
-    color: var(--color-accent);
+    color: var(--color-link);
 }
 
 /* Hamburger — widoczny tylko mobilnie */
