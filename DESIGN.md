@@ -151,7 +151,6 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 - H1: „Szybkie i nowoczesne strony internetowe”.
 - Eyebrow: „Krosno i okolice / Projekty zdalne”, 12px uppercase.
 - Główny CTA: granatowy pill **„Napisz do mnie”** z `mailto:michal.delikat0@gmail.com`; biały tekst na tle `--color-accent`.
-- Drugi link: tekstowy „Zobacz realizacje →” prowadzący do `#realizacje`.
 - Brak eybrowa, brak zdjęcia, brak pełnoekranowej karuzeli.
 
 ### Nagłówki sekcji
