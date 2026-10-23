@@ -2,30 +2,7 @@ const HEADER_MARKUP = `
     <div class="site-header__inner">
         <a class="site-logo" href="/" aria-label="Michał Delikat — strona główna">
             <span class="site-logo__top">Michał Delikat</span>
-            <span class="site-logo__bottom">Strony internetowe</span>
         </a>
-
-        <nav class="site-nav" aria-label="Nawigacja główna">
-            <ul class="nav-list">
-                <li><a class="nav-link" href="/#oferta">Oferta</a></li>
-                <li><a class="nav-link" href="/#realizacje">Realizacje</a></li>
-                <li><a class="nav-link" href="/#kontakt">Kontakt</a></li>
-            </ul>
-        </nav>
-
-        <button class="hamburger" id="menu-toggle" type="button" aria-label="Otwórz menu" aria-controls="menu-mobilne" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
-        <nav class="nav-mobile" id="menu-mobilne" aria-label="Nawigacja mobilna">
-            <ul class="nav-list">
-                <li><a class="nav-link" href="/#oferta">Oferta</a></li>
-                <li><a class="nav-link" href="/#realizacje">Realizacje</a></li>
-                <li><a class="nav-link" href="/#kontakt">Kontakt</a></li>
-            </ul>
-        </nav>
     </div>
 `;
 
@@ -48,41 +25,6 @@ const FOOTER_MARKUP = `
 `;
 
 function initHeader(header) {
-    const menuToggle = header.querySelector("#menu-toggle");
-    const mobileMenu = header.querySelector("#menu-mobilne");
-
-    if (!menuToggle || !mobileMenu) return;
-
-    let menuOpen = false;
-
-    function setMenu(open) {
-        menuOpen = open;
-        header.classList.toggle("is-open", open);
-        menuToggle.setAttribute("aria-expanded", String(open));
-        menuToggle.setAttribute("aria-label", open ? "Zamknij menu" : "Otwórz menu");
-    }
-
-    menuToggle.addEventListener("click", () => {
-        setMenu(!menuOpen);
-    });
-
-    mobileMenu.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => setMenu(false));
-    });
-
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "Escape" && menuOpen) {
-            setMenu(false);
-            menuToggle.focus();
-        }
-    });
-
-    document.addEventListener("click", (event) => {
-        if (menuOpen && !header.contains(event.target)) {
-            setMenu(false);
-        }
-    });
-
     function handleScroll() {
         header.classList.toggle("is-scrolled", window.scrollY > 50);
     }

@@ -3,11 +3,6 @@
    Bazuje na tokenach i komponentach z global.css / DESIGN.md.
    ========================================================================== */
 
-:root {
-    /* Menu mobilne ma cztery pozycje — zwiększamy wysokość względem 200px */
-    --mobile-menu-height: 320px;
-}
-
 /* --------------------------------------------------------------------------
    Dostępność
    -------------------------------------------------------------------------- */
@@ -42,68 +37,17 @@ site-footer {
     display: block;
 }
 
-.site-header {
-    border-bottom: var(--border-width-thin) solid transparent;
-}
-
-.site-header.is-scrolled {
-    border-bottom-color: var(--color-border);
-}
-
-.site-logo {
-    line-height: 1.15;
-}
-
-.hamburger span {
-    transform-origin: center;
-    transition:
-        transform var(--duration-base) var(--ease-default),
-        opacity var(--duration-fast) var(--ease-default),
-        background-color var(--duration-base) var(--ease-default);
-}
-
-.site-header.is-open .hamburger span:nth-child(1) {
-    transform: translateY(11px) rotate(45deg);
-}
-
-.site-header.is-open .hamburger span:nth-child(2) {
-    opacity: 0;
-}
-
-.site-header.is-open .hamburger span:nth-child(3) {
-    transform: translateY(-11px) rotate(-45deg);
-}
-
-.nav-mobile {
-    visibility: hidden;
-    transition:
-        height var(--duration-fast) var(--ease-default),
-        background-color var(--duration-base) var(--ease-default),
-        visibility 0s linear var(--duration-base);
-}
-
-.site-header.is-open .nav-mobile {
-    visibility: visible;
-    transition:
-        height var(--duration-fast) var(--ease-default),
-        background-color var(--duration-base) var(--ease-default),
-        visibility 0s;
-}
-
-.nav-mobile .nav-link {
-    font-size: var(--text-xs);
+.site-header.is-scrolled .site-header__inner {
+    box-shadow: var(--shadow-card-hover);
 }
 
 .site-logo {
     padding-inline: 0;
+    line-height: 1.15;
 }
 
 .site-logo__top {
     font-size: var(--text-md);
-}
-
-.site-logo__bottom {
-    font-size: var(--text-sm);
 }
 
 /* --------------------------------------------------------------------------

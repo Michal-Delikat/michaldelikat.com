@@ -21,7 +21,7 @@ Strona jest jednostronicową wizytówką usługową dla małych firm. Porządek 
 | `--color-bg` | `#F4F7F8` | Tło dokumentu, nagłówka i strony; chłodna złamana biel |
 | `--color-surface` | `#FFFFFF` | Kafle oferty, obraz realizacji, menu mobilne, przycisk secondary |
 | `--color-surface-soft` | `#E9EFF1` | Tło kafli i delikatnych podświetleń w stanie hover |
-| `--color-text` | `#1B2427` | Tekst główny, logo, nawigacja; kontrast 14,69:1 na tle |
+| `--color-text` | `#1B2427` | Tekst główny, logo; kontrast 14,69:1 na tle |
 | `--color-text-muted` | `#55646A` | Opisy kart, etykiety meta, nota kontaktowa; kontrast 5,71:1 na tle |
 | `--color-accent` | `#09426E` | Granat: tło przycisku primary, pasek, stopka; biały tekst 10,42:1. Zbyt ciemny do linków i focusu |
 | `--color-accent-hover` | `#073A61` | Hover wypełnionego przycisku primary; biały tekst 11,75:1 |
@@ -114,7 +114,7 @@ Zasady:
 | `--container-max` | `1300px` | Maksymalna szerokość kontenera |
 | `--container-padding` | `32px` | Poziomy padding, również mobilnie |
 | `--header-height` | `120px` | Stała wysokość nagłówka i `scroll-padding-top` |
-| `--mobile-menu-height` | `320px` | Nadpisane w `styles.css` dla trzech pozycji menu |
+| `--mobile-menu-height` | usunięty | Nagłówek nie ma menu mobilnego |
 | `--section-space` | `32px` | Bazowy token; sekcje główne używają `--space-24` |
 | `--space-24` | `96px` | Pionowy padding sekcji `--lg` i kontaktu |
 | `--radius-card` | `16px` | Zaokrąglenie kafli oferty |
@@ -138,15 +138,13 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 
 ## 5. Komponenty
 
-### Nagłówek i nawigacja
+### Nagłówek
 
-- `position: fixed`, wysokość 120px, chłodne jasne tło, `z-index: 999`.
-- Logo dwuwierszowe: „Michał Delikat” / „Strony internetowe”.
-- Linki desktop: Oferta, Realizacje, Kontakt; 12px, bez wersalików, hover w kolorze `--color-link`.
-- Mobile: hamburger 32×24px, trzy belki 2px; menu rozwija się do 320px, linki wyśrodkowane.
-- Menu zamyka się po kliknięciu linku, klawiszem Escape lub kliknięciem poza nagłówkiem.
-- Po scrollu dodawana jest klasa `.is-scrolled` i dolna linia.
-- Brak przezroczystego wariantu nad hero i brak ikony Instagrama.
+- Pływający prostokąt: biała powierzchnia, zaokrąglenie `--radius-card`, cień `--shadow-card`.
+- `position: fixed`, wysokość 120px, przezroczysty obszar wokół karty, `z-index: 999`.
+- Logo: „Michał Delikat”.
+- Brak nawigacji, hamburgera i menu mobilnego.
+- Po scrollu dodawana jest klasa `.is-scrolled` i mocniejszy cień.
 
 ### Hero
 
@@ -203,7 +201,7 @@ Wspólne: Montserrat 15px, waga 500, padding 12×24px, brak wersalików, przejś
 
 ### Linki i stany
 
-- Linki nawigacji dziedziczą kolor i nie mają podkreślenia; hover `--color-link`.
+- Linki w treści i stopce dziedziczą kolor i nie mają podkreślenia; hover `--color-link`.
 - Linki w treści są w kolorze `--color-link`, z zawsze widocznym podkreśleniem; hover `--color-accent`.
 - Focus klawiaturowy: `2px solid var(--color-link)`, offset 2px.
 - Zaznaczenie tekstu: tło `--color-accent-soft`, tekst `--color-text`.
@@ -214,8 +212,7 @@ Wspólne: Montserrat 15px, waga 500, padding 12×24px, brak wersalików, przejś
 | Element | Czas | Co się zmienia |
 |---|---|---|
 | Kolor linków i przycisków | 200–400ms | `color`, `background-color`, `border-color` |
-| Menu mobilne | 200ms | wysokość, widoczność |
-| Hamburger | 400ms | obrót i pozycja belek |
+| Cień nagłówka | 400ms | cień karty po scrollu |
 | Skip link | 200ms | `transform` |
 | Scroll do sekcji | smooth | `scroll-behavior: smooth` |
 
@@ -227,7 +224,7 @@ Jedyny breakpoint: **768px**.
 
 ### Poniżej 768px
 
-- Nawigacja przez hamburger; menu 320px wysokości.
+- Brak nawigacji mobilnej; nagłówek pokazuje wyłącznie logo.
 - Hero: h1 maks. 32–40px zależnie od szerokości, padding góra `168px`, dół `64px`.
 - Oferta: jedna kolumna, kafle min. 128px, tytuły 18px.
 - Realizacje: obraz nad opisem.
@@ -236,7 +233,7 @@ Jedyny breakpoint: **768px**.
 
 ### Od 768px
 
-- Pozioma nawigacja, logo 20px.
+- Logo 20px.
 - Hero: padding góra `184px`, dół `80px`.
 - Oferta: dwie kolumny, kafle min. 224px, tytuły 20px.
 - Realizacje: dwie kolumny, gap 64px, obraz 4:5.
@@ -282,7 +279,7 @@ Jedyny breakpoint: **768px**.
 
 ## 10. Uwagi wdrożeniowe
 
-- `global.css` zawiera tokeny, reset, typografię bazową, przyciski i nawigację. Nieużywane elementy pierwowzoru (karty projektów, formularze, hero-karuzela) zostały usunięte. Aktualny wygląd sekcji definiuje `styles.css`.
+- `global.css` zawiera tokeny, reset, typografię bazową, przyciski i nagłówek. Nieużywane elementy pierwowzoru (karty projektów, formularze, hero-karuzela) zostały usunięte. Aktualny wygląd sekcji definiuje `styles.css`.
 - `--section-space` ma wartość 32px, ale główne sekcje używają `padding-block: var(--space-24)` = 96px.
 - Wysokość menu mobilnego jest nadpisana lokalnie do 320px.
 - Kafle oferty używają `--radius-card` (16px) i `--shadow-card`; `--radius-full` jest zarezerwowany dla przycisków pill.
