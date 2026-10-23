@@ -167,7 +167,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 - Ikona liniowa na dole po lewej: 40px mobile / 48px desktop, stroke 1.5, kolor tekstu.
 - Tytuł 18px mobile / 20px desktop, waga 500; pod nim opis 15px w `--color-text-muted`.
 - Kafle mają min. 8rem mobile / 14rem desktop i padding 24px / 32px.
-- Hover: kafel unosi się o 4px, tło zmienia się na `--color-surface-soft`, ramka na `--color-link`, a cień wzmacnia się do `--shadow-card-hover`.
+- Kafle są tylko do odczytu — brak zmian na hover.
 - Siatka zajmuje pełną szerokość kontenera, tak samo jak karta realizacji; nie ma dodatkowego `max-width`.
 
 ### Realizacje
@@ -270,7 +270,7 @@ Jedyny breakpoint: **768px**.
 - Nie dopuszczaj tekstu o kontraście niższym niż 4,5:1.
 - Nie przywracaj pełnoekranowego hero (`100vh` / `100svh`).
 - Nie przywracaj sekcji „O mnie”, ikony Instagrama, przycisku „do góry” ani karuzeli.
-- Nie zmieniaj układu ani typografii kafla na hover; zmieniają się tylko tło, ramka, uniesienie i cień.
+- Kafle oferty są statyczne; nie dodawaj efektów hover.
 - Nie pogrubiaj nazw usług do 700 i nie zwiększaj ich powyżej 20px.
 - Nie dodawaj kolejnych krojów ani wag poza 500 i 700.
 - Nie zwiększaj liczby kolumn oferty powyżej dwóch.

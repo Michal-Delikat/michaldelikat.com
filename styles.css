@@ -245,18 +245,6 @@ site-footer {
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-card);
     text-align: left;
-    transition:
-        transform var(--duration-swift) var(--ease-default),
-        box-shadow var(--duration-swift) var(--ease-default),
-        background-color var(--duration-swift) var(--ease-default),
-        border-color var(--duration-swift) var(--ease-default);
-}
-
-.service-list--names li:hover {
-    transform: translateY(-4px);
-    background-color: var(--color-surface-soft);
-    border-color: var(--color-link);
-    box-shadow: var(--shadow-card-hover);
 }
 
 .service-copy {
