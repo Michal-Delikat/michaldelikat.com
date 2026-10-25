@@ -6,57 +6,8 @@
 
 /* --------------------------------------------------------------------------
    Fonty
-   Montserrat jest jedynym krojem systemu — również w roli display.
+   Montserrat (nagłówki) i Work Sans (treść) z Google Fonts, ładowane w HTML.
    -------------------------------------------------------------------------- */
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url('fonts/montserrat-v31-latin-500.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-        U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
-        U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url('fonts/montserrat-v31-latin-700.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-        U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122,
-        U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
-/* Latin Extended: polskie znaki diakrytyczne (ą, ć, ę, ł, ń, ś, ź, ż itd.).
-   Ten sam plik zmienny jest deklarowany osobno dla 500 i 700, żeby przeglądarka
-   nie przesłaniała nim podstawowego zakresu latin. */
-@font-face {
-    font-family: 'Montserrat';
-    src: url('fonts/montserrat-latin-ext.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
-        U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
-        U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F,
-        U+A720-A7FF;
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    src: url('fonts/montserrat-latin-ext.woff2') format('woff2');
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7,
-        U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F,
-        U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F,
-        U+A720-A7FF;
-}
 
 /* --------------------------------------------------------------------------
    1. Tokeny — jedno źródło prawdy
@@ -69,8 +20,8 @@
     --color-surface-soft: #E9EFF1;
     --color-text: #1B2427;
     --color-text-muted: #55646A;
-    --color-accent: #09426E;
-    --color-accent-hover: #073A61;
+    --color-accent: #173B61;
+    --color-accent-hover: #0F2C4A;
     --color-accent-soft: #E3ECF4;
     --color-on-accent: #FFFFFF;
     --color-link: #1F5F8B;
@@ -81,8 +32,8 @@
     --color-focus: var(--color-link);
 
     /* Typografia */
-    --font-body: "Montserrat", "Helvetica Neue", Arial, sans-serif; /* podstawowy sans-serif */
-    --font-display: var(--font-body); /* display = ten sam sans-serif */
+    --font-body: "Work Sans", "Helvetica Neue", Arial, sans-serif; /* podstawowy sans-serif */
+    --font-display: "Montserrat", "Helvetica Neue", Arial, sans-serif; /* nagłówki */
     --font-sans: var(--font-body); /* alias dla etykiet i nawigacji */
 
     --text-xs: 0.75rem;               /* 12px — nawigacja, privacy policy */
@@ -253,7 +204,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--font-body);
+    font-family: var(--font-display);
     font-weight: var(--weight-bold);
     line-height: var(--leading-tight);
     text-wrap: balance;
@@ -382,7 +333,7 @@ a:hover {
     align-items: center;
     justify-content: center;
     gap: var(--space-2);
-    min-height: 44px;
+    min-height: 55px;
     padding: var(--space-3) var(--space-6);
     border: var(--border-width-thin) solid transparent;
     border-radius: var(--radius-full);
@@ -444,7 +395,7 @@ a:hover {
     width: 100%;
     height: var(--header-height);
     padding-block-start: var(--space-4);
-    padding-inline: var(--container-padding);
+    padding-inline: calc(var(--container-padding) / 2);
     background-color: transparent;
     color: var(--color-text);
     transition:
@@ -458,13 +409,12 @@ a:hover {
     justify-content: space-between;
     width: 100%;
     max-width: calc(var(--container-max) - (2 * var(--container-padding)));
-    height: calc(var(--header-height) - var(--space-8));
+    height: auto;
     margin-inline: auto;
-    padding-inline: var(--space-6);
+    padding: var(--space-2) var(--space-4);
     background-color: var(--color-surface);
     border: var(--border-width-thin) solid var(--color-border);
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-card);
+    border-radius: var(--radius-full);
     transition:
         box-shadow var(--duration-base) var(--ease-default),
         border-color var(--duration-base) var(--ease-default);

@@ -49,7 +49,7 @@ Zasady:
 
 ### Font
 
-Jedyny krój: **Montserrat**, hostowany lokalnie.
+Nagłówki: **Montserrat**, treść: **Work Sans** — oba z Google Fonts.
 
 | Plik | Waga | Zakres |
 |---|---|---|
@@ -60,7 +60,8 @@ Jedyny krój: **Montserrat**, hostowany lokalnie.
 
 Plik latin-ext jest zadeklarowany osobno dla 500 i 700. Nie scalać tych deklaracji w jeden zakres `500 700`, ponieważ psuje to wybór pliku dla polskich znaków.
 
-- `--font-body`: Montserrat + fallbacki systemowe.
+- `--font-body`: Work Sans + fallbacki systemowe.
+- `--font-display`: Montserrat + fallbacki systemowe.
 - `--font-display` i `--font-sans`: aliasy `--font-body`.
 - Niedozwolone są inne kroje, w tym Cormorant, Minion i fonty systemowe w roli display.
 
@@ -196,7 +197,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 | `--secondary` | białe tło, obramowanie `--color-border`, tekst `--color-text`, pill | tło `--color-accent`, biały tekst |
 | `--ghost` | bez tła, tekst `--color-link` | tekst `--color-accent` |
 
-Wspólne: Montserrat 15px, waga 500, padding 12×24px, brak wersalików, przejścia 200ms. `--ghost` nie jest obecnie używany na stronie.
+Wspólne: Work Sans 15px, waga 500, padding 12×24px, brak wersalików, przejścia 200ms. `--ghost` nie jest obecnie używany na stronie.
 
 ### Linki i stany
 
@@ -253,7 +254,7 @@ Jedyny breakpoint: **768px**.
 ### Rób
 
 - Utrzymuj chłodną biel `#F4F7F8`, biel `#FFFFFF`, grafit `#1B2427`, muted `#55646A`, granat `#09426E` i niebieski interakcji `#1F5F8B` jako jedyne kolory interfejsu.
-- Składaj wszystko Montserratem 500/700, z lokalnych plików.
+- Nagłówki składaj Montserratem 500/700, treść Work Sansem 400/500/700 — z Google Fonts.
 - Stosuj 96px paddingu w sekcjach i 48px pod nagłówkiem sekcji.
 - Oddzielaj sekcje poziomą linią `1px #D9E1E3` na pełną szerokość.
 - Utrzymuj kafle oferty białe, z obramowaniem `#D9E1E3`, promieniem 12px, tytułem i krótkim opisem.

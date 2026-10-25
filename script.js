@@ -3,6 +3,7 @@ const HEADER_MARKUP = `
         <a class="site-logo" href="/" aria-label="Michał Delikat — strona główna">
             <span class="site-logo__top">Michał Delikat</span>
         </a>
+        <a class="btn btn--primary header-cta" href="/#kontakt">Napisz do mnie</a>
     </div>
 `;
 
