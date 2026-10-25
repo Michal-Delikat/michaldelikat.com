@@ -30,6 +30,7 @@ const HEADER_MARKUP = `
                 <ul class="nav-list">
                     <li><a class="nav-link" href="/#oferta">Oferta</a></li>
                     <li><a class="nav-link" href="/#realizacje">Realizacje</a></li>
+                    <li><a class="nav-link" href="/#o-mnie">O mnie</a></li>
                 </ul>
             </nav>
             <a class="btn btn--primary header-cta" href="/#kontakt">Napisz do mnie</a>
@@ -43,6 +44,7 @@ const HEADER_MARKUP = `
             <ul class="nav-list">
                 <li><a class="nav-link" href="/#oferta">Oferta</a></li>
                 <li><a class="nav-link" href="/#realizacje">Realizacje</a></li>
+                <li><a class="nav-link" href="/#o-mnie">O mnie</a></li>
             </ul>
             <a class="btn btn--primary nav-mobile__cta" href="/#kontakt">Napisz do mnie</a>
         </nav>

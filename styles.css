@@ -554,6 +554,70 @@ site-footer {
 }
 
 /* --------------------------------------------------------------------------
+   O mnie
+   -------------------------------------------------------------------------- */
+
+.about-section .section-title {
+    margin-bottom: var(--space-8);
+}
+
+.about {
+    max-width: 66ch;
+    margin-inline: auto;
+    text-align: left;
+}
+
+.about-body {
+    color: var(--color-text-muted);
+    font-size: var(--text-base);
+    line-height: 1.7;
+    text-wrap: pretty;
+}
+
+.about__media {
+    margin: 0;
+}
+
+.about__media img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border: var(--border-width-thin) solid var(--color-border);
+    border-radius: var(--radius-card);
+}
+
+/* Wariant ze zdjęciem — aktywowany klasą .about--with-photo */
+
+.about--with-photo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+.about--with-photo .about__media {
+    order: -1;
+    width: 100%;
+    max-width: 20rem;
+    margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+    .about--with-photo {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(12rem, 18rem);
+        align-items: start;
+        gap: var(--space-8);
+    }
+
+    .about--with-photo .about__media {
+        order: 0;
+        max-width: none;
+        margin-inline: 0;
+    }
+}
+
+/* --------------------------------------------------------------------------
    Kontakt
    -------------------------------------------------------------------------- */
 

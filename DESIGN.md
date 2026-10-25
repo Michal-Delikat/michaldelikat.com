@@ -132,9 +132,10 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 
 - **Header**: stały, 88px, pływająca biała karta z obramowaniem `--color-border`. Po 50px scrolla dodawana jest klasa `.is-scrolled`.
 - **Hero**: `100vh`/`var(--viewport-height, 100svh)` — wysokość blokowana raz w JS, stabilna także w Brave Mobile. Treść wyśrodkowana; tło to siatka 48px w `rgba(11, 41, 64, 0.06)`, maskowana radialnie. Mobile: góra `88px + 48px`, dół `64px`. Desktop: góra `88px + 64px`, dół `80px`. Treść maks. `44rem`.
-- **Sekcje**: 96px paddingu pionowego. Oferta i realizacje mają górną linię `1px`; kontakt również.
+- **Sekcje**: 96px paddingu pionowego. Oferta, realizacje, o mnie i kontakt mają górną linię `1px`.
 - **Oferta**: siatka na pełną szerokość kontenera, 1 kolumna mobile, 2 kolumny od 768px, gap 20px. Kafle bez stałej wysokości, padding 24px 28px, opisy 16px/1.6.
 - **Realizacje**: nagłówek sekcji, poniżej dwukolumnowa karta od 768px, gap 64px, obraz 4:5.
+- **O mnie**: nagłówek sekcji, tekst w jednej kolumnie `max-width: 66ch`. Opcjonalny wariant `.about--with-photo` daje dwie kolumny od 768px (tekst + portret 4:5).
 - **Kontakt**: wyśrodkowany, 96px paddingu, górna linia, nagłówek i wstęp, karta formularza Netlify, pod nią e-mail oraz linki LinkedIn i GitHub.
 - **Stopka**: ciemne tło `--color-dark`, jasny tekst. Po lewej link „Polityka prywatności”, po prawej ikony LinkedIn i GitHub oraz copyright. Linki mają 40×40px, ikony 20px, `aria-label` i `title`; hover zmienia kolor na `--color-accent-soft`.
 
@@ -145,7 +146,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 - Pływający prostokąt: biała powierzchnia, zaokrąglenie `--radius-card`, obramowanie `--color-border`.
 - `position: fixed`, pastylka `--header-height` + 16px odstępu od góry, `z-index: 999`.
 - Logo: „Michał Delikat”.
-- Desktop: nawigacja „Oferta” i „Realizacje” oraz CTA „Napisz do mnie”.
+- Desktop: nawigacja „Oferta”, „Realizacje” i „O mnie” oraz CTA „Napisz do mnie”.
 - Mobile: hamburger rozwijający menu w karcie headera; CTA „Napisz do mnie” na dole menu.
 - Po scrollu dodawana jest klasa `.is-scrolled`.
 
@@ -158,7 +159,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 
 ### Nagłówki sekcji
 
-- „Oferta”, „Realizacje”, „Kontakt” mają identyczny styl: 24px, waga 700, wyśrodkowanie, `margin-bottom: 48px`.
+- „Oferta”, „Realizacje”, „O mnie”, „Kontakt” mają identyczny styl: 24px, waga 700, wyśrodkowanie, `margin-bottom: 48px`.
 - Nie różnicuj wielkości ani wagi nagłówka kontaktu względem pozostałych sekcji.
 
 ### Kafle oferty
@@ -183,6 +184,15 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 - CTA: biały pill **„Odwiedź stronę”** z ikoną strzałki; hover wypełnia się `--color-accent`, tekst staje się biały.
 - Cała karta nie jest linkiem — klikalny jest tylko przycisk.
 
+### O mnie
+
+- Nagłówek „O mnie” — ten sam styl co pozostałe sekcje, odstęp 32px pod nim.
+- Tekst bez karty: `max-width: 66ch`, wyśrodkowany blok, tekst wyrównany do lewej.
+- Body: cały tekst bio, 16px, `line-height: 1.7`, `--color-text-muted`, `text-wrap: pretty`.
+- Link „Maquis” do Board Game Arena z `target="_blank"` i `rel="noopener noreferrer"`, styl `link-underline`; nazwy „Board Game Arena” i „Side Room Games” z twardymi spacjami.
+- Wariant `.about--with-photo` (nieaktywny domyślnie): zdjęcie obok tekstu, mobile nad tekstem (maks. 20rem) / od 768px dwie kolumny, obraz 4:5 z `--radius-card` i ramką `--color-border`.
+- Bez placeholdera, drugiego CTA i dodatkowych treści.
+
 ### Kontakt
 
 - Nagłówek „Kontakt” — ten sam styl co „Oferta” i „Realizacje”, wstęp 16px `--color-text-muted`.
@@ -190,7 +200,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 - Pola: `label` nad polem, wysokość min. 48px, font 16px, `--radius-field`, ramka `--color-border-strong` (kontrast ≥ 3:1), placeholder `--color-placeholder`, focus `--color-link`.
 - Siatka imię/e-mail: 1 kolumna mobile, 2 kolumny od 768px; wiadomość pełną szerokością.
 - Formularz Netlify Forms (`name="kontakt"`), honeypot `bot-field` poza ekranem, wysyłka fetch, status w `aria-live`.
-- Pod formularzem e-mail `kontakt@michaldelikat.com` jako alternatywa i nota „Krosno i okolice / projekty zdalne”.
+- Pod formularzem e-mail `kontakt@michaldelikat.com` jako alternatywa oraz linki LinkedIn i GitHub.
 
 ### Przyciski
 
@@ -272,7 +282,7 @@ Jedyny breakpoint: **768px**.
 - Nie używaj czystej czerni ani czystej bieli w tekście i tle strony; wyjątki to `surface` i `on-accent`.
 - Nie dopuszczaj tekstu o kontraście niższym niż 4,5:1.
 - Nie przywracaj pełnoekranowego hero (`100vh` / `100svh`).
-- Nie przywracaj sekcji „O mnie”, ikony Instagrama, przycisku „do góry” ani karuzeli.
+- Nie dodawaj ikony Instagrama, przycisku „do góry” ani karuzeli.
 - Kafle oferty są statyczne; nie dodawaj efektów hover.
 - Nie pogrubiaj nazw usług do 700 i nie zwiększaj ich powyżej 20px.
 - Nie dodawaj kolejnych krojów ani wag poza 500 i 700.
