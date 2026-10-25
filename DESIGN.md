@@ -33,6 +33,7 @@ Strona jest jednostronicową wizytówką usługową dla małych firm. Porządek 
 | `--color-border-strong` | `#7D8B91` | Ramki pól formularza (kontrast ≥ 3:1) |
 | `--color-highlight` | `#C79A3B` | Opcjonalny detal tła; obecnie nieużywany, nigdy jako kolor tekstu |
 | `--color-focus` | `var(--color-link)` | Outline klawiaturowy |
+| `--section-muted` | `var(--color-accent-soft)` | Tekst na ciemnych sekcjach |
 
 Zasady:
 
@@ -136,9 +137,9 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 - **Header**: stały, 88px, pływająca biała karta z obramowaniem `--color-border`. Po 50px scrolla dodawana jest klasa `.is-scrolled`.
 - **Hero**: `100vh`/`var(--viewport-height, 100svh)` — wysokość blokowana raz w JS, stabilna także w Brave Mobile. Treść wyśrodkowana; tło to siatka 48px w `rgba(11, 41, 64, 0.06)`, maskowana radialnie. Mobile: góra `88px + 48px`, dół `64px`. Desktop: góra `88px + 64px`, dół `80px`. Treść maks. `44rem`.
 - **Sekcje**: 96px paddingu pionowego. Oferta, realizacje, o mnie i kontakt mają górną linię `1px`.
-- **Oferta**: siatka na pełną szerokość kontenera, 1 kolumna mobile, 2 kolumny od 768px, gap 20px. Kafle bez stałej wysokości, padding 24px 28px, opisy 16px/1.6.
+- **Oferta**: granatowe tło `--color-dark` i klasa `.section--dark`, biały nagłówek. Siatka na pełną szerokość kontenera, 1 kolumna mobile, 2 kolumny od 768px, gap 20px. Kafle `.card`: półprzezroczyste białe tło `rgba(255,255,255,0.06)`, ramka `rgba(255,255,255,0.16)`, biały tytuł i ikony, opis `--section-muted`; bez stałej wysokości, padding 24px 28px.
 - **Realizacje**: nagłówek sekcji, poniżej dwukolumnowa karta od 768px, gap 64px, obraz 4:5.
-- **O mnie**: nagłówek sekcji, tekst w jednej kolumnie `max-width: 66ch`. Opcjonalny wariant `.about--with-photo` daje dwie kolumny od 768px (tekst + portret 4:5).
+- **O mnie**: białe tło `--color-surface`, nagłówek sekcji, tekst w jednej kolumnie `max-width: 66ch`. Opcjonalny wariant `.about--with-photo` daje dwie kolumny od 768px (tekst + portret 4:5).
 - **Kontakt**: wyśrodkowany, 96px paddingu, górna linia, nagłówek i wstęp, karta formularza Netlify, pod nią e-mail oraz linki LinkedIn i GitHub.
 - **Stopka**: ciemne tło `--color-dark`, jasny tekst. Po lewej link „Polityka prywatności”, po prawej ikony LinkedIn i GitHub oraz copyright. Linki mają 40×40px, ikony 20px, `aria-label` i `title`; hover zmienia kolor na `--color-accent-soft`.
 
@@ -199,7 +200,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 ### Kontakt
 
 - Nagłówek „Kontakt” — ten sam styl co „Oferta” i „Realizacje”, wstęp 16px `--color-text-muted`.
-- Karta formularza: `--color-surface`, ramka `--color-border`, `--radius-card`, padding 24px / 32px desktop, maks. 42rem.
+- Formularz bez karty: brak tła, ramki i paddingu, maks. 42rem, wyśrodkowany.
 - Pola: `label` nad polem, wysokość min. 48px, font 16px, `--radius-field`, ramka `--color-border-strong` (kontrast ≥ 3:1), placeholder `--color-placeholder`, focus `--color-link`.
 - Siatka imię/e-mail: 1 kolumna mobile, 2 kolumny od 768px; wiadomość pełną szerokością.
 - Formularz Netlify Forms (`name="kontakt"`), honeypot `bot-field` poza ekranem, wysyłka fetch. Status wysyłki w `aria-live` znajduje się po prawej stronie przycisku (na wąskich ekranach pod nim).

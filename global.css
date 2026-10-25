@@ -121,6 +121,7 @@
     --color-border-strong: #7D8B91;
     --color-highlight: #C79A3B;
     --color-focus: var(--color-link);
+    --section-muted: var(--color-accent-soft);
 
     /* Typografia */
     --font-body: "Work Sans", "Helvetica Neue", Arial, sans-serif; /* podstawowy sans-serif */

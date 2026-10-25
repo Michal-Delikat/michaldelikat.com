@@ -387,6 +387,32 @@ site-footer {
    Oferta — sama lista nazw usług
    -------------------------------------------------------------------------- */
 
+.section--dark {
+    background-color: var(--color-dark);
+}
+
+.section--dark .section-title {
+    color: var(--color-on-accent);
+}
+
+.section--dark .card {
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: var(--section-muted);
+}
+
+.section--dark .card h3 {
+    color: #fff;
+}
+
+.section--dark .card svg {
+    color: #fff;
+}
+
+.section--dark .card .service-desc {
+    color: var(--section-muted);
+}
+
 .service-list {
     display: grid;
     grid-template-columns: 1fr;
@@ -556,6 +582,10 @@ site-footer {
 /* --------------------------------------------------------------------------
    O mnie
    -------------------------------------------------------------------------- */
+
+#o-mnie {
+    background-color: var(--color-surface);
+}
 
 .about-section .section-title {
     margin-bottom: var(--space-8);
@@ -732,10 +762,6 @@ site-footer {
     position: relative;
     max-width: 42rem;
     margin-inline: auto;
-    padding: var(--space-6);
-    background-color: var(--color-surface);
-    border: var(--border-width-thin) solid var(--color-border);
-    border-radius: var(--radius-card);
     text-align: left;
 }
 
@@ -951,10 +977,6 @@ site-footer {
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         gap: var(--space-16);
         align-items: center;
-    }
-
-    .contact-form {
-        padding: var(--space-8);
     }
 
     .contact-form__grid {
