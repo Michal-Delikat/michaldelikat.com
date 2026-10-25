@@ -692,6 +692,8 @@ site-footer {
     position: relative;
     display: inline-flex;
     align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: var(--space-2);
 }
 
@@ -737,23 +739,6 @@ site-footer {
         left: calc(100% + var(--space-3));
         transform: translateY(-50%);
     }
-}
-
-.contact__social {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--space-2);
-    margin-top: var(--space-2);
-    font-family: var(--font-sans);
-    font-size: var(--text-xs);
-    letter-spacing: var(--tracking-widest);
-    text-transform: uppercase;
-    color: var(--color-text-muted);
-}
-
-.contact__social a:hover {
-    color: var(--color-link);
 }
 
 /* Formularz kontaktowy */
