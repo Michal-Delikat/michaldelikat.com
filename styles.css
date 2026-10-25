@@ -586,13 +586,21 @@ site-footer {
     user-select: text;
 }
 
-.contact__note {
+.contact__social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
     margin-top: var(--space-2);
     font-family: var(--font-sans);
     font-size: var(--text-xs);
     letter-spacing: var(--tracking-widest);
     text-transform: uppercase;
     color: var(--color-text-muted);
+}
+
+.contact__social a:hover {
+    color: var(--color-link);
 }
 
 /* Formularz kontaktowy */
@@ -728,9 +736,6 @@ site-footer {
 .footer__nav-link {
     color: var(--color-on-accent);
     font-size: var(--text-xs);
-    text-decoration: underline;
-    text-underline-offset: 0.25em;
-    text-decoration-thickness: 1px;
     transition: color var(--duration-fast) var(--ease-default);
 }
 
