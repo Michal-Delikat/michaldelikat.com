@@ -114,8 +114,8 @@ Zasady:
 |---|---|---|
 | `--container-max` | `1300px` | Maksymalna szerokość kontenera |
 | `--container-padding` | `32px` | Poziomy padding, również mobilnie |
-| `--header-height` | `120px` | Stała wysokość nagłówka i `scroll-padding-top` |
-| `--mobile-menu-height` | usunięty | Nagłówek nie ma menu mobilnego |
+| `--header-height` | `5.5rem` (88px) | Wysokość pastylki headera; `scroll-padding-top` = wartość + 16px |
+| `--mobile-menu-height` | — | Nieużywany; menu mobilne animuje `max-height` |
 | `--section-space` | `32px` | Bazowy token; sekcje główne używają `--space-24` |
 | `--space-24` | `96px` | Pionowy padding sekcji `--lg` i kontaktu |
 | `--radius-card` | `16px` | Zaokrąglenie kafli oferty |
@@ -129,23 +129,24 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 
 ### Rytm strony
 
-- **Header**: stały, 120px, chłodne jasne tło (`--color-bg`), bez obramowania na starcie. Po 50px scrolla pojawia się dolna linia `#D9E1E3`.
-- **Hero**: bez `100vh`. Wysokość wynika z treści i paddingu. Mobile: góra `120px + 48px`, dół `64px`. Desktop: góra `120px + 64px`, dół `80px`. Treść maks. `44rem`.
+- **Header**: stały, 88px, pływająca biała karta z obramowaniem `--color-border`. Po 50px scrolla dodawana jest klasa `.is-scrolled`.
+- **Hero**: `100vh`/`100dvh`, treść wyrównana do dołu. Mobile: góra `88px + 48px`, dół `64px`. Desktop: góra `88px + 64px`, dół `80px`. Treść maks. `44rem`.
 - **Sekcje**: 96px paddingu pionowego. Oferta i realizacje mają górną linię `1px`; kontakt również.
-- **Oferta**: siatka na pełną szerokość kontenera, 1 kolumna mobile, 2 kolumny od 768px, gap 24px mobile / 32px desktop. Kafle: min. 8rem mobile / 14rem desktop, padding 24px / 32px.
+- **Oferta**: siatka na pełną szerokość kontenera, 1 kolumna mobile, 2 kolumny od 768px, gap 20px. Kafle bez stałej wysokości, padding 24px 28px, opisy 16px/1.6.
 - **Realizacje**: nagłówek sekcji, poniżej dwukolumnowa karta od 768px, gap 64px, obraz 4:5.
 - **Kontakt**: wyśrodkowany, 96px paddingu, górna linia, nagłówek jak w pozostałych sekcjach.
-- **Stopka**: ciemne tło `--color-dark`, jasny tekst, copyright oraz ikony LinkedIn i GitHub. Linki mają 40×40px, ikony 20px, `aria-label` i `title`; hover zmienia kolor na `--color-accent-soft`.
+- **Stopka**: ciemne tło `--color-dark`, jasny tekst. Po lewej link „Polityka prywatności”, po prawej ikony LinkedIn i GitHub oraz copyright. Linki mają 40×40px, ikony 20px, `aria-label` i `title`; hover zmienia kolor na `--color-accent-soft`.
 
 ## 5. Komponenty
 
 ### Nagłówek
 
-- Pływający prostokąt: biała powierzchnia, zaokrąglenie `--radius-card`, cień `--shadow-card`.
-- `position: fixed`, wysokość 120px, przezroczysty obszar wokół karty, `z-index: 999`.
+- Pływający prostokąt: biała powierzchnia, zaokrąglenie `--radius-card`, obramowanie `--color-border`.
+- `position: fixed`, pastylka `--header-height` + 16px odstępu od góry, `z-index: 999`.
 - Logo: „Michał Delikat”.
-- Brak nawigacji, hamburgera i menu mobilnego.
-- Po scrollu dodawana jest klasa `.is-scrolled` i mocniejszy cień.
+- Desktop: nawigacja „Oferta” i „Realizacje” oraz CTA „Napisz do mnie”.
+- Mobile: hamburger rozwijający menu w karcie headera; CTA „Napisz do mnie” na dole menu.
+- Po scrollu dodawana jest klasa `.is-scrolled`.
 
 ### Hero
 
