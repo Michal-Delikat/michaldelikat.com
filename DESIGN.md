@@ -131,7 +131,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 ### Rytm strony
 
 - **Header**: stały, 88px, pływająca biała karta z obramowaniem `--color-border`. Po 50px scrolla dodawana jest klasa `.is-scrolled`.
-- **Hero**: `100vh`/`var(--viewport-height, 100svh)` — wysokość blokowana raz w JS, stabilna także w Brave Mobile. Treść wyrównana do dołu. Mobile: góra `88px + 48px`, dół `64px`. Desktop: góra `88px + 64px`, dół `80px`. Treść maks. `44rem`.
+- **Hero**: `100vh`/`var(--viewport-height, 100svh)` — wysokość blokowana raz w JS, stabilna także w Brave Mobile. Treść wyśrodkowana; tło to siatka 48px w `rgba(11, 41, 64, 0.06)`, maskowana radialnie. Mobile: góra `88px + 48px`, dół `64px`. Desktop: góra `88px + 64px`, dół `80px`. Treść maks. `44rem`.
 - **Sekcje**: 96px paddingu pionowego. Oferta i realizacje mają górną linię `1px`; kontakt również.
 - **Oferta**: siatka na pełną szerokość kontenera, 1 kolumna mobile, 2 kolumny od 768px, gap 20px. Kafle bez stałej wysokości, padding 24px 28px, opisy 16px/1.6.
 - **Realizacje**: nagłówek sekcji, poniżej dwukolumnowa karta od 768px, gap 64px, obraz 4:5.
@@ -151,7 +151,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 
 ### Hero
 
-- H1: „Szybkie i nowoczesne strony internetowe”.
+- H1: „Szybkie i przejrzyste strony internetowe”, pod nim lead „Od prostej wizytówki po rozbudowany katalog produktów i usług.”.
 - Eyebrow: „Krosno i okolice / Projekty zdalne”, 12px uppercase.
 - Główny CTA: granatowy pill **„Napisz do mnie”** z `mailto:michal.delikat0@gmail.com`; biały tekst na tle `--color-accent`.
 - Brak eybrowa, brak zdjęcia, brak pełnoekranowej karuzeli.

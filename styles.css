@@ -204,6 +204,7 @@ site-footer {
    -------------------------------------------------------------------------- */
 
 .page-hero {
+    position: relative;
     display: flex;
     align-items: stretch;
     min-height: 100vh;
@@ -213,17 +214,34 @@ site-footer {
         var(--space-16);
 }
 
+.page-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(to right, rgba(11, 41, 64, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(11, 41, 64, 0.06) 1px, transparent 1px);
+    background-size: var(--space-12) var(--space-12);
+    -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, #000 0%, #000 40%, transparent 80%);
+    mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, #000 0%, #000 40%, transparent 80%);
+    pointer-events: none;
+}
+
 .page-hero__inner {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
     gap: var(--space-6);
+    text-align: center;
 }
 
 .page-hero__copy {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: var(--space-6);
     max-width: 44rem;
 }
@@ -251,10 +269,20 @@ site-footer {
     display: block;
 }
 
+.hero-lead {
+    max-width: 36rem;
+    color: var(--color-text-muted);
+    font-size: var(--text-lg);
+    line-height: var(--leading-normal);
+    letter-spacing: var(--tracking-normal);
+    text-wrap: pretty;
+}
+
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
     gap: var(--space-4) var(--space-8);
 }
 
