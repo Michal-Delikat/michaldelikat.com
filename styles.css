@@ -574,6 +574,14 @@ site-footer {
     text-wrap: pretty;
 }
 
+.about-body a {
+    color: var(--color-link);
+}
+
+.about-body a:hover {
+    color: var(--color-accent);
+}
+
 .about__media {
     margin: 0;
 }
@@ -648,6 +656,57 @@ site-footer {
     letter-spacing: var(--tracking-tight);
     -webkit-user-select: text;
     user-select: text;
+}
+
+.contact__email-inner {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.contact__email-link {
+    color: inherit;
+}
+
+.copy-mail {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    color: var(--color-text-muted);
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+    transition: color var(--duration-fast) var(--ease-default);
+}
+
+.copy-mail:hover {
+    color: var(--color-link);
+}
+
+.copy-mail__status {
+    position: absolute;
+    bottom: calc(100% + var(--space-2));
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--color-link);
+    font-family: var(--font-sans);
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-wide);
+    line-height: 1.2;
+    white-space: nowrap;
+    pointer-events: none;
+}
+
+@media (min-width: 768px) {
+    .copy-mail__status {
+        top: 50%;
+        bottom: auto;
+        left: calc(100% + var(--space-3));
+        transform: translateY(-50%);
+    }
 }
 
 .contact__social {
@@ -734,9 +793,16 @@ site-footer {
     resize: vertical;
 }
 
+.contact-form__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: var(--space-3) var(--space-4);
+    margin-top: var(--space-8);
+}
+
 .contact-form__submit {
     width: 100%;
-    margin-top: 1.25rem;
 }
 
 .contact-form__submit:disabled {
@@ -752,7 +818,7 @@ site-footer {
 }
 
 .contact-form__status {
-    margin-top: var(--space-4);
+    flex: 1 1 14rem;
     font-size: var(--text-sm);
     line-height: var(--leading-normal);
 }

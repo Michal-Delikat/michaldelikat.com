@@ -120,8 +120,51 @@ function initHeader(header) {
     handleScroll();
 }
 
+const COPY_MAIL_FEEDBACK_DURATION = 2000;
+
+function initCopyMail() {
+    let statusTimeoutId;
+    let activeStatus = null;
+
+    function showCopyStatus(status) {
+        if (!status) return;
+
+        window.clearTimeout(statusTimeoutId);
+
+        if (activeStatus && activeStatus !== status) {
+            activeStatus.textContent = "";
+        }
+
+        activeStatus = status;
+        status.textContent = "Skopiowano";
+        statusTimeoutId = window.setTimeout(() => {
+            status.textContent = "";
+            activeStatus = null;
+        }, COPY_MAIL_FEEDBACK_DURATION);
+    }
+
+    document.addEventListener("click", (event) => {
+        const link = event.target.closest ? event.target.closest(".copy-mail") : null;
+        if (!link) return;
+
+        const address = link.dataset.email;
+
+        if (!address || !navigator.clipboard || !navigator.clipboard.writeText) {
+            return;
+        }
+
+        navigator.clipboard.writeText(address).then(() => {
+            const container = link.closest(".contact__email-inner") || link.parentElement;
+            const status = container ? container.querySelector(".copy-mail__status") : null;
+            showCopyStatus(status);
+        }).catch(() => {
+            // Brak dostępu do schowka — adres nadal można skopiować ręcznie.
+        });
+    });
+}
+
 const CONTACT_FORM_SUCCESS = "Dziękuję, odpowiem najszybciej jak to możliwe.";
-const CONTACT_FORM_ERROR = 'Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz bezpośrednio na <a href="mailto:kontakt@michaldelikat.com">kontakt@michaldelikat.com</a>.';
+const CONTACT_FORM_ERROR = "Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz bezpośrednio na kontakt@michaldelikat.com.";
 
 function initContactForm(form) {
     const submitButton = form.querySelector('button[type="submit"]');
@@ -191,7 +234,7 @@ function initContactForm(form) {
             status.classList.add("contact-form__status--error");
             status.setAttribute("role", "alert");
             status.setAttribute("aria-live", "assertive");
-            status.innerHTML = CONTACT_FORM_ERROR;
+            status.textContent = CONTACT_FORM_ERROR;
         } finally {
             submitting = false;
             submitButton.disabled = false;
@@ -228,3 +271,5 @@ if (contactForm) {
 }
 
 initViewportHeight();
+
+initCopyMail();

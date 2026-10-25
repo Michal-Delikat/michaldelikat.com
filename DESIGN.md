@@ -49,7 +49,7 @@ Zasady:
 
 ### Font
 
-Nagłówki: **Montserrat**, treść: **Work Sans** — oba z Google Fonts.
+Nagłówki: **Montserrat**, treść: **Work Sans** — oba hostowane lokalnie z katalogu `fonts/`, bez połączenia z Google Fonts.
 
 | Plik | Waga | Zakres |
 |---|---|---|
@@ -57,8 +57,10 @@ Nagłówki: **Montserrat**, treść: **Work Sans** — oba z Google Fonts.
 | `fonts/montserrat-v31-latin-700.woff2` | 700 | latin |
 | `fonts/montserrat-latin-ext.woff2` | 500 | latin-ext, polskie znaki |
 | `fonts/montserrat-latin-ext.woff2` | 700 | latin-ext, polskie znaki |
+| `fonts/worksans-latin.woff2` | 400 / 500 / 700 | latin |
+| `fonts/worksans-latin-ext.woff2` | 400 / 500 / 700 | latin-ext, polskie znaki |
 
-Plik latin-ext jest zadeklarowany osobno dla 500 i 700. Nie scalać tych deklaracji w jeden zakres `500 700`, ponieważ psuje to wybór pliku dla polskich znaków.
+Pliki Work Sans są zmiennymi fontami — ten sam plik obsługuje trzy wagi. Plik latin-ext jest zadeklarowany osobno dla każdej wagi. Nie scalać deklaracji w zakres `500 700`, ponieważ psuje to wybór pliku dla polskich znaków.
 
 - `--font-body`: Work Sans + fallbacki systemowe.
 - `--font-display`: Montserrat + fallbacki systemowe.
@@ -118,11 +120,12 @@ Zasady:
 | `--mobile-menu-height` | — | Nieużywany; menu mobilne animuje `max-height` |
 | `--section-space` | `32px` | Bazowy token; sekcje główne używają `--space-24` |
 | `--space-24` | `96px` | Pionowy padding sekcji `--lg` i kontaktu |
+| `--radius-button` | `8px` | Zaokrąglenie przycisków |
 | `--radius-field` | `8px` | Zaokrąglenie pól formularza |
 | `--radius-card` | `16px` | Zaokrąglenie kafli oferty i karty formularza |
 | `--shadow-card` | `0 8px 20px -8px color-mix(in srgb, var(--color-text) 10%, transparent)` | Subtelny, wąski cień kafli oferty |
 | `--shadow-card-hover` | `0 12px 24px -8px color-mix(in srgb, var(--color-text) 18%, transparent)` | Wzmocniony, wąski cień kafla w stanie hover |
-| `--radius-full` | `9999px` | Przyciski pill |
+| `--radius-full` | `9999px` | Rezerwa systemowa |
 | `--border-width-thin` | `1px` | Linie sekcji, obramowania kafli i obrazu |
 | Breakpoint | `768px` | Jedyny breakpoint strony |
 
@@ -154,7 +157,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 
 - H1: „Szybkie i przejrzyste strony internetowe”, pod nim lead „Od prostej wizytówki po rozbudowany katalog produktów i usług.”.
 - Eyebrow: „Krosno i okolice / Projekty zdalne”, 12px uppercase.
-- Główny CTA: granatowy pill **„Napisz do mnie”** z `mailto:michal.delikat0@gmail.com`; biały tekst na tle `--color-accent`.
+- Główny CTA: granatowy przycisk **„Napisz do mnie”** jako kotwica do `#kontakt`; biały tekst na tle `--color-accent`.
 - Brak eybrowa, brak zdjęcia, brak pełnoekranowej karuzeli.
 
 ### Nagłówki sekcji
@@ -181,7 +184,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 - Tytuł duży, 24–40px, waga 500.
 - Opis: 16px, `line-height: 1.5`.
 - Meta: dwie kolumny, etykiety 12px uppercase `#55646A`, wartości 16px, linia `1px #D9E1E3` nad blokiem.
-- CTA: biały pill **„Odwiedź stronę”** z ikoną strzałki; hover wypełnia się `--color-accent`, tekst staje się biały.
+- CTA: biały przycisk **„Odwiedź stronę”** z ikoną strzałki; hover wypełnia się `--color-accent`, tekst staje się biały.
 - Cała karta nie jest linkiem — klikalny jest tylko przycisk.
 
 ### O mnie
@@ -189,7 +192,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 - Nagłówek „O mnie” — ten sam styl co pozostałe sekcje, odstęp 32px pod nim.
 - Tekst bez karty: `max-width: 66ch`, wyśrodkowany blok, tekst wyrównany do lewej.
 - Body: cały tekst bio, 16px, `line-height: 1.7`, `--color-text-muted`, `text-wrap: pretty`.
-- Link „Maquis” do Board Game Arena z `target="_blank"` i `rel="noopener noreferrer"`, styl `link-underline`; nazwy „Board Game Arena” i „Side Room Games” z twardymi spacjami.
+- Link „Maquis” do Board Game Arena z `target="_blank"` i `rel="noopener noreferrer"`, bez podkreślenia, kolor `--color-link`; nazwy „Board Game Arena” i „Side Room Games” z twardymi spacjami.
 - Wariant `.about--with-photo` (nieaktywny domyślnie): zdjęcie obok tekstu, mobile nad tekstem (maks. 20rem) / od 768px dwie kolumny, obraz 4:5 z `--radius-card` i ramką `--color-border`.
 - Bez placeholdera, drugiego CTA i dodatkowych treści.
 
@@ -199,15 +202,15 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 - Karta formularza: `--color-surface`, ramka `--color-border`, `--radius-card`, padding 24px / 32px desktop, maks. 42rem.
 - Pola: `label` nad polem, wysokość min. 48px, font 16px, `--radius-field`, ramka `--color-border-strong` (kontrast ≥ 3:1), placeholder `--color-placeholder`, focus `--color-link`.
 - Siatka imię/e-mail: 1 kolumna mobile, 2 kolumny od 768px; wiadomość pełną szerokością.
-- Formularz Netlify Forms (`name="kontakt"`), honeypot `bot-field` poza ekranem, wysyłka fetch, status w `aria-live`.
-- Pod formularzem e-mail `kontakt@michaldelikat.com` jako alternatywa oraz linki LinkedIn i GitHub.
+- Formularz Netlify Forms (`name="kontakt"`), honeypot `bot-field` poza ekranem, wysyłka fetch. Status wysyłki w `aria-live` znajduje się po prawej stronie przycisku (na wąskich ekranach pod nim).
+- Pod formularzem e-mail `kontakt@michaldelikat.com` jako link `mailto:` oraz osobny przycisk „Kopiuj” (`navigator.clipboard`, `title`, `aria-label`, status `aria-live`). Kliknięcie przycisku nie otwiera klienta poczty. Dalej linki LinkedIn i GitHub.
 
 ### Przyciski
 
 | Wariant | Wygląd | Hover |
 |---|---|---|
-| `--primary` | tło `--color-accent` (`#09426E`), biały tekst, pill, min. 44px | tło `--color-accent-hover` (`#073A61`) |
-| `--secondary` | białe tło, obramowanie `--color-border`, tekst `--color-text`, pill | tło `--color-accent`, biały tekst |
+| `--primary` | tło `--color-accent` (`#09426E`), biały tekst, promień 8px, min. 44px | tło `--color-accent-hover` (`#073A61`) |
+| `--secondary` | białe tło, obramowanie `--color-border`, tekst `--color-text`, promień 8px | tło `--color-accent`, biały tekst |
 | `--ghost` | bez tła, tekst `--color-link` | tekst `--color-accent` |
 
 Wspólne: Work Sans 15px, waga 500, padding 12×24px, brak wersalików, przejścia 200ms. `--ghost` nie jest obecnie używany na stronie.
@@ -259,7 +262,7 @@ Jedyny breakpoint: **768px**.
 - Menu mobilne: `aria-expanded`, `aria-controls`, zamykanie Escape, powrót focusu do przycisku.
 - Obraz realizacji ma opisowy `alt`.
 - Link zewnętrzny ma `target="_blank"` i `rel="noopener"`.
-- E-mail jest zaznaczalny, ale nie jest linkiem; akcja mailto jest na przycisku.
+- E-mail jest zaznaczalny i jest linkiem `mailto:`; osobny przycisk „Kopiuj” kopiuje adres do schowka.
 - Nie usuwać skip linku, focus-visible ani obsługi reduced motion.
 
 ## 9. Zasady „rób / nie rób”
@@ -267,11 +270,11 @@ Jedyny breakpoint: **768px**.
 ### Rób
 
 - Utrzymuj chłodną biel `#F4F7F8`, biel `#FFFFFF`, grafit `#1B2427`, muted `#55646A`, granat `#09426E` i niebieski interakcji `#1F5F8B` jako jedyne kolory interfejsu.
-- Nagłówki składaj Montserratem 500/700, treść Work Sansem 400/500/700 — z Google Fonts.
+- Nagłówki składaj Montserratem 500/700, treść Work Sansem 400/500/700 — z lokalnych plików w `fonts/`.
 - Stosuj 96px paddingu w sekcjach i 48px pod nagłówkiem sekcji.
 - Oddzielaj sekcje poziomą linią `1px #D9E1E3` na pełną szerokość.
 - Utrzymuj kafle oferty białe, z obramowaniem `#D9E1E3`, promieniem 12px, tytułem i krótkim opisem.
-- Utrzymuj główne CTA jako `mailto:` z tekstem „Napisz do mnie”.
+- Utrzymuj główne CTA jako kotwicę do `#kontakt` z tekstem „Napisz do mnie”.
 - Zostawiaj dużo pustej przestrzeni; używaj jednej ikony liniowej na kafel. Opisy usług są częścią treści.
 - Pisz teksty zwięźle, po polsku, bez wersalików w nawigacji i przyciskach.
 
@@ -295,10 +298,10 @@ Jedyny breakpoint: **768px**.
 - `global.css` zawiera tokeny, reset, typografię bazową, przyciski i nagłówek. Nieużywane elementy pierwowzoru (karty projektów, formularze, hero-karuzela) zostały usunięte. Aktualny wygląd sekcji definiuje `styles.css`.
 - `--section-space` ma wartość 32px, ale główne sekcje używają `padding-block: var(--space-24)` = 96px.
 - Wysokość menu mobilnego jest nadpisana lokalnie do 320px.
-- Kafle oferty używają `--radius-card` (16px) i `--shadow-card`; `--radius-full` jest zarezerwowany dla przycisków pill.
+- Kafle oferty używają `--radius-card` (16px) i `--shadow-card`; przyciski używają `--radius-button` (8px).
 - Nazwy usług są wagą 500, nie 700.
 - Sekcja kontaktu używa dokładnie tej samej klasy `.section-title` co oferta i realizacje.
-- E-mail w kontakcie ma `user-select: text` i nie jest opakowany w `mailto:`.
+- E-mail w kontakcie ma `user-select: text`, jest linkiem `mailto:`, a osobny przycisk „Kopiuj” kopiuje adres do schowka.
 - Nagłówek nie ma już przezroczystego wariantu; dolna linia pojawia się dopiero po scrollu.
 - W obecnym kodzie nie ma osobnego paska nad nagłówkiem; `--color-dark` obsługuje stopkę.
 - Stopka ma ciemne tło `--color-dark` i jasny tekst `--color-on-accent`.

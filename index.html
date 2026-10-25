@@ -21,10 +21,6 @@
         <meta property="og:site_name" content="Michał Delikat">
         <meta name="twitter:card" content="summary">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Work+Sans:wght@400;500;700&display=swap">
-
         <link rel="stylesheet" href="global.css">
         <link rel="stylesheet" href="styles.css">
 
@@ -180,7 +176,7 @@
 
                     <div class="about">
                         <div class="about__body">
-                            <p class="about-body">Projektuję i buduję strony internetowe dla małych i średnich firm z całej Polski, zwłaszcza z Krosna i okolic. Blisko trzy lata pracowałem jako front-end developer w dużym banku. Zrealizowałem cyfrową adaptację gry planszowej <a class="link-underline" href="https://boardgamearena.com/gamepanel?game=maquis#how-to-play" target="_blank" rel="noopener noreferrer">Maquis</a> na platformie Board&nbsp;Game&nbsp;Arena, na licencji wydawcy Side&nbsp;Room&nbsp;Games. Pracuję bez pośredników, więc cały projekt, od pomysłu po utrzymanie, prowadzę osobiście.</p>
+                            <p class="about-body">Projektuję i buduję strony internetowe dla małych i średnich firm z całej Polski, zwłaszcza z Krosna i okolic. Blisko trzy lata pracowałem jako front-end developer w dużym banku. Zrealizowałem cyfrową adaptację gry planszowej <a href="https://boardgamearena.com/gamepanel?game=maquis#how-to-play" target="_blank" rel="noopener noreferrer">Maquis</a> na platformie Board&nbsp;Game&nbsp;Arena, na licencji wydawcy Side&nbsp;Room&nbsp;Games. Pracuję bez pośredników, więc cały projekt, od pomysłu po utrzymanie, prowadzę osobiście.</p>
                         </div>
 
                         <!--
@@ -225,17 +221,24 @@
                             <textarea class="contact-form__input contact-form__textarea" id="message" name="message" rows="5" placeholder="Treść wiadmości" required></textarea>
                         </div>
 
-                        <button class="btn btn--primary contact-form__submit" type="submit">Wyślij wiadomość</button>
+                        <div class="contact-form__actions">
+                            <button class="btn btn--primary contact-form__submit" type="submit">Wyślij wiadomość</button>
+                            <div class="contact-form__status" role="status" aria-live="polite"></div>
+                        </div>
 
                         <p class="contact-form__consent">
                             Wysyłając formularz, przekazujesz dane kontaktowe, abym mógł odpowiedzieć na Twoje zapytanie. Szczegóły w
                             <a class="link-underline" href="/polityka-prywatnosci/">polityce prywatności</a>.
                         </p>
-
-                        <div class="contact-form__status" role="status" aria-live="polite"></div>
                     </form>
 
-                    <p class="contact__email">kontakt@michaldelikat.com</p>
+                    <p class="contact__email">
+                        <span class="contact__email-inner">
+                            <a class="contact__email-link" href="mailto:kontakt@michaldelikat.com">kontakt@michaldelikat.com</a>
+                            <button class="copy-mail" type="button" data-email="kontakt@michaldelikat.com" aria-label="Skopiuj adres e-mail" title="Kliknij, aby skopiować">Kopiuj</button>
+                            <span class="copy-mail__status" role="status" aria-live="polite"></span>
+                        </span>
+                    </p>
                     <p class="contact__social">
                         <a href="https://www.linkedin.com/in/micha%C5%82-delikat-333411230/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                         <a href="https://github.com/Michal-Delikat/" target="_blank" rel="noopener noreferrer">GitHub</a>
