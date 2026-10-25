@@ -1,3 +1,25 @@
+function initViewportHeight() {
+    const root = document.documentElement;
+    const isTouch = window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+    let lastWidth = window.innerWidth;
+
+    function setViewportHeight() {
+        root.style.setProperty("--viewport-height", `${window.innerHeight}px`);
+        lastWidth = window.innerWidth;
+    }
+
+    setViewportHeight();
+
+    window.addEventListener("resize", () => {
+        if (isTouch && window.innerWidth === lastWidth) return;
+        setViewportHeight();
+    }, { passive: true });
+
+    window.addEventListener("orientationchange", () => {
+        window.setTimeout(setViewportHeight, 150);
+    });
+}
+
 const HEADER_MARKUP = `
     <div class="site-header__inner">
         <a class="site-logo" href="/" aria-label="Michał Delikat — strona główna">
@@ -202,3 +224,5 @@ const contactForm = document.querySelector(".contact-form");
 if (contactForm) {
     initContactForm(contactForm);
 }
+
+initViewportHeight();
