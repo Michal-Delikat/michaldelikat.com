@@ -30,7 +30,7 @@ Strona jest jednostronicową wizytówką usługową dla małych firm. Porządek 
 | `--color-link` | `#1F5F8B` | Linki, focus i hover elementów interaktywnych; kontrast 6,36:1 na tle |
 | `--color-dark` | `var(--color-accent)` | Tło stopki i ciemnych powierzchni; biały tekst 10,42:1 |
 | `--color-border` | `#D9E1E3` | Separatory sekcji, obramowania kafli, linia pod nagłówkiem, linia nad meta |
-| `--color-border-strong` | `#B4C2C6` | Mocniejsze ramki; rezerwa systemowa |
+| `--color-border-strong` | `#7D8B91` | Ramki pól formularza (kontrast ≥ 3:1) |
 | `--color-highlight` | `#C79A3B` | Opcjonalny detal tła; obecnie nieużywany, nigdy jako kolor tekstu |
 | `--color-focus` | `var(--color-link)` | Outline klawiaturowy |
 
@@ -118,7 +118,8 @@ Zasady:
 | `--mobile-menu-height` | — | Nieużywany; menu mobilne animuje `max-height` |
 | `--section-space` | `32px` | Bazowy token; sekcje główne używają `--space-24` |
 | `--space-24` | `96px` | Pionowy padding sekcji `--lg` i kontaktu |
-| `--radius-card` | `16px` | Zaokrąglenie kafli oferty |
+| `--radius-field` | `8px` | Zaokrąglenie pól formularza |
+| `--radius-card` | `16px` | Zaokrąglenie kafli oferty i karty formularza |
 | `--shadow-card` | `0 8px 20px -8px color-mix(in srgb, var(--color-text) 10%, transparent)` | Subtelny, wąski cień kafli oferty |
 | `--shadow-card-hover` | `0 12px 24px -8px color-mix(in srgb, var(--color-text) 18%, transparent)` | Wzmocniony, wąski cień kafla w stanie hover |
 | `--radius-full` | `9999px` | Przyciski pill |
@@ -134,7 +135,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 - **Sekcje**: 96px paddingu pionowego. Oferta i realizacje mają górną linię `1px`; kontakt również.
 - **Oferta**: siatka na pełną szerokość kontenera, 1 kolumna mobile, 2 kolumny od 768px, gap 20px. Kafle bez stałej wysokości, padding 24px 28px, opisy 16px/1.6.
 - **Realizacje**: nagłówek sekcji, poniżej dwukolumnowa karta od 768px, gap 64px, obraz 4:5.
-- **Kontakt**: wyśrodkowany, 96px paddingu, górna linia, nagłówek jak w pozostałych sekcjach.
+- **Kontakt**: wyśrodkowany, 96px paddingu, górna linia, nagłówek i wstęp, karta formularza Netlify, pod nią e-mail i nota.
 - **Stopka**: ciemne tło `--color-dark`, jasny tekst. Po lewej link „Polityka prywatności”, po prawej ikony LinkedIn i GitHub oraz copyright. Linki mają 40×40px, ikony 20px, `aria-label` i `title`; hover zmienia kolor na `--color-accent-soft`.
 
 ## 5. Komponenty
@@ -184,11 +185,12 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 
 ### Kontakt
 
-- Nagłówek „Kontakt” — ten sam styl co „Oferta” i „Realizacje”.
-- E-mail `michal.delikat0@gmail.com` jako zwykły, zaznaczalny tekst (bez linku), 20–24px, waga 500.
-- Poniżej granatowy pill **„Napisz do mnie”** z `mailto:` i białym tekstem.
-- Nota: „Krosno i okolice / projekty zdalne”, 12px uppercase, `#55646A`.
-- Sekcja wyśrodkowana; po niej tylko stopka z copyrightem.
+- Nagłówek „Kontakt” — ten sam styl co „Oferta” i „Realizacje”, wstęp 16px `--color-text-muted`.
+- Karta formularza: `--color-surface`, ramka `--color-border`, `--radius-card`, padding 24px / 32px desktop, maks. 42rem.
+- Pola: `label` nad polem, wysokość min. 48px, font 16px, `--radius-field`, ramka `--color-border-strong` (kontrast ≥ 3:1), placeholder `--color-placeholder`, focus `--color-link`.
+- Siatka imię/e-mail: 1 kolumna mobile, 2 kolumny od 768px; wiadomość pełną szerokością.
+- Formularz Netlify Forms (`name="kontakt"`), honeypot `bot-field` poza ekranem, wysyłka fetch, status w `aria-live`.
+- Pod formularzem e-mail `kontakt@michaldelikat.com` jako alternatywa i nota „Krosno i okolice / projekty zdalne”.
 
 ### Przyciski
 
@@ -225,11 +227,11 @@ Jedyny breakpoint: **768px**.
 
 ### Poniżej 768px
 
-- Brak nawigacji mobilnej; nagłówek pokazuje wyłącznie logo.
+- Nawigacja mobilna: hamburger w karcie headera, menu rozwijane z linkami i CTA „Napisz do mnie”.
 - Hero: h1 maks. 32–40px zależnie od szerokości, padding góra `168px`, dół `64px`.
 - Oferta: jedna kolumna, kafle min. 128px, tytuły 18px.
 - Realizacje: obraz nad opisem.
-- Kontakt: e-mail 20px, przycisk wyśrodkowany w rytmie sekcji.
+- Kontakt: formularz 1 kolumna, przycisk pełnej szerokości, e-mail 20px.
 - Kontener: 32px paddingu po bokach (na 390px daje 326px treści).
 
 ### Od 768px

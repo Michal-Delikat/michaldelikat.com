@@ -176,8 +176,44 @@
             <section class="section contact" id="kontakt" aria-labelledby="kontakt-title">
                 <div class="container contact__inner">
                     <h2 class="section-title" id="kontakt-title">Kontakt</h2>
+                    <p class="contact__intro">Napisz czego potrzebujesz. Odpowiem i zaproponuję kolejny krok.</p>
+
+                    <form class="contact-form" name="kontakt" method="POST" action="/" data-netlify="true" data-netlify-honeypot="bot-field">
+                        <input type="hidden" name="form-name" value="kontakt">
+
+                        <p class="contact-form__honeypot" aria-hidden="true">
+                            <label for="bot-field">Nie wypełniaj tego pola</label>
+                            <input id="bot-field" name="bot-field" type="text" tabindex="-1" autocomplete="off">
+                        </p>
+
+                        <div class="contact-form__grid">
+                            <div class="contact-form__field">
+                                <label class="contact-form__label" for="name">Imię</label>
+                                <input class="contact-form__input" id="name" name="name" type="text" autocomplete="name" placeholder="Twoje imię" required>
+                            </div>
+
+                            <div class="contact-form__field">
+                                <label class="contact-form__label" for="email">E-mail</label>
+                                <input class="contact-form__input" id="email" name="email" type="email" autocomplete="email" placeholder="twoj@email.pl" required>
+                            </div>
+                        </div>
+
+                        <div class="contact-form__field">
+                            <label class="contact-form__label" for="message">Wiadomość</label>
+                            <textarea class="contact-form__input contact-form__textarea" id="message" name="message" rows="5" placeholder="Treść wiadmości" required></textarea>
+                        </div>
+
+                        <button class="btn btn--primary contact-form__submit" type="submit">Wyślij wiadomość</button>
+
+                        <p class="contact-form__consent">
+                            Wysyłając formularz, przekazujesz dane kontaktowe, abym mógł odpowiedzieć na Twoje zapytanie. Szczegóły w
+                            <a class="link-underline" href="/polityka-prywatnosci/">polityce prywatności</a>.
+                        </p>
+
+                        <div class="contact-form__status" role="status" aria-live="polite"></div>
+                    </form>
+
                     <p class="contact__email">kontakt@michaldelikat.com</p>
-                    <a class="contact__privacy" href="/polityka-prywatnosci/">Polityka prywatności</a>
                     <p class="contact__note">Krosno i okolice / projekty zdalne</p>
                 </div>
             </section>

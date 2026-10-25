@@ -20,6 +20,7 @@
     --color-surface-soft: #E9EFF1;
     --color-text: #1B2427;
     --color-text-muted: #55646A;
+    --color-placeholder: #68777D;
     --color-accent: #173B61;
     --color-accent-hover: #0F2C4A;
     --color-accent-soft: #E3ECF4;
@@ -27,7 +28,7 @@
     --color-link: #1F5F8B;
     --color-dark: var(--color-accent);
     --color-border: #D9E1E3;
-    --color-border-strong: #B4C2C6;
+    --color-border-strong: #7D8B91;
     --color-highlight: #C79A3B;
     --color-focus: var(--color-link);
 
@@ -72,6 +73,7 @@
 
     /* Promienie */
     --radius-none: 0;
+    --radius-field: 0.5rem;
     --radius-card: 1rem;
     --radius-full: 9999px;
 

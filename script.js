@@ -96,6 +96,86 @@ function initHeader(header) {
     handleScroll();
 }
 
+const CONTACT_FORM_SUCCESS = "Dziękuję, odpowiem najszybciej jak to możliwe.";
+const CONTACT_FORM_ERROR = 'Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz bezpośrednio na <a href="mailto:kontakt@michaldelikat.com">kontakt@michaldelikat.com</a>.';
+
+function initContactForm(form) {
+    const submitButton = form.querySelector('button[type="submit"]');
+    const status = form.querySelector(".contact-form__status");
+    const defaultButtonText = submitButton.textContent;
+
+    const validationMessages = {
+        name: "Podaj imię.",
+        email: "Podaj adres e-mail.",
+        message: "Napisz wiadomość.",
+    };
+
+    let submitting = false;
+
+    form.querySelectorAll("input[required], textarea[required]").forEach((field) => {
+        field.addEventListener("invalid", () => {
+            let message = validationMessages[field.name];
+
+            if (field.name === "email" && field.validity.typeMismatch) {
+                message = "Podaj poprawny adres e-mail.";
+            }
+
+            if (message) {
+                field.setCustomValidity(message);
+            }
+        });
+
+        field.addEventListener("input", () => {
+            field.setCustomValidity("");
+        });
+    });
+
+    function resetStatus() {
+        status.className = "contact-form__status";
+        status.setAttribute("role", "status");
+        status.setAttribute("aria-live", "polite");
+        status.textContent = "";
+    }
+
+    form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        if (submitting) return;
+
+        if (!form.reportValidity()) return;
+
+        submitting = true;
+        submitButton.disabled = true;
+        submitButton.textContent = "Wysyłanie…";
+        resetStatus();
+
+        try {
+            const response = await fetch("/", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(new FormData(form)).toString(),
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+
+            form.reset();
+            status.classList.add("contact-form__status--success");
+            status.textContent = CONTACT_FORM_SUCCESS;
+        } catch (error) {
+            status.classList.add("contact-form__status--error");
+            status.setAttribute("role", "alert");
+            status.setAttribute("aria-live", "assertive");
+            status.innerHTML = CONTACT_FORM_ERROR;
+        } finally {
+            submitting = false;
+            submitButton.disabled = false;
+            submitButton.textContent = defaultButtonText;
+        }
+    });
+}
+
 class SiteHeader extends HTMLElement {
     connectedCallback() {
         if (this.dataset.ready) return;
@@ -117,3 +197,8 @@ class SiteFooter extends HTMLElement {
 
 customElements.define("site-header", SiteHeader);
 customElements.define("site-footer", SiteFooter);
+
+const contactForm = document.querySelector(".contact-form");
+if (contactForm) {
+    initContactForm(contactForm);
+}
