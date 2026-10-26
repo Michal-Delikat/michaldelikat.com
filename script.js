@@ -23,6 +23,7 @@ function initViewportHeight() {
 const HEADER_MARKUP = `
     <div class="site-header__inner">
         <a class="site-logo" href="/" aria-label="Michał Delikat — strona główna">
+            <img class="site-logo__mark" src="/md-znak.svg?v=1" alt="" width="56" height="28">
             <span class="site-logo__top">Michał Delikat</span>
         </a>
         <div class="site-header__actions">
@@ -111,13 +112,6 @@ function initHeader(header) {
             }
         });
     }
-
-    function handleScroll() {
-        header.classList.toggle("is-scrolled", window.scrollY > 50);
-    }
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
 }
 
 const COPY_MAIL_FEEDBACK_DURATION = 2000;
