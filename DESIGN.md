@@ -175,8 +175,8 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 
 ### Realizacje
 
-- Jedna karta: `maciekginalski.com`.
-- Obraz 4:5 po lewej, opis po prawej od 768px; mobilnie kolumna.
+- Dwie karty: `maciekginalski.com` i `Studio Jogi`, oddzielone odstępem 96px.
+- Obraz 4:5 i opis w dwóch kolumnach od 768px; karta `Studio Jogi` ma obraz po prawej, opis po lewej. Mobilnie kolumna.
 - Obraz ma `1px` obramowanie `#D9E1E3`, bez zaokrągleń.
 - Tytuł duży, 24–40px, waga 500.
 - Opis: 16px, `line-height: 1.5`.

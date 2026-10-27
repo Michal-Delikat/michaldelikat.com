@@ -507,6 +507,10 @@ site-footer {
     color: inherit;
 }
 
+.work-card + .work-card {
+    margin-top: var(--space-24);
+}
+
 .work-card__visual {
     position: relative;
     overflow: hidden;
@@ -979,6 +983,14 @@ site-footer {
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         gap: var(--space-16);
         align-items: center;
+    }
+
+    .work-card--reverse .work-card__figure {
+        order: 2;
+    }
+
+    .work-card--reverse .work-card__info {
+        order: 1;
     }
 
     .contact-form__grid {
