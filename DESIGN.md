@@ -137,7 +137,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 - **Realizacje**: nagłówek sekcji, poniżej dwukolumnowa karta od 768px, gap 64px, obraz 4:5.
 - **O mnie**: białe tło `--color-surface`, nagłówek sekcji, tekst w jednej kolumnie `max-width: 66ch`. Opcjonalny wariant `.about--with-photo` daje dwie kolumny od 768px (tekst + portret 4:5).
 - **Kontakt**: wyśrodkowany, 96px paddingu, górna linia, nagłówek i wstęp, karta formularza Netlify, pod nią e-mail oraz linki LinkedIn i GitHub.
-- **Stopka**: ciemne tło `--color-dark`, jasny tekst. Po lewej link „Polityka prywatności”, po prawej ikony LinkedIn i GitHub oraz copyright. Linki mają 40×40px, ikony 20px, `aria-label` i `title`; hover zmienia kolor na `--color-accent-soft`.
+- **Stopka**: ciemne tło `--color-dark`, jasny tekst. Copyright i link „Polityka prywatności” po lewej, ikony LinkedIn i GitHub po prawej. Linki mają 40×40px, ikony 20px, `aria-label` i `title`; hover zmienia kolor na `--color-accent-soft`.
 
 ## 5. Komponenty
 
@@ -189,7 +189,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 - Nagłówek „O mnie” — ten sam styl co pozostałe sekcje, odstęp 32px pod nim.
 - Tekst bez karty: `max-width: 66ch`, wyśrodkowany blok, tekst wyrównany do lewej.
 - Body: cały tekst bio, 16px, `line-height: 1.7`, `--color-text-muted`, `text-wrap: pretty`.
-- Link „Maquis” do Board Game Arena z `target="_blank"` i `rel="noopener noreferrer"`, bez podkreślenia, kolor `--color-link`; nazwy „Board Game Arena” i „Side Room Games” z twardymi spacjami.
+- Link „Maquis” do Board Game Arena z `target="_blank"` i `rel="noopener noreferrer"`, z podkreśleniem i kolorem `--color-link`; nazwy „Board Game Arena” i „Side Room Games” z twardymi spacjami.
 - Wariant `.about--with-photo` (nieaktywny domyślnie): zdjęcie obok tekstu, mobile nad tekstem (maks. 20rem) / od 768px dwie kolumny, obraz 4:5 z `--radius-card` i ramką `--color-border`.
 - Bez placeholdera, drugiego CTA i dodatkowych treści.
 
@@ -242,7 +242,7 @@ Główny breakpoint: **768px**. Nawigacja desktopowa w headerze włącza się od
 - Oferta: jedna kolumna, kafle min. 128px, tytuły 18px.
 - Realizacje: obraz nad opisem.
 - Kontakt: formularz 1 kolumna, przycisk pełnej szerokości, e-mail 20px, przycisk „Kopiuj” pod adresem e-mail.
-- Stopka: link „Polityka prywatności” po lewej, copyright i ikony sociali wyrównane do prawej.
+- Stopka: copyright i link „Polityka prywatności” wyrównane do lewej, ikony sociali do prawej.
 - Kontener: 32px paddingu po bokach (na 390px daje 326px treści).
 
 ### Od 768px
@@ -294,9 +294,10 @@ Główny breakpoint: **768px**. Nawigacja desktopowa w headerze włącza się od
 ## 10. Uwagi wdrożeniowe
 
 - `global.css` zawiera tokeny, reset, typografię bazową, przyciski i nagłówek. Nieużywane elementy pierwowzoru (karty projektów, formularze, hero-karuzela) zostały usunięte. Aktualny wygląd sekcji definiuje `styles.css`.
+- Style z `global.css` i `styles.css` są wklejone inline do `<style>` w `index.html` i `polityka-prywatnosci/index.html`, aby usunąć render-blocking requesty. Po zmianie któregoś z arkuszy trzeba zaktualizować blok `<style>` na obu stronach.
 - `--section-space` ma wartość 32px, ale główne sekcje używają `padding-block: var(--space-24)` = 96px.
 - Wysokość menu mobilnego jest nadpisana lokalnie do 320px.
-- Kafle oferty używają `--radius-card` (16px) i `--shadow-card`; przyciski używają `--radius-button` (8px).
+- Kafle oferty używają `--radius-card` (16px) i `--shadow-card`; przyciski używają `--radius-full` (pełne zaokrąglenie).
 - Nazwy usług są wagą 500, nie 700.
 - Sekcja kontaktu używa dokładnie tej samej klasy `.section-title` co oferta i realizacje.
 - E-mail w kontakcie ma `user-select: text`, jest linkiem `mailto:`, a osobny przycisk „Kopiuj” kopiuje adres do schowka.
