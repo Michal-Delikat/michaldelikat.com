@@ -200,7 +200,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 - Pola: `label` nad polem, wysokość min. 48px, font 16px, `--radius-field`, ramka `--color-border-strong` (kontrast ≥ 3:1), placeholder `--color-placeholder`, focus `--color-link`.
 - Siatka imię/e-mail: 1 kolumna mobile, 2 kolumny od 768px; wiadomość pełną szerokością.
 - Formularz Netlify Forms (`name="kontakt"`), honeypot `bot-field` poza ekranem, wysyłka fetch. Status wysyłki w `aria-live` znajduje się po prawej stronie przycisku (na wąskich ekranach pod nim).
-- Pod formularzem e-mail `kontakt@michaldelikat.com` jako link `mailto:` oraz osobny przycisk „Kopiuj” (`navigator.clipboard`, `title`, `aria-label`, status `aria-live`). Na mobile przycisk znajduje się pod adresem, od 768px obok niego. Kliknięcie przycisku nie otwiera klienta poczty. Dalej linki LinkedIn i GitHub.
+- Pod formularzem e-mail `kontakt@michaldelikat.com` jako link `mailto:` oraz telefon `+48 730 443 499` jako link `tel:`; każdy z osobnym przyciskiem „Kopiuj” (`navigator.clipboard`, `title`, `aria-label`, status `aria-live`). Przycisk znajduje się pod wartością na każdej szerokości ekranu. Kliknięcie przycisku nie otwiera klienta poczty ani nie inicjuje połączenia.
 
 ### Przyciski
 
@@ -241,7 +241,7 @@ Główny breakpoint: **768px**. Nawigacja desktopowa w headerze włącza się od
 - Hero: h1 maks. 32–40px zależnie od szerokości, padding góra `168px`, dół `64px`.
 - Oferta: jedna kolumna, kafle min. 128px, tytuły 18px.
 - Realizacje: obraz nad opisem.
-- Kontakt: formularz 1 kolumna, przycisk pełnej szerokości, e-mail 20px, przycisk „Kopiuj” pod adresem e-mail.
+- Kontakt: formularz 1 kolumna, przycisk pełnej szerokości, e-mail i telefon 20px, przycisk „Kopiuj” pod każdym z nich.
 - Stopka: dwa wiersze — u góry logo po lewej i ikony GitHub oraz LinkedIn do prawej, u dołu link „Polityka prywatności” i copyright w jednej kolumnie (wyrównane do lewej).
 - Kontener: 32px paddingu po bokach (na 390px daje 326px treści).
 
@@ -260,7 +260,7 @@ Główny breakpoint: **768px**. Nawigacja desktopowa w headerze włącza się od
 - Menu mobilne: `aria-expanded`, `aria-controls`, zamykanie Escape, powrót focusu do przycisku.
 - Obraz realizacji ma opisowy `alt`.
 - Link zewnętrzny ma `target="_blank"` i `rel="noopener"`.
-- E-mail jest zaznaczalny i jest linkiem `mailto:`; osobny przycisk „Kopiuj” kopiuje adres do schowka.
+- E-mail i telefon są zaznaczalne i są linkami `mailto:`/`tel:`; osobny przycisk „Kopiuj” kopiuje wartość do schowka.
 - Nie usuwać skip linku, focus-visible ani obsługi reduced motion.
 
 ## 9. Zasady „rób / nie rób”
@@ -300,7 +300,7 @@ Główny breakpoint: **768px**. Nawigacja desktopowa w headerze włącza się od
 - Kafle oferty używają `--radius-card` (16px) i `--shadow-card`; przyciski używają `--radius-full` (pełne zaokrąglenie).
 - Nazwy usług są wagą 500, nie 700.
 - Sekcja kontaktu używa dokładnie tej samej klasy `.section-title` co oferta i realizacje.
-- E-mail w kontakcie ma `user-select: text`, jest linkiem `mailto:`, a osobny przycisk „Kopiuj” kopiuje adres do schowka.
+- E-mail i telefon w kontakcie mają `user-select: text`, są linkami `mailto:`/`tel:`, a osobny przycisk „Kopiuj” kopiuje wartość do schowka.
 - Nagłówek ma półprzezroczyste tło, rozmycie i stały cień; obramowanie jest widoczne cały czas.
 - W obecnym kodzie nie ma osobnego paska nad nagłówkiem; `--color-dark` obsługuje stopkę.
 - Stopka ma ciemne tło `--color-dark` i jasny tekst `--color-on-accent`.

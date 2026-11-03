@@ -141,7 +141,7 @@ function initCopyMail() {
         const link = event.target.closest ? event.target.closest(".copy-mail") : null;
         if (!link) return;
 
-        const address = link.dataset.email;
+        const address = link.dataset.copy || link.dataset.email;
 
         if (!address || !navigator.clipboard || !navigator.clipboard.writeText) {
             return;

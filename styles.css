@@ -678,23 +678,33 @@ site-footer {
     line-height: var(--leading-normal);
 }
 
-.contact__email {
-    margin-top: var(--space-8);
+.contact__email,
+.contact__phone {
+    max-width: 42rem;
+    margin-inline: auto;
     margin-bottom: var(--space-2);
     font-size: clamp(var(--text-lg), 3vw, var(--text-xl));
     font-weight: var(--weight-medium);
     letter-spacing: var(--tracking-tight);
+    text-align: left;
     -webkit-user-select: text;
     user-select: text;
+}
+
+.contact__email {
+    margin-top: var(--space-8);
+}
+
+.contact__phone {
+    margin-top: var(--space-6);
 }
 
 .contact__email-inner {
     position: relative;
     display: inline-flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     max-width: 100%;
-    gap: var(--space-1);
 }
 
 .contact__email-link {
@@ -725,8 +735,7 @@ site-footer {
 .copy-mail__status {
     position: absolute;
     top: calc(100% + var(--space-2));
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
     color: var(--color-link);
     font-family: var(--font-sans);
     font-size: var(--text-xs);
@@ -734,19 +743,6 @@ site-footer {
     line-height: 1.2;
     white-space: nowrap;
     pointer-events: none;
-}
-
-@media (min-width: 768px) {
-    .contact__email-inner {
-        flex-direction: row;
-    }
-
-    .copy-mail__status {
-        top: 50%;
-        bottom: auto;
-        left: calc(100% + var(--space-3));
-        transform: translateY(-50%);
-    }
 }
 
 /* Formularz kontaktowy */
@@ -947,7 +943,7 @@ site-footer {
     .footer__meta {
         flex-direction: column;
         align-items: flex-start;
-        gap: var(--space-2);
+        gap: var(--space-4);
     }
 }
 
