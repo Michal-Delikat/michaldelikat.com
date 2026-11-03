@@ -137,7 +137,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 - **Realizacje**: nagłówek sekcji, poniżej dwukolumnowa karta od 768px, gap 64px, obraz 4:5.
 - **O mnie**: białe tło `--color-surface`, nagłówek sekcji, tekst w jednej kolumnie `max-width: 66ch`. Opcjonalny wariant `.about--with-photo` daje dwie kolumny od 768px (tekst + portret 4:5).
 - **Kontakt**: wyśrodkowany, 96px paddingu, górna linia, nagłówek i wstęp, karta formularza Netlify, pod nią e-mail oraz linki LinkedIn i GitHub.
-- **Stopka**: ciemne tło `--color-dark`, jasny tekst. Copyright i link „Polityka prywatności” po lewej, ikony LinkedIn i GitHub po prawej. Linki mają 40×40px, ikony 20px, `aria-label` i `title`; hover zmienia kolor na `--color-accent-soft`.
+- **Stopka**: ciemne tło `--color-dark`, jasny tekst, dwa wiersze. Pierwszy: logo `md-znak-bialy.svg` po lewej, ikony GitHub i LinkedIn wyrównane do prawej. Drugi: link „Polityka prywatności” po lewej, copyright po prawej. Linki mają 44×44px, ikony 20px, `aria-label` i `title`; hover zmienia kolor na `--color-accent-soft`.
 
 ## 5. Komponenty
 
@@ -242,7 +242,7 @@ Główny breakpoint: **768px**. Nawigacja desktopowa w headerze włącza się od
 - Oferta: jedna kolumna, kafle min. 128px, tytuły 18px.
 - Realizacje: obraz nad opisem.
 - Kontakt: formularz 1 kolumna, przycisk pełnej szerokości, e-mail 20px, przycisk „Kopiuj” pod adresem e-mail.
-- Stopka: copyright i link „Polityka prywatności” wyrównane do lewej, ikony sociali do prawej.
+- Stopka: dwa wiersze — u góry logo po lewej i ikony GitHub oraz LinkedIn do prawej, u dołu link „Polityka prywatności” i copyright w jednej kolumnie (wyrównane do lewej).
 - Kontener: 32px paddingu po bokach (na 390px daje 326px treści).
 
 ### Od 768px
@@ -294,7 +294,7 @@ Główny breakpoint: **768px**. Nawigacja desktopowa w headerze włącza się od
 ## 10. Uwagi wdrożeniowe
 
 - `global.css` zawiera tokeny, reset, typografię bazową, przyciski i nagłówek. Nieużywane elementy pierwowzoru (karty projektów, formularze, hero-karuzela) zostały usunięte. Aktualny wygląd sekcji definiuje `styles.css`.
-- Style z `global.css` i `styles.css` są wklejone inline do `<style>` w `index.html` i `polityka-prywatnosci/index.html`, aby usunąć render-blocking requesty. Po zmianie któregoś z arkuszy trzeba zaktualizować blok `<style>` na obu stronach.
+- `index.html` i `polityka-prywatnosci/index.html` ładują `global.css` i `styles.css` przez `<link rel="stylesheet">`. Oba arkusze są jedynym źródłem stylów — nie duplikuj ich inline w HTML.
 - `--section-space` ma wartość 32px, ale główne sekcje używają `padding-block: var(--space-24)` = 96px.
 - Wysokość menu mobilnego jest nadpisana lokalnie do 320px.
 - Kafle oferty używają `--radius-card` (16px) i `--shadow-card`; przyciski używają `--radius-full` (pełne zaokrąglenie).
