@@ -29,7 +29,7 @@ Strona jest jednostronicową wizytówką usługową dla małych firm. Porządek 
 | `--color-on-accent` | `#FFFFFF` | Tekst i ikony na akcencie oraz na ciemnej stopce |
 | `--color-link` | `#1F5F8B` | Linki, focus i hover elementów interaktywnych; kontrast 6,36:1 na tle |
 | `--color-dark` | `var(--color-accent)` | Tło stopki i ciemnych powierzchni; biały tekst 10,42:1 |
-| `--color-border` | `#D9E1E3` | Separatory sekcji, obramowania obrazów, linia pod nagłówkiem, linia nad przyciskiem; kafle oferty na ciemnym tle używają jaśniejszej ramki |
+| `--color-border` | `#D9E1E3` | Separatory sekcji, obramowania obrazów, linia pod nagłówkiem; kafle oferty na ciemnym tle używają jaśniejszej ramki |
 | `--color-border-strong` | `#7D8B91` | Ramki pól formularza (kontrast ≥ 3:1) |
 | `--color-highlight` | `#C79A3B` | Opcjonalny detal tła; obecnie nieużywany, nigdy jako kolor tekstu |
 | `--color-focus` | `var(--color-link)` | Outline klawiaturowy |
@@ -68,7 +68,7 @@ Nagłówki h1–h2 i napis przy logo: **Oxanium** hostowany lokalnie (zmienny 40
 
 | Token | Rozmiar | Zastosowanie |
 |---|---|---|
-| `--text-base` | 16px | Tekst podstawowy, opis realizacji, przyciski, drugi wiersz logo, nawigacja, stopka, nota kontaktowa, eyebrow |
+| `--text-base` | 16px | Tekst podstawowy, opis realizacji, przyciski, drugi wiersz logo, nawigacja, stopka, nota kontaktowa |
 | `--text-md` | 18px | Nazwy usług na mobile, logo na mobile |
 | `--text-lg` | 20px | Nazwy usług na desktopie, logo na desktopie |
 | `--text-xl` | 24px | Nagłówki sekcji, minimalny rozmiar tytułu realizacji, maksymalny e-mail w kontakcie |
@@ -131,9 +131,9 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 - **Hero**: `100vh`/`var(--viewport-height, 100svh)` — wysokość blokowana raz w JS, stabilna także w Brave Mobile. Treść wyśrodkowana; tło to siatka 48px w `rgba(9, 66, 110, 0.06)`, maskowana radialnie. Mobile: góra `88px + 48px`, dół `64px`. Desktop: góra `88px + 64px`, dół `80px`. Treść maks. `44rem`.
 - **Sekcje**: 96px paddingu pionowego. Oferta, realizacje, o mnie i kontakt mają górną linię `1px`.
 - **Oferta**: granatowe tło `--color-dark` i klasa `.section--dark`, biały nagłówek. Siatka na pełną szerokość kontenera, 1 kolumna mobile, 2 kolumny od 768px, gap 20px. Kafle `.card`: półprzezroczyste białe tło `rgba(255,255,255,0.06)`, ramka `rgba(255,255,255,0.16)`, biały tytuł i ikony, opis `--section-muted`; bez stałej wysokości, padding 24px 28px.
-- **Realizacje**: nagłówek sekcji, poniżej dwukolumnowa karta od 768px, gap 64px, obraz 4:5.
+- **Realizacje**: nagłówek sekcji, poniżej siatka kart: 1 kolumna mobile, 2 kolumny od 768px, odstępy 96px w pionie i 64px w poziomie; każda karta ma obraz 4:5, pod nim tytuł, opis, linię i przycisk.
 - **O mnie**: białe tło `--color-surface`, nagłówek sekcji, tekst w jednej kolumnie `max-width: 66ch`. Opcjonalny wariant `.about--with-photo` daje dwie kolumny od 768px (tekst + portret 4:5).
-- **Kontakt**: wyśrodkowany, 96px paddingu, górna linia, nagłówek i wstęp, formularz Netlify, pod nią e-mail oraz linki LinkedIn i GitHub.
+- **Kontakt**: wyśrodkowany, 96px paddingu, górna linia, nagłówek, formularz Netlify, pod nim e-mail oraz linki LinkedIn i GitHub.
 - **Stopka**: ciemne tło `--color-dark`, jasny tekst, dwa wiersze. Pierwszy: logo `logo/md-znak-bialy.svg` po lewej, ikony GitHub i LinkedIn wyrównane do prawej. Drugi: link „Polityka prywatności” po lewej, copyright po prawej. Linki mają 44×44px, ikony 20px, `aria-label` i `title`; hover zmienia kolor na `--color-accent-soft`.
 
 ## 5. Komponenty
@@ -150,7 +150,6 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 ### Hero
 
 - H1: „Szybkie i przejrzyste strony internetowe”, pod nim lead „Od prostej wizytówki po rozbudowany katalog produktów i usług.”.
-- Eyebrow: „Krosno i okolice / Projekty zdalne”, 16px uppercase.
 - Główny CTA: granatowy przycisk **„Napisz do mnie”** jako kotwica do `#kontakt`; biały tekst na tle `--color-accent`.
 - Brak zdjęcia, brak pełnoekranowej karuzeli.
 
@@ -172,12 +171,11 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 
 ### Realizacje
 
-- Trzy karty: `maciekginalski.com`, `Szkoła surfingu Barrel` i `Studio Jogi`, oddzielone odstępem 96px.
-- Obraz 4:5 i opis w dwóch kolumnach od 768px; karta `Szkoła surfingu Barrel` ma obraz po prawej, opis po lewej. Mobilnie kolumna.
+- Trzy karty w siatce: 1 kolumna mobile, 2 kolumny od 768px; odstępy 96px w pionie i 64px w poziomie.
+- Każda karta ma układ jednokolumnowy na wszystkich szerokościach: obraz 4:5, pod nim tytuł, opis i przycisk.
 - Obraz ma `1px` obramowanie `#D9E1E3`, bez zaokrągleń.
 - Tytuł duży, 24–40px, waga 500.
 - Opis: 16px, `line-height: 1.5`.
-- Pozioma linia `1px #D9E1E3` oddziela opis od przycisku.
 - CTA: biały przycisk **„Odwiedź stronę”** z ikoną strzałki; hover wypełnia się `--color-accent`, tekst staje się biały.
 - Cała karta nie jest linkiem — klikalny jest tylko przycisk.
 
@@ -192,7 +190,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 
 ### Kontakt
 
-- Nagłówek „Kontakt” — ten sam styl co „Oferta” i „Realizacje”, wstęp 16px `--color-text-muted`.
+- Nagłówek „Kontakt” — ten sam styl co „Oferta” i „Realizacje”.
 - Formularz bez karty: brak tła, ramki i paddingu, maks. 42rem, wyśrodkowany.
 - Pola: `label` nad polem, wysokość min. 48px, font 16px, `--radius-field`, ramka `--color-border-strong` (kontrast ≥ 3:1), placeholder `--color-placeholder`, focus `--color-link`.
 - Siatka imię/e-mail: 1 kolumna mobile, 2 kolumny od 768px; wiadomość pełną szerokością.
@@ -237,7 +235,7 @@ Główny breakpoint: **768px**. Nawigacja desktopowa w headerze włącza się od
 - Nawigacja mobilna (do 819px): hamburger w karcie headera, menu rozwijane z linkami i CTA „Napisz do mnie”.
 - Hero: h1 maks. 32–40px zależnie od szerokości, padding góra `136px` (88px + 48px), dół `64px`.
 - Oferta: jedna kolumna, tytuły 18px.
-- Realizacje: obraz nad opisem.
+- Realizacje: jedna kolumna; obraz nad opisem.
 - Kontakt: formularz 1 kolumna, przycisk pełnej szerokości, e-mail i telefon 20px, przycisk „Kopiuj” pod każdym z nich.
 - Stopka: dwa wiersze — u góry logo po lewej i ikony GitHub oraz LinkedIn do prawej, u dołu link „Polityka prywatności” i copyright w jednej kolumnie (wyrównane do lewej).
 - Kontener: 32px paddingu po bokach (na 390px daje 326px treści).
@@ -247,7 +245,7 @@ Główny breakpoint: **768px**. Nawigacja desktopowa w headerze włącza się od
 - Logo 20px, znak „MD” 38px.
 - Hero: padding góra `152px` (88px + 64px), dół `80px`.
 - Oferta: dwie kolumny, tytuły 20px.
-- Realizacje: dwie kolumny, gap 64px, obraz 4:5.
+- Realizacje: siatka dwóch kolumn; wnętrze karty pozostaje jednokolumnowe (obraz, tytuł, opis, przycisk).
 - Nawigacja desktopowa i CTA w headerze od 820px; poniżej działa hamburger.
 
 ## 8. Dostępność
