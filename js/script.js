@@ -23,11 +23,8 @@ function initViewportHeight() {
 const HEADER_MARKUP = `
     <div class="site-header__inner">
         <a class="site-logo" href="/" aria-label="Michał Delikat — strona główna">
-            <img class="site-logo__mark" src="/logo/md-znak.svg?v=1" alt="" width="56" height="28">
-            <span class="site-logo__text">
-                <span class="site-logo__top">Michał Delikat</span>
-                <span class="site-logo__bottom">Strony internetowe</span>
-            </span>
+            <img class="site-logo__mark site-logo__mark--light" src="/logo/md-znak-bialy.svg?v=1" alt="" width="56" height="28">
+            <img class="site-logo__mark site-logo__mark--dark" src="/logo/md-znak.svg?v=1" alt="" width="56" height="28">
         </a>
         <div class="site-header__actions">
             <nav class="site-nav" aria-label="Nawigacja główna">
@@ -93,6 +90,15 @@ function initHeader(header) {
             menuToggle.setAttribute("aria-label", open ? "Zamknij menu" : "Otwórz menu");
         }
     }
+
+    const hasHero = Boolean(document.querySelector(".page-hero"));
+
+    function updateScrolled() {
+        header.classList.toggle("is-scrolled", !hasHero || window.scrollY > 8);
+    }
+
+    window.addEventListener("scroll", updateScrolled, { passive: true });
+    updateScrolled();
 
     if (menuToggle && mobileMenu) {
         menuToggle.addEventListener("click", () => {

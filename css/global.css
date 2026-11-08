@@ -127,7 +127,7 @@
     /* Układ */
     --container-max: 1300px;
     --container-padding: 2rem;
-    --header-height: 6.5rem;
+    --header-height: 5.5rem;
     --section-space: 2rem;
     --grid-row-gap: 4rem;
     --grid-column-gap: 6rem;
@@ -157,7 +157,7 @@
 html {
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
-    scroll-padding-top: calc(var(--header-height) + var(--space-4));
+    scroll-padding-top: calc(var(--header-height));
 }
 
 body {
@@ -441,13 +441,15 @@ a:hover {
     margin-inline: 0;
     padding-block: var(--space-3);
     padding-inline: var(--container-padding);
-    background-color: var(--color-surface);
-    -webkit-backdrop-filter: blur(12px);
-    backdrop-filter: blur(12px);
-    border: var(--border-width-thin) solid rgba(9, 66, 110, 0.08);
+    background-color: transparent;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    border: var(--border-width-thin) solid transparent;
     border-radius: 0;
     box-shadow: none;
-    transition: border-color 0.25s ease;
+    transition:
+        background-color var(--duration-base) var(--ease-default),
+        border-color 0.25s ease;
 }
 
 .site-logo {
