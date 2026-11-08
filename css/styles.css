@@ -244,6 +244,7 @@ site-footer {
         margin-block-start: var(--space-2);
         margin-inline: auto;
         padding-block: var(--space-2);
+        padding-inline: var(--container-padding) var(--space-4);
          background-color: var(--color-surface);
          border-radius: var(--radius-full);
          border: var(--border-width-thin) solid var(--color-border);
@@ -283,9 +284,9 @@ site-footer {
 
     .header-cta {
         grid-column: 3;
-        min-height: 2.5rem;
+        min-height: 3rem;
         padding-block: var(--space-2);
-        padding-inline: var(--space-8);
+        padding-inline: var(--space-6);
         border-radius: var(--radius-full);
     }
 
@@ -382,13 +383,12 @@ site-footer {
     background-color: var(--color-surface);
     border-color: var(--color-surface);
     color: #0b2940;
-    transition: background-color var(--duration-fast) var(--ease-default);
 }
 
 .hero-actions .btn--primary:hover {
-    background-color: #fcfcfc;
-    border-color: #fcfcfc;
-    color: #0b2940;
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-on-accent);
     transform: none;
 }
 
