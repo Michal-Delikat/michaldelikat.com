@@ -22,14 +22,14 @@ Strona jest jednostronicową wizytówką usługową dla małych firm. Porządek 
 | `--color-surface` | `#FFFFFF` | Obraz realizacji, tło sekcji „O mnie”, menu mobilne, przycisk secondary, pola formularza |
 | `--color-surface-soft` | `#E9EFF1` | Token zdefiniowany, obecnie nieużywany |
 | `--color-text` | `#1B2427` | Tekst główny, logo; kontrast 14,69:1 na tle |
-| `--color-text-muted` | `#55646A` | Opisy poza ciemną sekcją, etykiety meta, nota kontaktowa; kontrast 5,71:1 na tle |
+| `--color-text-muted` | `#55646A` | Opisy poza ciemną sekcją, nota kontaktowa; kontrast 5,71:1 na tle |
 | `--color-accent` | `#09426E` | Granat: tło przycisku primary i stopka; biały tekst 10,42:1. Zbyt ciemny jako bazowy kolor linków i focusu |
 | `--color-accent-hover` | `#073A61` | Hover wypełnionego przycisku primary; biały tekst 11,75:1 |
 | `--color-accent-soft` | `#E3ECF4` | Tło zaznaczenia tekstu i delikatnych podświetleń |
 | `--color-on-accent` | `#FFFFFF` | Tekst i ikony na akcencie oraz na ciemnej stopce |
 | `--color-link` | `#1F5F8B` | Linki, focus i hover elementów interaktywnych; kontrast 6,36:1 na tle |
 | `--color-dark` | `var(--color-accent)` | Tło stopki i ciemnych powierzchni; biały tekst 10,42:1 |
-| `--color-border` | `#D9E1E3` | Separatory sekcji, obramowania obrazów, linia pod nagłówkiem, linia nad meta; kafle oferty na ciemnym tle używają jaśniejszej ramki |
+| `--color-border` | `#D9E1E3` | Separatory sekcji, obramowania obrazów, linia pod nagłówkiem, linia nad przyciskiem; kafle oferty na ciemnym tle używają jaśniejszej ramki |
 | `--color-border-strong` | `#7D8B91` | Ramki pól formularza (kontrast ≥ 3:1) |
 | `--color-highlight` | `#C79A3B` | Opcjonalny detal tła; obecnie nieużywany, nigdy jako kolor tekstu |
 | `--color-focus` | `var(--color-link)` | Outline klawiaturowy |
@@ -68,7 +68,7 @@ Nagłówki h1–h2 i napis przy logo: **Oxanium** hostowany lokalnie (zmienny 40
 
 | Token | Rozmiar | Zastosowanie |
 |---|---|---|
-| `--text-base` | 16px | Tekst podstawowy, opis realizacji, `dd`, przyciski, drugi wiersz logo, nawigacja, meta, stopka, nota kontaktowa, eyebrow |
+| `--text-base` | 16px | Tekst podstawowy, opis realizacji, przyciski, drugi wiersz logo, nawigacja, stopka, nota kontaktowa, eyebrow |
 | `--text-md` | 18px | Nazwy usług na mobile, logo na mobile |
 | `--text-lg` | 20px | Nazwy usług na desktopie, logo na desktopie |
 | `--text-xl` | 24px | Nagłówki sekcji, minimalny rozmiar tytułu realizacji, maksymalny e-mail w kontakcie |
@@ -89,7 +89,6 @@ Nagłówki h1–h2 i napis przy logo: **Oxanium** hostowany lokalnie (zmienny 40
 | Nawigacja | 16px / 500 / tracking `0.04em`, bez wersalików |
 | Logo — góra | Oxanium 20px / 600 / `1` / tracking `0` |
 | Logo — dół | 16px / tracking `0.01em` |
-| Etykiety `dt` | 16px / tracking `0.2em` / wersaliki / `#55646A` |
 | Nota kontaktowa | 16px / tracking `0.2em` / wersaliki / `#55646A` |
 | Stopka | 16px / tracking `0.04em` |
 | Przyciski | 16px / 500 / `line-height: 1.2` / tracking `0.01em` |
@@ -98,7 +97,7 @@ Wagi: **400** i **600** dla Oxanium (600 tylko h1 i logo) oraz **500** i **700**
 
 Zasady:
 
-- Wersaliki stosuj wyłącznie w małych etykietach meta i nocie kontaktowej, zawsze z szerokim trackingiem.
+- Wersaliki stosuj wyłącznie w nocie kontaktowej, zawsze z szerokim trackingiem.
 - Nie pogrubiaj nazw usług do 700 — h3 używa Work Sans 500.
 - Nie zwiększaj h1 powyżej 40px.
 - Nie dodawaj nowych stopni pisma poza skalą.
@@ -178,7 +177,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 - Obraz ma `1px` obramowanie `#D9E1E3`, bez zaokrągleń.
 - Tytuł duży, 24–40px, waga 500.
 - Opis: 16px, `line-height: 1.5`.
-- Meta: dwie kolumny, etykiety 16px uppercase `#55646A`, wartości 16px, linia `1px #D9E1E3` nad blokiem.
+- Pozioma linia `1px #D9E1E3` oddziela opis od przycisku.
 - CTA: biały przycisk **„Odwiedź stronę”** z ikoną strzałki; hover wypełnia się `--color-accent`, tekst staje się biały.
 - Cała karta nie jest linkiem — klikalny jest tylko przycisk.
 

@@ -549,28 +549,11 @@ site-footer {
     line-height: var(--leading-normal);
 }
 
-.work-card__meta {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-6);
+.work-card__divider {
     width: 100%;
-    margin-top: var(--space-2);
-    padding-top: var(--space-4);
+    margin: 0;
+    border: 0;
     border-top: var(--border-width-thin) solid var(--color-border);
-}
-
-.work-card__meta dt {
-    margin-bottom: var(--space-1);
-    font-family: var(--font-sans);
-    font-size: var(--text-base);
-    letter-spacing: var(--tracking-widest);
-    text-transform: uppercase;
-    color: var(--color-text-muted);
-}
-
-.work-card__meta dd {
-    font-size: var(--text-base);
-    line-height: 1.4;
 }
 
 .work-card .btn {
