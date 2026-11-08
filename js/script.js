@@ -23,7 +23,7 @@ function initViewportHeight() {
 const HEADER_MARKUP = `
     <div class="site-header__inner">
         <a class="site-logo" href="/" aria-label="Michał Delikat — strona główna">
-            <img class="site-logo__mark" src="/md-znak.svg?v=1" alt="" width="56" height="28">
+            <img class="site-logo__mark" src="/logo/md-znak.svg?v=1" alt="" width="56" height="28">
         </a>
         <div class="site-header__actions">
             <nav class="site-nav" aria-label="Nawigacja główna">
@@ -54,7 +54,7 @@ const HEADER_MARKUP = `
 const FOOTER_MARKUP = `
     <div class="container footer__inner">
         <div class="footer__top">
-            <img class="footer__logo" src="/md-znak-bialy.svg" alt="Michał Delikat" width="56" height="28">
+            <img class="footer__logo" src="/logo/md-znak-bialy.svg" alt="Michał Delikat" width="56" height="28">
             <div class="footer__links">
                 <a class="footer__link" href="https://github.com/Michal-Delikat/" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
                     <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
