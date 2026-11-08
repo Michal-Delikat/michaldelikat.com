@@ -24,6 +24,10 @@ const HEADER_MARKUP = `
     <div class="site-header__inner">
         <a class="site-logo" href="/" aria-label="Michał Delikat — strona główna">
             <img class="site-logo__mark" src="/logo/md-znak.svg?v=1" alt="" width="56" height="28">
+            <span class="site-logo__text">
+                <span class="site-logo__top">Michał Delikat</span>
+                <span class="site-logo__bottom">Strony internetowe</span>
+            </span>
         </a>
         <div class="site-header__actions">
             <nav class="site-nav" aria-label="Nawigacja główna">

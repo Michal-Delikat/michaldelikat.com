@@ -16,7 +16,7 @@
     background-color: var(--color-accent);
     color: var(--color-on-accent);
     font-family: var(--font-sans);
-    font-size: var(--text-xs);
+    font-size: var(--text-base);
     letter-spacing: var(--tracking-widest);
     text-transform: uppercase;
     transform: translateY(-200%);
@@ -75,7 +75,7 @@ site-footer {
     display: inline-block;
     padding: var(--space-2) var(--space-3);
     font-family: var(--font-sans);
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     letter-spacing: var(--tracking-wide);
     transition: color var(--duration-fast) var(--ease-default);
 }
@@ -164,7 +164,7 @@ site-footer {
 .nav-mobile .nav-link {
     display: block;
     padding: var(--space-3);
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     text-align: center;
 }
 
@@ -213,8 +213,8 @@ site-footer {
     position: absolute;
     inset: 0;
     background-image:
-        linear-gradient(to right, rgba(11, 41, 64, 0.06) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(11, 41, 64, 0.06) 1px, transparent 1px);
+        linear-gradient(to right, rgba(9, 66, 110, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(9, 66, 110, 0.06) 1px, transparent 1px);
     background-size: var(--space-12) var(--space-12);
     -webkit-mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, #000 0%, #000 40%, transparent 80%);
     mask-image: radial-gradient(ellipse 75% 65% at 50% 50%, #000 0%, #000 40%, transparent 80%);
@@ -245,7 +245,7 @@ site-footer {
     align-items: center;
     gap: var(--space-3);
     font-family: var(--font-sans);
-    font-size: var(--text-xs);
+    font-size: var(--text-base);
     letter-spacing: var(--tracking-widest);
     line-height: 1.4;
     text-transform: uppercase;
@@ -374,7 +374,7 @@ site-footer {
 
 .legal__updated {
     margin-block-start: var(--space-2);
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
 }
 
 /* --------------------------------------------------------------------------
@@ -453,7 +453,7 @@ site-footer {
 
 .service-desc {
     color: var(--color-text-muted);
-    font-size: 1rem;
+    font-size: var(--text-base);
     line-height: 1.6;
 }
 
@@ -520,7 +520,7 @@ site-footer {
 }
 
 .work-card__credit {
-    font-size: var(--text-xs);
+    font-size: var(--text-base);
     color: var(--color-text-muted);
     text-align: center;
 }
@@ -562,7 +562,7 @@ site-footer {
 .work-card__meta dt {
     margin-bottom: var(--space-1);
     font-family: var(--font-sans);
-    font-size: var(--text-xs);
+    font-size: var(--text-base);
     letter-spacing: var(--tracking-widest);
     text-transform: uppercase;
     color: var(--color-text-muted);
@@ -586,7 +586,7 @@ site-footer {
 }
 
 .about-section .section-title {
-    margin-bottom: var(--space-8);
+    margin-bottom: var(--space-12);
 }
 
 .about {
@@ -722,7 +722,7 @@ site-footer {
     padding: 0;
     color: var(--color-text-muted);
     font-family: var(--font-sans);
-    font-size: 14px;
+    font-size: var(--text-base);
     letter-spacing: var(--tracking-widest);
     text-transform: uppercase;
     transition: color var(--duration-fast) var(--ease-default);
@@ -738,7 +738,7 @@ site-footer {
     left: 0;
     color: var(--color-link);
     font-family: var(--font-sans);
-    font-size: var(--text-xs);
+    font-size: var(--text-base);
     letter-spacing: var(--tracking-wide);
     line-height: 1.2;
     white-space: nowrap;
@@ -776,7 +776,7 @@ site-footer {
 }
 
 .contact-form__label {
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     font-weight: var(--weight-medium);
     color: var(--color-text);
 }
@@ -828,13 +828,13 @@ site-footer {
 .contact-form__consent {
     margin-top: var(--space-4);
     color: var(--color-text-muted);
-    font-size: 0.875rem;
+    font-size: var(--text-base);
     line-height: var(--leading-normal);
 }
 
 .contact-form__status {
     flex: 1 1 14rem;
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     line-height: var(--leading-normal);
 }
 
@@ -886,7 +886,8 @@ site-footer {
 
 .footer__nav-link {
     color: var(--color-on-accent);
-    font-size: 14px;
+    font-size: var(--text-base);
+    letter-spacing: var(--tracking-wide);
     transition: color var(--duration-fast) var(--ease-default);
 }
 
@@ -896,7 +897,7 @@ site-footer {
 
 .footer__copy {
     font-family: var(--font-body);
-    font-size: 14px;
+    font-size: var(--text-base);
     letter-spacing: var(--tracking-wide);
     line-height: var(--leading-normal);
 }
@@ -953,6 +954,10 @@ site-footer {
    -------------------------------------------------------------------------- */
 
 @media (min-width: 768px) {
+    .site-logo__top {
+        font-size: var(--text-lg);
+    }
+
     .page-hero {
         padding-block:
             calc(var(--header-height) + var(--space-16))
