@@ -8,6 +8,10 @@
         <link rel="canonical" href="https://michaldelikat.com/">
         <meta name="theme-color" content="#F4F7F8">
 
+        <link rel="preload" as="image" href="/photos/hero-1920.avif"
+              imagesrcset="/photos/hero-1000.avif 1000w, /photos/hero-1920.avif 1920w"
+              imagesizes="100vw" type="image/avif" fetchpriority="high">
+
         <link rel="icon" href="logo/md-favicon.svg?v=4" type="image/svg+xml">
         <link rel="icon" href="logo/favicon.ico?v=4" sizes="32x32" type="image/x-icon">
         <link rel="icon" href="logo/favicon-32.png?v=4" sizes="32x32" type="image/png">
@@ -50,6 +54,12 @@
 
         <main id="main">
             <section class="page-hero" aria-labelledby="hero-title">
+                <picture class="page-hero__media">
+                    <source type="image/avif" srcset="/photos/hero-1000.avif 1000w, /photos/hero-1920.avif 1920w" sizes="100vw">
+                    <source type="image/webp" srcset="/photos/hero-1000.webp 1000w, /photos/hero-1920.webp 1920w" sizes="100vw">
+                    <img class="page-hero__bg" src="/photos/hero-1920.webp" alt="" aria-hidden="true" width="1920" height="1440" fetchpriority="high" decoding="async">
+                </picture>
+
                 <div class="container page-hero__inner">
                     <div class="page-hero__copy">
                         <h1 class="hero-title" id="hero-title">
