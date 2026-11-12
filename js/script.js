@@ -275,6 +275,76 @@ if (contactForm) {
     initContactForm(contactForm);
 }
 
+function initOfertaVideo() {
+    const video = document.querySelector(".oferta-video");
+    if (!video) return;
+
+    const sources = [...video.querySelectorAll("source[data-src]")];
+    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    let loaded = false;
+    let visible = false;
+
+    function canPlayVideo() {
+        return !motionQuery.matches;
+    }
+
+    function playVideo() {
+        const playPromise = video.play();
+        if (playPromise) playPromise.catch(() => {});
+    }
+
+    function loadVideo() {
+        if (loaded) return;
+        sources.forEach((source) => {
+            source.src = source.dataset.src;
+        });
+        video.load();
+        loaded = true;
+    }
+
+    function unloadVideo() {
+        if (!loaded) return;
+        video.pause();
+        sources.forEach((source) => source.removeAttribute("src"));
+        video.removeAttribute("src");
+        video.load();
+        loaded = false;
+    }
+
+    function syncVideo() {
+        if (canPlayVideo()) {
+            loadVideo();
+            if (visible) playVideo();
+        } else {
+            video.pause();
+            unloadVideo();
+        }
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            visible = entry.isIntersecting;
+            if (visible && canPlayVideo()) {
+                playVideo();
+            } else {
+                video.pause();
+            }
+        });
+    }, { threshold: 0.25 });
+
+    observer.observe(video);
+
+    if (motionQuery.addEventListener) {
+        motionQuery.addEventListener("change", syncVideo);
+    } else {
+        motionQuery.addListener(syncVideo);
+    }
+
+    syncVideo();
+}
+
 initViewportHeight();
 
 initCopyMail();
+
+initOfertaVideo();

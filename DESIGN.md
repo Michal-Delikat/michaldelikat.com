@@ -6,7 +6,7 @@ Strona jest jednostronicową wizytówką usługową dla małych firm. Porządek 
 
 ## 1. Charakter i zasady nadrzędne
 
-- Minimalizm redakcyjny: zdjęcie hero tylko jako panel pod CTA, brak gradientów i cieni.
+- Minimalizm redakcyjny: wideo oceanu jako tło oferty, bez gradientów.
 - Najważniejsza jest typografia i rytm pionowy, nie dekoracja.
 - Układ opiera się na jednym kontenerze i jednym breakpoincie.
 - Granat (`--color-accent`) wypełnia przyciski i stopkę; linki, focus i hover korzystają z jaśniejszego `--color-link`.
@@ -79,10 +79,10 @@ Cała strona używa **DM Sans** hostowanego lokalnie (zmienny 500–700).
 |---|---|
 | Body | 16px / 500 / `line-height: 1.5` |
 | H1 hero | DM Sans `clamp(32px, 8vw, 40px)` mobile / 72px desktop / 700 / `1.15` (`1.08` desktop) / tracking `-0.01em` |
-| Nagłówek sekcji (`.section-title`) | DM Sans 24px / 500 / wyśrodkowany / `margin-bottom: 48px` |
+| Nagłówek sekcji (`.section-title`) | DM Sans 40px / 500 / wyśrodkowany / `margin-bottom: 48px` |
 | Nazwa usługi | DM Sans 18px mobile, 20px desktop / 500 / `1.3` |
 | Opis usługi | 16px / 500 / `1.5` / `--color-text-muted` |
-| Tytuł realizacji | DM Sans `clamp(24px, 3.2vw, 40px)` / 500 / `1.05` / tracking `0.02em` |
+| Tytuł realizacji | DM Sans 24px / 500 / `1.05` / tracking `0.02em` |
 | E-mail w kontakcie | `clamp(20px, 3vw, 24px)` / 500 / tracking `0.02em` |
 | Nawigacja | 16px / 500 / tracking `0.04em`, bez wersalików |
 | Logo — góra | DM Sans 20px / 700 / `1` / tracking `0` |
@@ -108,13 +108,13 @@ Zasady:
 |---|---|---|
 | `--container-max` | `1300px` | Maksymalna szerokość kontenera |
 | `--container-padding` | `32px` | Poziomy padding, również mobilnie |
-| `--header-height` | `5.5rem` (88px) | Wysokość pastylki headera; `scroll-padding-top` = wartość + 16px |
+| `--header-height` | `5.5rem` (88px) | Wysokość pastylki headera; `scroll-padding-top` = wartość + 8px |
 | `--mobile-menu-height` | — | Nieużywany; menu mobilne animuje `max-height` |
 | `--section-space` | `32px` | Bazowy token; sekcje główne używają `--space-24` |
 | `--space-24` | `96px` | Pionowy padding sekcji `--lg` i kontaktu |
 | `--radius-button` | `8px` | Token zdefiniowany, obecnie nieużywany; przyciski używają `--radius-full` |
 | `--radius-field` | `8px` | Zaokrąglenie pól formularza |
-| `--radius-card` | `16px` | Zaokrąglenie kafli oferty |
+| `--radius-card` | `16px` | Domyślne zaokrąglenie kafli (oferta używa 20px) |
 | `--shadow-card` | `0 8px 20px -8px color-mix(in srgb, var(--color-text) 10%, transparent)` | Token zdefiniowany, obecnie nieużywany |
 | `--shadow-card-hover` | `0 12px 24px -8px color-mix(in srgb, var(--color-text) 18%, transparent)` | Token zdefiniowany, obecnie nieużywany |
 | `--radius-full` | `9999px` | Pełne zaokrąglenie przycisków |
@@ -126,9 +126,9 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 ### Rytm strony
 
 - **Header**: stały, 88px łącznie z wewnętrznym paddingiem 12px w pionie, półprzezroczysta biała powierzchnia (`rgba(255, 255, 255, 0.82)`) z rozmyciem tła i delikatnym obramowaniem; bez zaokrągleń i cienia.
-- **Hero**: `100vh`/`var(--viewport-height, 100svh)` — wysokość blokowana raz w JS, stabilna także w Brave Mobile. Pełnoekranowe tło `--color-surface` (`#FFFFFF`); treść wyrównana do góry — H1, lead i CTA tworzą pierwszy poziom, pod nimi panel ze zdjęciem, wyśrodkowane w poziomie. Mobile: góra `88px + 48px`, dół `48px`. Desktop: góra `88px + 80px`, dół `88px`. Treść maks. `44rem` (mobile) / `56rem` (desktop).
+- **Hero**: sekcja kończy się po CTA — brak `100vh` i brak zdjęcia. Tło `--color-surface` (`#FFFFFF`); H1, lead, nota i CTA wyśrodkowane w poziomie. Mobile: góra `88px + 48px`, dół `48px`. Desktop: góra `88px + 80px`, dół `64px`. Treść maks. `44rem` (mobile) / `56rem` (desktop).
 - **Sekcje**: 96px paddingu pionowego. Oferta, realizacje, o mnie i kontakt mają górną linię `1px`.
-- **Oferta**: granatowe tło `--color-dark` i klasa `.section--dark`, biały nagłówek. Siatka na pełną szerokość kontenera, 1 kolumna mobile, 2 kolumny od 768px, gap 20px. Kafle `.card`: półprzezroczyste białe tło `rgba(255,255,255,0.06)`, ramka `rgba(255,255,255,0.16)`, biały tytuł i ikony, opis `--section-muted`; bez stałej wysokości, padding 24px 28px.
+- **Oferta**: wideo oceanu wypełnia całą szerokość i wysokość sekcji (`object-fit: cover`) i jest jej tłem, bez marginesów ani zaokrągleń. Tło to lokalne wideo `assets/ocean-bg.webm` / `ocean-bg.mp4` (autoplay, muted, loop, playsinline, poster `ocean-bg-poster.jpg`) z granatową nakładką `rgba(11, 41, 64, 0.3)`. Wideo działa również na mobile; nie uruchamia się tylko przy `prefers-reduced-motion: reduce` (wtedy widoczny poster). `IntersectionObserver` pauzuje je poza widokiem. Siatka 1 kolumna mobile, 2 kolumny od 768px, gap 20px. Kafle `.card`: półprzezroczysty granat `rgba(11, 41, 64, 0.4)`, `backdrop-filter: blur(16px) saturate(140%)`, ramka `rgba(255, 255, 255, 0.25)`, cień `0 8px 32px rgba(0, 0, 0, 0.12)`, zaokrąglenie `20px`, biały tekst i ikony; opis 17px `rgba(255,255,255,0.92)`. Nagłówek „Oferta” ma styl wspólny dla wszystkich tytułów sekcji, tylko w kolorze białym.
 - **Realizacje**: nagłówek sekcji, poniżej siatka kart: 1 kolumna mobile, 2 kolumny od 768px, odstępy 96px w pionie i 64px w poziomie; każda karta ma obraz 4:5, pod nim tytuł, opis, linię i przycisk.
 - **O mnie**: białe tło `--color-surface`, nagłówek sekcji, tekst w jednej kolumnie `max-width: 66ch`. Opcjonalny wariant `.about--with-photo` daje dwie kolumny od 768px (tekst + portret 4:5).
 - **Kontakt**: wyśrodkowany, 96px paddingu, górna linia, nagłówek, formularz Netlify, pod nim e-mail oraz linki LinkedIn i GitHub.
@@ -138,8 +138,8 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 
 ### Nagłówek
 
-- Mobile: kapsułka pełnej szerokości kontenera z marginesem `16px`, wysokość ok. 64px, poziomy padding `24px`, białe tło `--color-surface`, obramowanie `--color-border` i pełne zaokrąglenie `--radius-full`; zawiera mniejsze logo (znak 28px, nazwa 16px) i mniejszego hamburgera (24×18px). Menu mobilne otwiera się jako druga, osobna wyspa pod kapsułką (to samo tło i obramowanie, zaokrąglenie `--radius-card`, miękki cień).
-- Desktop (od 1024px): pastylka z zaokrągleniem `--radius-full` obejmuje wyłącznie nawigację „Oferta”, „Realizacje”, „O mnie” — białe tło `--color-surface` i subtelne obramowanie `--color-border`, bez cienia; logo i CTA pozostają poza pastylką, bez tła. Nagłówek zajmuje maks. `--container-max`, jest wyśrodkowany, margines górny 8px, CTA min. 40px; bez cienia.
+- Mobile: kapsułka pełnej szerokości kontenera z marginesem `16px`, wysokość ok. 56px, poziomy padding `24px`, białe tło `--color-surface`, obramowanie `--color-border` i pełne zaokrąglenie `--radius-full`; zawiera mniejsze logo (znak 28px, nazwa 16px) i mniejszego hamburgera (24×18px). Menu mobilne otwiera się jako druga, osobna wyspa pod kapsułką (to samo tło i obramowanie, zaokrąglenie `--radius-card`, miękki cień).
+- Desktop (od 1024px): cały header jest jedną białą kapsułką z zaokrągleniem `--radius-full` i obramowaniem `--color-border`, zawierającą logo, wyśrodkowaną nawigację „Oferta”, „Realizacje”, „O mnie” oraz CTA. Kapsułka ma szerokość kolumny treści (`--container-max` minus `2 × --container-padding`) i padding poziomy `12px` równy pionowemu odstępowi wokół CTA; margines górny 8px, CTA min. 40px; bez cienia.
 - `position: fixed`, wysokość `--header-height`, `z-index: 999`. Wnętrze: `padding: var(--space-3) var(--space-6)` (poniżej 360px w poziomie `--space-3`).
 - Logo: granatowy znak „MD” (`logo/md-znak.svg`, `--color-accent`) po lewej stronie granatowego napisu „Michał Delikat”, wyrównanego do środka wysokości znaku i wyśrodkowanego w poziomie.
 - Desktop: nawigacja „Oferta”, „Realizacje” i „O mnie” oraz CTA „Napisz do mnie”. Linki nie mają podkreślenia; hover zmienia kolor. Nawigacja jest wyśrodkowana w przestrzeni między logo i CTA, z równymi odstępami po obu stronach.
@@ -150,10 +150,10 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 
 - Pełnoekranowe tło `--color-bg` — takie samo jak w sekcji realizacji.
 - H1: „Szybkie i przejrzyste strony internetowe”, pod nim lead „Od prostej wizytówki po rozbudowany katalog produktów i usług.”. Ciemny tekst na jasnym tle.
-- Nad przyciskami krótka informacja „Odpowiadam w 24h.” w kolorze `--color-text-muted`.
+- Pod przyciskami krótka informacja „Odpowiadam w 24h.” w kolorze `--color-text-muted`.
 - Główne CTA: granatowy przycisk **„Napisz do mnie”** jako kotwica do `#kontakt`; biały tekst na tle `--color-accent`.
 - Drugie CTA: **„Zobacz realizacje”** jako kotwica do `#realizacje`; białe tło, granatowa obwódka `--color-accent` i ciemny tekst, na hover granatowe tło i biały tekst.
-- Pod przyciskami zdjęcie hero `photos/hero-1000` / `hero-1920` (avif, webp) w panelu o zaokrąglonych rogach `--radius-card` i subtelnej ramce `--color-border`, na całą szerokość kontenera, wysokość `clamp(12rem, 38vh, 26rem)`, `object-fit: cover`. Na desktopie panel rozciąga się (`flex: 1`) i wypełnia pozostałą wysokość hero.
+- Tłem sekcji oferty jest lokalne wideo oceanu (`assets/ocean-bg`), nie zdjęcie.
 - Brak pełnoekranowej karuzeli.
 
 ### Nagłówki sekcji
@@ -164,7 +164,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 ### Kafle oferty
 
 - Cztery usługi w siatce 2×2 na desktopie i 1 kolumnie na mobile.
-- Półprzezroczyste białe tło (`rgba(255, 255, 255, 0.06)`), ramka `rgba(255, 255, 255, 0.16)`, promień 16px (`--radius-card`); bez cienia.
+- Półprzezroczysty granat `rgba(11, 41, 64, 0.4)` z rozmyciem tła, ramką `rgba(255, 255, 255, 0.25)`, promieniem 20px i cieniem `0 8px 32px rgba(0, 0, 0, 0.12)`.
 - Ramka pozostaje bez zmian w stanie hover.
 - Ikona liniowa na dole po lewej: 20px mobile / 24px desktop, stroke 1.5, kolor biały (`--color-on-accent`).
 - Tytuł 18px mobile / 20px desktop, waga 500, kolor biały; pod nim opis 16px w `--section-muted`.
@@ -236,7 +236,7 @@ Główny breakpoint: **768px**. Nawigacja desktopowa w headerze włącza się od
 ### Poniżej 768px
 
 - Nawigacja mobilna (do 1023px): kapsułkowy header z hamburgerem, menu jako druga wyspa pod headerem z linkami i CTA „Napisz do mnie”.
-- Hero: h1 maks. 32–40px zależnie od szerokości, padding góra `136px` (88px + 48px), dół `64px`.
+- Hero: h1 maks. 32–40px zależnie od szerokości, padding góra `136px` (88px + 48px), dół `48px`.
 - Oferta: jedna kolumna, tytuły 18px.
 - Realizacje: jedna kolumna; obraz nad opisem.
 - Kontakt: formularz 1 kolumna, przycisk pełnej szerokości, e-mail i telefon 20px, przycisk „Kopiuj” pod każdym z nich.
@@ -246,7 +246,7 @@ Główny breakpoint: **768px**. Nawigacja desktopowa w headerze włącza się od
 ### Od 768px
 
 - Logo 20px, znak „MD” 38px.
-- Hero: padding góra `152px` (88px + 64px), dół `80px`.
+- Hero: padding góra `168px` (88px + 80px), dół `64px`.
 - Oferta: dwie kolumny, tytuły 20px.
 - Realizacje: siatka dwóch kolumn; wnętrze karty pozostaje jednokolumnowe (obraz, tytuł, opis, przycisk).
 - Nawigacja desktopowa i CTA w headerze od 1024px; poniżej działa hamburger.

@@ -55,8 +55,7 @@
                         <h1 class="hero-title" id="hero-title">
                             Najprostsza droga do profesjonalnej strony.
                         </h1>
-                        <p class="hero-lead">Projektuję i buduję witryny internetowe dla małych i średnich firm.</p>
-                        <p class="hero-note">Odpowiadam w 24h.</p>
+                        <p class="hero-lead">Projektuję i buduję strony internetowe dla małych i średnich firm.</p>
                     </div>
 
                     <div class="hero-actions">
@@ -64,15 +63,16 @@
                         <a class="btn btn--secondary" href="#realizacje">Zobacz realizacje</a>
                     </div>
 
-                    <picture class="hero-panel">
-                        <source type="image/avif" srcset="/photos/hero-1000.avif 1000w, /photos/hero-1920.avif 1920w" sizes="100vw">
-                        <source type="image/webp" srcset="/photos/hero-1000.webp 1000w, /photos/hero-1920.webp 1920w" sizes="100vw">
-                        <img class="hero-panel__img" src="/photos/hero-1920.webp" alt="" aria-hidden="true" width="1920" height="1440" decoding="async">
-                    </picture>
+                    <p class="hero-note">Odpowiadam w 24h.</p>
                 </div>
             </section>
 
-            <section class="section section--lg section--bordered section--dark" id="oferta" aria-labelledby="oferta-title">
+            <section class="section section--bordered oferta-section" id="oferta" aria-labelledby="oferta-title">
+                <video class="oferta-video" autoplay muted loop playsinline preload="metadata" poster="/assets/ocean-bg-poster.jpg" aria-hidden="true">
+                    <source data-src="/assets/ocean-bg.webm" type="video/webm">
+                    <source data-src="/assets/ocean-bg.mp4" type="video/mp4">
+                </video>
+                <div class="oferta-panel">
                 <div class="container">
                     <h2 class="section-title" id="oferta-title">Oferta</h2>
                     <ul class="service-list service-list--names">
@@ -135,6 +135,7 @@
                             </div>
                         </li>
                     </ul>
+                </div>
                 </div>
             </section>
 
