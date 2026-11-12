@@ -2,11 +2,11 @@
 
 Dokument opisuje **wdrożoną stronę** `michaldelikat.com`, a nie pierwowzór, na którym powstał układ. Stan: październik 2026. Źródła: `index.html`, `css/global.css`, `css/styles.css`, `js/script.js` oraz zrzuty ekranu z 21.10.2026 (hero + oferta, realizacje, kontakt).
 
-Strona jest jednostronicową wizytówką usługową dla małych firm. Porządek jest ważniejszy niż efekt: chłodne, jasne tło, jedna rodzina fontów (Montserrat w nagłówkach, logo i treści), cienkie linie, dużo światła, granatowy akcent wypełnień i jaśniejszy niebieski do elementów interaktywnych.
+Strona jest jednostronicową wizytówką usługową dla małych firm. Porządek jest ważniejszy niż efekt: chłodne, jasne tło, jedna rodzina fontów (DM Sans w nagłówkach, logo i treści), cienkie linie, dużo światła, granatowy akcent wypełnień i jaśniejszy niebieski do elementów interaktywnych.
 
 ## 1. Charakter i zasady nadrzędne
 
-- Minimalizm redakcyjny: jedno zdjęcie w hero, brak gradientów i cieni.
+- Minimalizm redakcyjny: zdjęcie hero tylko jako panel pod CTA, brak gradientów i cieni.
 - Najważniejsza jest typografia i rytm pionowy, nie dekoracja.
 - Układ opiera się na jednym kontenerze i jednym breakpoincie.
 - Granat (`--color-accent`) wypełnia przyciski i stopkę; linki, focus i hover korzystają z jaśniejszego `--color-link`.
@@ -25,7 +25,7 @@ Strona jest jednostronicową wizytówką usługową dla małych firm. Porządek 
 | `--color-text-muted` | `#55646A` | Opisy poza ciemną sekcją, nota kontaktowa; kontrast 5,71:1 na tle |
 | `--color-accent` | `#09426E` | Granat: tło przycisku primary i stopka; biały tekst 10,42:1. Zbyt ciemny jako bazowy kolor linków i focusu |
 | `--color-accent-hover` | `#073A61` | Hover wypełnionego przycisku primary; biały tekst 11,75:1 |
-| `--color-accent-soft` | `#E3ECF4` | Tło zaznaczenia tekstu, delikatnych podświetleń i pastylki headera na desktopie |
+| `--color-accent-soft` | `#E3ECF4` | Tło zaznaczenia tekstu i delikatnych podświetleń |
 | `--color-on-accent` | `#FFFFFF` | Tekst i ikony na akcencie oraz na ciemnej stopce |
 | `--color-link` | `#1F5F8B` | Linki, focus i hover elementów interaktywnych; kontrast 6,36:1 na tle |
 | `--color-dark` | `var(--color-accent)` | Tło stopki i ciemnych powierzchni; biały tekst 10,42:1 |
@@ -34,7 +34,6 @@ Strona jest jednostronicową wizytówką usługową dla małych firm. Porządek 
 | `--color-highlight` | `#C79A3B` | Opcjonalny detal tła; obecnie nieużywany, nigdy jako kolor tekstu |
 | `--color-focus` | `var(--color-link)` | Outline klawiaturowy |
 | `--section-muted` | `var(--color-accent-soft)` | Tekst na ciemnych sekcjach |
-| `--hero-overlay` | `rgba(11, 41, 64, 0.62)` | Nakładka na zdjęcie hero dla kontrastu tekstu |
 
 Zasady:
 
@@ -51,15 +50,15 @@ Zasady:
 
 ### Font
 
-Cała strona używa **Montserrat** hostowanego lokalnie (zmienny 500–700).
+Cała strona używa **DM Sans** hostowanego lokalnie (zmienny 500–700).
 
 | Plik | Waga | Zakres |
 |---|---|---|
-| `fonts/montserrat-latin.woff2` | 500–700 (zmienny) | latin |
-| `fonts/montserrat-latin-ext.woff2` | 500–700 (zmienny) | latin-ext, polskie znaki |
+| `fonts/dm-sans-latin.woff2` | 500–700 (zmienny) | latin |
+| `fonts/dm-sans-latin-ext.woff2` | 500–700 (zmienny) | latin-ext, polskie znaki |
 
-- `--font-body`: Montserrat + fallbacki systemowe.
-- `--font-display`: alias `--font-body`; cała strona używa Montserrat.
+- `--font-body`: DM Sans + fallbacki systemowe.
+- `--font-display`: alias `--font-body`; cała strona używa DM Sans.
 - `--font-sans`: alias `--font-body`.
 - Niedozwolone są inne kroje, w tym Cormorant, Minion i fonty systemowe w roli display.
 
@@ -79,25 +78,25 @@ Cała strona używa **Montserrat** hostowanego lokalnie (zmienny 500–700).
 | Element | Styl |
 |---|---|
 | Body | 16px / 500 / `line-height: 1.5` |
-| H1 hero | Montserrat `clamp(32px, 8vw, 40px)` / 700 / `1.15` / tracking `-0.01em` |
-| Nagłówek sekcji (`.section-title`) | Montserrat 24px / 500 / wyśrodkowany / `margin-bottom: 48px` |
-| Nazwa usługi | Montserrat 18px mobile, 20px desktop / 500 / `1.3` |
+| H1 hero | DM Sans `clamp(32px, 8vw, 40px)` mobile / 72px desktop / 700 / `1.15` (`1.08` desktop) / tracking `-0.01em` |
+| Nagłówek sekcji (`.section-title`) | DM Sans 24px / 500 / wyśrodkowany / `margin-bottom: 48px` |
+| Nazwa usługi | DM Sans 18px mobile, 20px desktop / 500 / `1.3` |
 | Opis usługi | 16px / 500 / `1.5` / `--color-text-muted` |
-| Tytuł realizacji | Montserrat `clamp(24px, 3.2vw, 40px)` / 500 / `1.05` / tracking `0.02em` |
+| Tytuł realizacji | DM Sans `clamp(24px, 3.2vw, 40px)` / 500 / `1.05` / tracking `0.02em` |
 | E-mail w kontakcie | `clamp(20px, 3vw, 24px)` / 500 / tracking `0.02em` |
 | Nawigacja | 16px / 500 / tracking `0.04em`, bez wersalików |
-| Logo — góra | Montserrat 20px / 700 / `1` / tracking `0` |
+| Logo — góra | DM Sans 20px / 700 / `1` / tracking `0` |
 | Logo — dół | 16px / tracking `0.01em` |
 | Nota kontaktowa | 16px / tracking `0.2em` / wersaliki / `#55646A` |
 | Stopka | 16px / tracking `0.04em` |
 | Przyciski | 16px / 500 / `line-height: 1.2` / tracking `0.01em` |
 
-Wagi: **500** i **700** dla Montserrat. Waga 500 jest domyślna dla treści, h2, nagłówków sekcji i h3, a 700 dla h1, logo, `strong` i `h4`–`h6`.
+Wagi: **500** i **700** dla DM Sans. Waga 500 jest domyślna dla treści, h2, nagłówków sekcji i h3, a 700 dla h1, logo, `strong` i `h4`–`h6`.
 
 Zasady:
 
 - Wersaliki stosuj wyłącznie w nocie kontaktowej, zawsze z szerokim trackingiem.
-- Nie pogrubiaj nazw usług do 700 — h3 używa Montserrat 500.
+- Nie pogrubiaj nazw usług do 700 — h3 używa DM Sans 500.
 - Nie zwiększaj h1 powyżej 40px.
 - Nie dodawaj nowych stopni pisma poza skalą.
 
@@ -127,7 +126,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 ### Rytm strony
 
 - **Header**: stały, 88px łącznie z wewnętrznym paddingiem 12px w pionie, półprzezroczysta biała powierzchnia (`rgba(255, 255, 255, 0.82)`) z rozmyciem tła i delikatnym obramowaniem; bez zaokrągleń i cienia.
-- **Hero**: `100vh`/`var(--viewport-height, 100svh)` — wysokość blokowana raz w JS, stabilna także w Brave Mobile. Pełnoekranowe zdjęcie oceaniczne z nakładką `--hero-overlay`; treść wyśrodkowana, biała. Mobile: góra `88px + 48px`, dół `64px`. Desktop: góra `88px + 64px`, dół `80px`. Treść maks. `44rem`.
+- **Hero**: `100vh`/`var(--viewport-height, 100svh)` — wysokość blokowana raz w JS, stabilna także w Brave Mobile. Pełnoekranowe tło `--color-surface` (`#FFFFFF`); treść wyrównana do góry — H1, lead i CTA tworzą pierwszy poziom, pod nimi panel ze zdjęciem, wyśrodkowane w poziomie. Mobile: góra `88px + 48px`, dół `48px`. Desktop: góra `88px + 80px`, dół `88px`. Treść maks. `44rem` (mobile) / `56rem` (desktop).
 - **Sekcje**: 96px paddingu pionowego. Oferta, realizacje, o mnie i kontakt mają górną linię `1px`.
 - **Oferta**: granatowe tło `--color-dark` i klasa `.section--dark`, biały nagłówek. Siatka na pełną szerokość kontenera, 1 kolumna mobile, 2 kolumny od 768px, gap 20px. Kafle `.card`: półprzezroczyste białe tło `rgba(255,255,255,0.06)`, ramka `rgba(255,255,255,0.16)`, biały tytuł i ikony, opis `--section-muted`; bez stałej wysokości, padding 24px 28px.
 - **Realizacje**: nagłówek sekcji, poniżej siatka kart: 1 kolumna mobile, 2 kolumny od 768px, odstępy 96px w pionie i 64px w poziomie; każda karta ma obraz 4:5, pod nim tytuł, opis, linię i przycisk.
@@ -139,19 +138,22 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 
 ### Nagłówek
 
-- Mobile: płaski pasek pełnej szerokości, półprzezroczysta biała powierzchnia z `backdrop-filter: blur(12px)` i obramowaniem `rgba(9, 66, 110, 0.08)`; bez zaokrąglenia.
-- Desktop (od 1024px): pastelkowa pastylka na tle `--color-accent-soft`, maks. szerokość `--container-max`, wyśrodkowana, z pełnym zaokrągleniem `--radius-full` i tym samym obramowaniem; wysokość ok. 58px, margines górny 8px, CTA min. 40px; bez cienia.
+- Mobile: kapsułka pełnej szerokości kontenera z marginesem `16px`, wysokość ok. 64px, poziomy padding `24px`, białe tło `--color-surface`, obramowanie `--color-border` i pełne zaokrąglenie `--radius-full`; zawiera mniejsze logo (znak 28px, nazwa 16px) i mniejszego hamburgera (24×18px). Menu mobilne otwiera się jako druga, osobna wyspa pod kapsułką (to samo tło i obramowanie, zaokrąglenie `--radius-card`, miękki cień).
+- Desktop (od 1024px): pastylka z zaokrągleniem `--radius-full` obejmuje wyłącznie nawigację „Oferta”, „Realizacje”, „O mnie” — białe tło `--color-surface` i subtelne obramowanie `--color-border`, bez cienia; logo i CTA pozostają poza pastylką, bez tła. Nagłówek zajmuje maks. `--container-max`, jest wyśrodkowany, margines górny 8px, CTA min. 40px; bez cienia.
 - `position: fixed`, wysokość `--header-height`, `z-index: 999`. Wnętrze: `padding: var(--space-3) var(--space-6)` (poniżej 360px w poziomie `--space-3`).
-- Logo: znak „MD” (`logo/md-znak.svg`) po lewej stronie napisu „Michał Delikat”.
+- Logo: granatowy znak „MD” (`logo/md-znak.svg`, `--color-accent`) po lewej stronie granatowego napisu „Michał Delikat”, wyrównanego do środka wysokości znaku i wyśrodkowanego w poziomie.
 - Desktop: nawigacja „Oferta”, „Realizacje” i „O mnie” oraz CTA „Napisz do mnie”. Linki nie mają podkreślenia; hover zmienia kolor. Nawigacja jest wyśrodkowana w przestrzeni między logo i CTA, z równymi odstępami po obu stronach.
-- Mobile: hamburger rozwijający menu w headerze; CTA „Napisz do mnie” na dole menu.
+- Mobile: hamburger rozwijający menu jako wyspę pod headerem; CTA „Napisz do mnie” na dole menu.
 - Cień jest wyłączony (`box-shadow: none`), także na samej górze strony.
 
 ### Hero
 
-- Pełnoekranowe zdjęcie `photos/hero-1920.avif` / `hero-1920.webp` z nakładką `--hero-overlay`; wersje mobilne `1000w`, desktopowe `1920w`.
-- H1: „Szybkie i przejrzyste strony internetowe”, pod nim lead „Od prostej wizytówki po rozbudowany katalog produktów i usług.”. Tekst biały na zdjęciu.
-- Główny CTA: granatowy przycisk **„Napisz do mnie”** jako kotwica do `#kontakt`; biały tekst na tle `--color-accent`.
+- Pełnoekranowe tło `--color-bg` — takie samo jak w sekcji realizacji.
+- H1: „Szybkie i przejrzyste strony internetowe”, pod nim lead „Od prostej wizytówki po rozbudowany katalog produktów i usług.”. Ciemny tekst na jasnym tle.
+- Nad przyciskami krótka informacja „Odpowiadam w 24h.” w kolorze `--color-text-muted`.
+- Główne CTA: granatowy przycisk **„Napisz do mnie”** jako kotwica do `#kontakt`; biały tekst na tle `--color-accent`.
+- Drugie CTA: **„Zobacz realizacje”** jako kotwica do `#realizacje`; białe tło, granatowa obwódka `--color-accent` i ciemny tekst, na hover granatowe tło i biały tekst.
+- Pod przyciskami zdjęcie hero `photos/hero-1000` / `hero-1920` (avif, webp) w panelu o zaokrąglonych rogach `--radius-card` i subtelnej ramce `--color-border`, na całą szerokość kontenera, wysokość `clamp(12rem, 38vh, 26rem)`, `object-fit: cover`. Na desktopie panel rozciąga się (`flex: 1`) i wypełnia pozostałą wysokość hero.
 - Brak pełnoekranowej karuzeli.
 
 ### Nagłówki sekcji
@@ -206,7 +208,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 | `--secondary` | białe tło, obramowanie `--color-border`, tekst `--color-text`, pełne zaokrąglenie | tło `--color-accent`, biały tekst |
 | `--ghost` | bez tła, tekst `--color-link` | tekst `--color-accent` |
 
-Wspólne: Montserrat 16px, waga 500, padding 12×24px, min. wysokość 55px, brak wersalików, przejścia 200ms. `--ghost` nie jest obecnie używany na stronie.
+Wspólne: DM Sans 16px, waga 500, padding 12×24px, min. wysokość 55px, brak wersalików, przejścia 200ms. `--ghost` nie jest obecnie używany na stronie.
 
 ### Linki i stany
 
@@ -233,7 +235,7 @@ Główny breakpoint: **768px**. Nawigacja desktopowa w headerze włącza się od
 
 ### Poniżej 768px
 
-- Nawigacja mobilna (do 1023px): hamburger w headerze, menu rozwijane z linkami i CTA „Napisz do mnie”.
+- Nawigacja mobilna (do 1023px): kapsułkowy header z hamburgerem, menu jako druga wyspa pod headerem z linkami i CTA „Napisz do mnie”.
 - Hero: h1 maks. 32–40px zależnie od szerokości, padding góra `136px` (88px + 48px), dół `64px`.
 - Oferta: jedna kolumna, tytuły 18px.
 - Realizacje: jedna kolumna; obraz nad opisem.
@@ -264,7 +266,7 @@ Główny breakpoint: **768px**. Nawigacja desktopowa w headerze włącza się od
 ### Rób
 
 - Utrzymuj chłodną biel `#F4F7F8`, biel `#FFFFFF`, grafit `#1B2427`, muted `#55646A`, granat `#09426E` i niebieski interakcji `#1F5F8B` jako jedyne kolory interfejsu.
-- Nagłówki h1 i napis przy logo składaj Montserrat 700, h2 i nagłówki sekcji Montserrat 500; h3 i pozostały tekst Montserrat 500/700 — wszystko z lokalnych plików.
+- Nagłówki h1 i napis przy logo składaj DM Sans 700, h2 i nagłówki sekcji DM Sans 500; h3 i pozostały tekst DM Sans 500/700 — wszystko z lokalnych plików.
 - Stosuj 96px paddingu w sekcjach i 48px pod nagłówkiem sekcji.
 - Oddzielaj sekcje poziomą linią `1px #D9E1E3` na pełną szerokość.
 - Utrzymuj kafle oferty półprzezroczyste, z jasnym obramowaniem, promieniem 16px, tytułem i krótkim opisem.
@@ -281,7 +283,7 @@ Główny breakpoint: **768px**. Nawigacja desktopowa w headerze włącza się od
 - Nie dodawaj ikony Instagrama, przycisku „do góry” ani karuzeli.
 - Kafle oferty są statyczne; nie dodawaj efektów hover.
 - Nie pogrubiaj nazw usług do 700 i nie zwiększaj ich powyżej 20px.
-- Nie dodawaj nowych krojów; używaj wyłącznie Montserrat w wagach 500 i 700.
+- Nie dodawaj nowych krojów; używaj wyłącznie DM Sans w wagach 500 i 700.
 - Nie zwiększaj liczby kolumn oferty powyżej dwóch.
 - Nie zmieniaj breakpointów 768px i 1024px (header) bez świadomej decyzji.
 - Nie dodawaj animacji slide-in/scale ani ujawniania treści przy scrollu.
@@ -296,10 +298,10 @@ Główny breakpoint: **768px**. Nawigacja desktopowa w headerze włącza się od
 - Nazwy usług są wagą 500, nie 700.
 - Sekcja kontaktu używa dokładnie tej samej klasy `.section-title` co oferta i realizacje.
 - E-mail i telefon w kontakcie mają `user-select: text`, są linkami `mailto:`/`tel:`, a osobny przycisk „Kopiuj” kopiuje wartość do schowka.
-- Nagłówek ma półprzezroczyste tło, rozmycie i widoczne obramowanie; nie ma zaokrągleń ani cienia.
+- Nagłówek nie ma własnego tła ani zaokrągleń; pastylkę z zaokrąglonymi rogami tworzy wyłącznie grupa linków nawigacji na desktopie. Cień pozostaje wyłączony.
 - W obecnym kodzie nie ma osobnego paska nad nagłówkiem; `--color-dark` obsługuje stopkę.
 - Stopka ma ciemne tło `--color-dark` i jasny tekst `--color-on-accent`.
 - `--color-highlight` jest zdefiniowany, ale obecnie nieużywany.
 - Favicon: biały znak „MD” na granatowym tle (`#09426E`); źródło `logo/md-favicon.svg` oraz warianty `logo/favicon.ico`, `logo/favicon-32.png` i `logo/apple-touch-icon.png`. W headerze używany jest granatowy `logo/md-znak.svg`, a `logo/md-znak-bialy.svg` jest wariantem na ciemne tło. Strona nie ma trybu ciemnego.
-- Kolory należy definiować wyłącznie przez tokeny semantyczne: `--color-bg`, `--color-surface`, `--color-surface-soft`, `--color-text`, `--color-text-muted`, `--color-accent`, `--color-accent-hover`, `--color-accent-soft`, `--color-on-accent`, `--color-link`, `--color-dark`, `--color-border`, `--color-border-strong`, `--color-placeholder`, `--color-highlight`, `--color-focus`, `--section-muted` i `--hero-overlay`.
+- Kolory należy definiować wyłącznie przez tokeny semantyczne: `--color-bg`, `--color-surface`, `--color-surface-soft`, `--color-text`, `--color-text-muted`, `--color-accent`, `--color-accent-hover`, `--color-accent-soft`, `--color-on-accent`, `--color-link`, `--color-dark`, `--color-border`, `--color-border-strong`, `--color-placeholder`, `--color-highlight`, `--color-focus` i `--section-muted`.
 - Primary CTA używa granatu `--color-accent` z białym tekstem; secondary jest biały z chłodnym obramowaniem i ciemnym tekstem.
