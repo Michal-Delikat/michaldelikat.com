@@ -705,8 +705,9 @@ site-footer {
 .work-card {
     display: grid;
     align-content: start;
-    gap: var(--space-8);
+    gap: var(--space-6);
     color: inherit;
+    container-type: inline-size;
 }
 
 .work-card__visual {
@@ -730,6 +731,10 @@ site-footer {
     align-items: flex-start;
 }
 
+.work-card__text {
+    width: 100%;
+}
+
 
 .work-card__title {
     font-family: var(--font-body);
@@ -749,6 +754,19 @@ site-footer {
 
 .work-card .btn {
     margin-top: var(--space-4);
+}
+
+@container (min-width: 32rem) {
+    .work-card__info {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+        gap: var(--space-4);
+    }
+
+    .work-card .btn {
+        margin-top: 0;
+    }
 }
 
 /* --------------------------------------------------------------------------
