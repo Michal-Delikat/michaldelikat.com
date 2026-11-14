@@ -92,6 +92,22 @@ function initHeader(header) {
 
     const hasHero = Boolean(document.querySelector(".page-hero"));
 
+    const logo = header.querySelector(".site-logo");
+    if (logo) {
+        logo.addEventListener("click", (event) => {
+            const isHome = window.location.pathname === "/" || window.location.pathname.endsWith("/index.html");
+            if (!isHome) return;
+
+            event.preventDefault();
+            const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+
+            if (window.location.hash) {
+                history.replaceState(null, "", window.location.pathname + window.location.search);
+            }
+        });
+    }
+
     function updateScrolled() {
         header.classList.toggle("is-scrolled", !hasHero || window.scrollY > 8);
     }
