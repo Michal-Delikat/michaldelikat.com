@@ -50,12 +50,12 @@ Zasady:
 
 ### Font
 
-Cała strona używa **DM Sans** hostowanego lokalnie (zmienny 500–700).
+Cała strona używa **DM Sans** hostowanego lokalnie (zmienny 400–600).
 
 | Plik | Waga | Zakres |
 |---|---|---|
-| `fonts/dm-sans-latin.woff2` | 500–700 (zmienny) | latin |
-| `fonts/dm-sans-latin-ext.woff2` | 500–700 (zmienny) | latin-ext, polskie znaki |
+| `fonts/dm-sans-latin.woff2` | 400–600 (zmienny) | latin |
+| `fonts/dm-sans-latin-ext.woff2` | 400–600 (zmienny) | latin-ext, polskie znaki |
 
 - `--font-body`: DM Sans + fallbacki systemowe.
 - `--font-display`: alias `--font-body`; cała strona używa DM Sans.
@@ -77,26 +77,26 @@ Cała strona używa **DM Sans** hostowanego lokalnie (zmienny 500–700).
 
 | Element | Styl |
 |---|---|
-| Body | 16px / 500 / `line-height: 1.5` |
-| H1 hero | DM Sans `clamp(32px, 8vw, 40px)` mobile / 72px desktop / 700 / `1.15` (`1.08` desktop) / tracking `-0.01em` |
-| Nagłówek sekcji (`.section-title`) | DM Sans 40px / 500 / wyśrodkowany / `margin-bottom: 48px` |
-| Nazwa usługi | DM Sans 18px mobile, 20px desktop / 500 / `1.3` |
-| Opis usługi | 16px / 500 / `1.5` / `--color-text-muted` |
-| Tytuł realizacji | DM Sans 24px / 500 / `1.05` / tracking `0.02em` |
-| E-mail w kontakcie | `clamp(20px, 3vw, 24px)` / 500 / tracking `0.02em` |
-| Nawigacja | 16px / 500 / tracking `0.04em`, bez wersalików |
-| Logo — góra | DM Sans 20px / 700 / `1` / tracking `0` |
+| Body | 16px / 400 / `line-height: 1.5` |
+| H1 hero | DM Sans `clamp(32px, 8vw, 40px)` mobile / 72px desktop / 600 / `1.15` (`1.08` desktop) / tracking `-0.01em` |
+| Nagłówek sekcji (`.section-title`) | DM Sans 40px / 400 / wyśrodkowany / `margin-bottom: 48px` |
+| Nazwa usługi | DM Sans 18px mobile, 20px desktop / 400 / `1.3` |
+| Opis usługi | 16px / 400 / `1.5` / `--color-text-muted` |
+| Tytuł realizacji | DM Sans 24px / 400 / `1.05` / tracking `0.02em` |
+| E-mail w kontakcie | `clamp(20px, 3vw, 24px)` / 400 / tracking `0.02em` |
+| Nawigacja | 16px / 400 / tracking `0.04em`, bez wersalików |
+| Logo — góra | DM Sans 20px / 600 / `1` / tracking `0` |
 | Logo — dół | 16px / tracking `0.01em` |
 | Nota kontaktowa | 16px / tracking `0.2em` / wersaliki / `#55646A` |
 | Stopka | 16px / tracking `0.04em` |
-| Przyciski | 16px / 500 / `line-height: 1.2` / tracking `0.01em` |
+| Przyciski | 16px / 400 / `line-height: 1.2` / tracking `0.01em` |
 
-Wagi: **500** i **700** dla DM Sans. Waga 500 jest domyślna dla treści, h2, nagłówków sekcji i h3, a 700 dla h1, logo, `strong` i `h4`–`h6`.
+Wagi: **400** i **600** dla DM Sans. Waga 400 jest domyślna dla treści, h2, nagłówków sekcji i h3, a 600 dla h1, logo, `strong` i `h4`–`h6`.
 
 Zasady:
 
 - Wersaliki stosuj wyłącznie w nocie kontaktowej, zawsze z szerokim trackingiem.
-- Nie pogrubiaj nazw usług do 700 — h3 używa DM Sans 500.
+- Nie pogrubiaj nazw usług do 600 — h3 używa DM Sans 400.
 - Nie zwiększaj h1 powyżej 40px.
 - Nie dodawaj nowych stopni pisma poza skalą.
 
@@ -158,7 +158,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 
 ### Nagłówki sekcji
 
-- „Oferta”, „Realizacje”, „O mnie”, „Kontakt” mają identyczny styl: 24px, waga 500, wyśrodkowanie, `margin-bottom: 48px`.
+- „Oferta”, „Realizacje”, „O mnie”, „Kontakt” mają identyczny styl: 24px, waga 400, wyśrodkowanie, `margin-bottom: 48px`.
 - Nie różnicuj wielkości ani wagi nagłówka kontaktu względem pozostałych sekcji.
 
 ### Kafle oferty
@@ -167,7 +167,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 - Półprzezroczysty granat `rgba(11, 41, 64, 0.4)` z rozmyciem tła, ramką `rgba(255, 255, 255, 0.25)`, promieniem 20px i cieniem `0 8px 32px rgba(0, 0, 0, 0.12)`.
 - Ramka pozostaje bez zmian w stanie hover.
 - Ikona liniowa na dole po lewej: 20px mobile / 24px desktop, stroke 1.5, kolor biały (`--color-on-accent`).
-- Tytuł 18px mobile / 20px desktop, waga 500, kolor biały; pod nim opis 16px w `--section-muted`.
+- Tytuł 18px mobile / 20px desktop, waga 400, kolor biały; pod nim opis 16px w `--section-muted`.
 - Kafle mają padding 24px 28px.
 - Kafle są tylko do odczytu — brak zmian na hover.
 - Siatka zajmuje pełną szerokość kontenera, tak samo jak karta realizacji; nie ma dodatkowego `max-width`.
@@ -177,7 +177,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 - Trzy karty w siatce: 1 kolumna mobile, 2 kolumny od 768px; odstępy 96px w pionie i 64px w poziomie.
 - Każda karta ma układ jednokolumnowy na wszystkich szerokościach: obraz 4:5, pod nim tytuł, opis i przycisk.
 - Obraz ma `1px` obramowanie `#D9E1E3`, bez zaokrągleń.
-- Tytuł duży, 24–40px, waga 500.
+- Tytuł duży, 24–40px, waga 400.
 - Opis: 16px, `line-height: 1.5`.
 - CTA: biały przycisk **„Odwiedź stronę”** z ikoną strzałki; hover wypełnia się `--color-accent`, tekst staje się biały.
 - Cała karta nie jest linkiem — klikalny jest tylko przycisk.
@@ -208,7 +208,7 @@ Skala odstępów: `4, 8, 12, 16, 24, 32, 48, 64, 80, 96px` (`--space-1` … `--s
 | `--secondary` | białe tło, obramowanie `--color-border`, tekst `--color-text`, pełne zaokrąglenie | tło `--color-accent`, biały tekst |
 | `--ghost` | bez tła, tekst `--color-link` | tekst `--color-accent` |
 
-Wspólne: DM Sans 16px, waga 500, padding 12×24px, min. wysokość 55px, brak wersalików, przejścia 200ms. `--ghost` nie jest obecnie używany na stronie.
+Wspólne: DM Sans 16px, waga 400, padding 12×24px, min. wysokość 55px, brak wersalików, przejścia 200ms. `--ghost` nie jest obecnie używany na stronie.
 
 ### Linki i stany
 
@@ -266,7 +266,7 @@ Główny breakpoint: **768px**. Nawigacja desktopowa w headerze włącza się od
 ### Rób
 
 - Utrzymuj chłodną biel `#F4F7F8`, biel `#FFFFFF`, grafit `#1B2427`, muted `#55646A`, granat `#09426E` i niebieski interakcji `#1F5F8B` jako jedyne kolory interfejsu.
-- Nagłówki h1 i napis przy logo składaj DM Sans 700, h2 i nagłówki sekcji DM Sans 500; h3 i pozostały tekst DM Sans 500/700 — wszystko z lokalnych plików.
+- Nagłówki h1 i napis przy logo składaj DM Sans 600, h2 i nagłówki sekcji DM Sans 400; h3 i pozostały tekst DM Sans 400/600 — wszystko z lokalnych plików.
 - Stosuj 96px paddingu w sekcjach i 48px pod nagłówkiem sekcji.
 - Oddzielaj sekcje poziomą linią `1px #D9E1E3` na pełną szerokość.
 - Utrzymuj kafle oferty półprzezroczyste, z jasnym obramowaniem, promieniem 16px, tytułem i krótkim opisem.
@@ -282,8 +282,8 @@ Główny breakpoint: **768px**. Nawigacja desktopowa w headerze włącza się od
 - Nie dopuszczaj tekstu o kontraście niższym niż 4,5:1.
 - Nie dodawaj ikony Instagrama, przycisku „do góry” ani karuzeli.
 - Kafle oferty są statyczne; nie dodawaj efektów hover.
-- Nie pogrubiaj nazw usług do 700 i nie zwiększaj ich powyżej 20px.
-- Nie dodawaj nowych krojów; używaj wyłącznie DM Sans w wagach 500 i 700.
+- Nie pogrubiaj nazw usług do 600 i nie zwiększaj ich powyżej 20px.
+- Nie dodawaj nowych krojów; używaj wyłącznie DM Sans w wagach 400 i 600.
 - Nie zwiększaj liczby kolumn oferty powyżej dwóch.
 - Nie zmieniaj breakpointów 768px i 1024px (header) bez świadomej decyzji.
 - Nie dodawaj animacji slide-in/scale ani ujawniania treści przy scrollu.
@@ -295,7 +295,7 @@ Główny breakpoint: **768px**. Nawigacja desktopowa w headerze włącza się od
 - `--section-space` ma wartość 32px, ale główne sekcje używają `padding-block: var(--space-24)` = 96px.
 - Wysokość menu mobilnego jest nadpisana lokalnie do 256px.
 - Kafle oferty używają `--radius-card` (16px); przyciski używają `--radius-full` (pełne zaokrąglenie). Tokeny cieni są zdefiniowane, ale nieużywane.
-- Nazwy usług są wagą 500, nie 700.
+- Nazwy usług są wagą 400, nie 600.
 - Sekcja kontaktu używa dokładnie tej samej klasy `.section-title` co oferta i realizacje.
 - E-mail i telefon w kontakcie mają `user-select: text`, są linkami `mailto:`/`tel:`, a osobny przycisk „Kopiuj” kopiuje wartość do schowka.
 - Nagłówek nie ma własnego tła ani zaokrągleń; pastylkę z zaokrąglonymi rogami tworzy wyłącznie grupa linków nawigacji na desktopie. Cień pozostaje wyłączony.
