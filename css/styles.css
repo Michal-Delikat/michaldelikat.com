@@ -659,6 +659,7 @@ site-footer {
 }
 
 .service-desc {
+    max-width: 45ch;
     color: var(--color-text-muted);
     font-size: var(--text-base);
     line-height: 1.6;
@@ -788,6 +789,7 @@ site-footer {
 }
 
 .about-body {
+    max-width: 45ch;
     color: var(--color-text-muted);
     font-size: var(--text-base);
     line-height: 1.7;
@@ -1202,13 +1204,13 @@ site-footer {
         padding-block: var(--space-16);
     }
 
-    /* .hero-oferta .oferta-panel .container {
+    .hero-oferta .oferta-panel .container {
         width: 100%;
     }
 
     .oferta-panel .service-list {
         width: 80%;
         margin-inline: auto;
-    } */
+    }
 }
 
